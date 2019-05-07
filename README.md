@@ -25,11 +25,17 @@ Client side folder: carmanagement_client<br>
 "CarAssignToShowRoom": "http://localhost:8000/CarAssignToShowRoom/",<br>
 "ShowRoomOwnerAssignToShowRoom": "http://localhost:8000/ShowRoomOwnerAssignToShowRoom/",<br>
 "GetCarByShowroom":"http://localhost:8000/GetCarByShowroom/?showroom=1"<br>
-
-
-
-
-
-
-
+<b>User Interface<b><br>
+Create Owner<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/createowner.png)
+Create Car Detail<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/createcardetail.png)
+All Car Detail<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/All%20Car.png)
+Create Show Room<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/createshowroom.png)
+Show Room Info With Assigned Car<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/showroomInfo.png)
+Owner Assigning To Car<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/OwnerAssignShowroom.png)
 
