@@ -14,7 +14,7 @@ class CreateOwner extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('http://localhost:8000/ShowRoomOwner/', {
+    fetch('http://localhost:8000/showroomowner/', {
       method: 'POST',
       body: data,
     });

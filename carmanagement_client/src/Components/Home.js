@@ -8,26 +8,26 @@ class Home extends Component {
       <a className="navbar-brand" href="#">Car Cater</a>
       <ul className="navbar-nav">
         <li className="nav-item">
-            <Link className="nav-link" to={"/CreateOwner"}>Create Owner</Link>
+            <Link className="nav-link" to={"/createowner"}>Create Owner</Link>
         </li>
         <li className="nav-item">
-            <Link className="nav-link" to={"/create"}>Create Car Detail</Link>
+            <Link className="nav-link" to={"/createcar"}>Create Car Detail</Link>
         </li>
         <li className="nav-item">
-            <Link className="nav-link" to={"/CreateShowRoomForm"}>Create Show Room</Link>
+            <Link className="nav-link" to={"/createshowroomform"}>Create Show Room</Link>
         </li>
         
         <li className="nav-item">
-            <Link className="nav-link" to={"/GetAllCar"}>All Car</Link>
+            <Link className="nav-link" to={"/getallcar"}>All Car</Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to={"/showroom"}>Show Room</Link>
         </li>  
         <li className="nav-item">
-            <Link className="nav-link" to={"/CarAssignShowroom"}>CarAssignShowroom</Link>
+            <Link className="nav-link" to={"/carassignshowroom"}>CarAssignShowroom</Link>
         </li>  
         <li className="nav-item">
-            <Link className="nav-link" to={"/OwnerAssignShowroom"}>OwnerAssignShowroom</Link>
+            <Link className="nav-link" to={"/ownerassignshowroom"}>OwnerAssignShowroom</Link>
         </li>  
       </ul>
     </nav>

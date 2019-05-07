@@ -16,7 +16,7 @@ class OwnerAssignShowroom extends Component {
   }
   componentDidMount() {
     var self = this;
-    fetch('http://localhost:8000/ShowRoomOwner/')
+    fetch('http://localhost:8000/showroomowner/')
     .then(function (res){
         return res.json();
     })
@@ -27,7 +27,7 @@ class OwnerAssignShowroom extends Component {
         })
     })
   
-    fetch('http://localhost:8000/ShowRoom/')
+    fetch('http://localhost:8000/showroom/')
     .then(function (res){
         return res.json();
     })
@@ -43,7 +43,7 @@ class OwnerAssignShowroom extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('http://localhost:8000/ShowRoomOwnerAssignToShowRoom/', {
+    fetch('http://localhost:8000/showroomownerassigntoshowroom/', {
       method: 'POST',
       body: data,
     });  

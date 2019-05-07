@@ -7,7 +7,7 @@ class GetShowRoom extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/ShowRoom/');
+      const res = await fetch('http://127.0.0.1:8000/showroom/');
       const todos = await res.json();
       this.setState({
         todos
@@ -34,7 +34,7 @@ class GetShowRoom extends Component {
                   <tr>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td><Link  className='btn btn-primary' to={`/GetShowRoomInfo/${item.id}`}>Edit</Link></td>
+                    <td><Link  className='btn btn-primary' to={`/getshowroominfo/${item.id}`}>Edit</Link></td>
                   </tr> 
                   ))}
                 </tbody>

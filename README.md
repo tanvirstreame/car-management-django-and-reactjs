@@ -9,7 +9,7 @@ Server: Ubuntu 18.10<br>
 
 <b>Back-End</b><br>
 Django 2.0.5<br>
-Rest Api<br>
+Rest Restframework<br>
 
 <b>Front-End</b><br>
 React js<br>
@@ -20,7 +20,7 @@ Client side folder: carmanagement_client<br>
 
 <b>Run Server Side</b><br>
 In terminal use<br>
-pip3 manage.py runserver<br>
+python3 manage.py runserver<br>
 Runs the app in the development mode.<br>
 Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
@@ -55,5 +55,6 @@ Owner Assigning To Car<br>
 ![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/OwnerAssignToShowroom.png)
 Car Assigning To Showroom<br>
 ![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/carassignshowroom.png)
+
 
 

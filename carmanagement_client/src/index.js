@@ -20,14 +20,14 @@ const routing = (
     <Router>
       <div>
         <Route path="/" component={Home}/>
-        <Route path="/GetAllCar" component={CarGetAll}/>
-        <Route path="/CreateOwner" component={CreateOwner}/>
-        <Route path="/create" component={CreateCarForm}/>
+        <Route path="/getallcar" component={CarGetAll}/>
+        <Route path="/createowner" component={CreateOwner}/>
+        <Route path="/createcar" component={CreateCarForm}/>
         <Route path="/showroom/" component={GetShowRoom}/>
-        <Route path="/GetShowRoomInfo/:id" component={GetShowRoomInfo}/>
-        <Route path="/CreateShowRoomForm" component={CreateShowRoomForm}/>
-        <Route path="/CarAssignShowroom" component={CarAssignShowroom}/>
-        <Route path="/OwnerAssignShowroom" component={OwnerAssignShowroom}/>
+        <Route path="/getshowroominfo/:id" component={GetShowRoomInfo}/>
+        <Route path="/createshowroomform" component={CreateShowRoomForm}/>
+        <Route path="/carassignshowroom" component={CarAssignShowroom}/>
+        <Route path="/ownerassignshowroom" component={OwnerAssignShowroom}/>
       </div>
     </Router>
 )
