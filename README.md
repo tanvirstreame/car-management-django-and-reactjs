@@ -18,6 +18,19 @@ React js<br>
 Server side folder: CarManagement<br>
 Client side folder: carmanagement_client<br>
 
+<b>Run Server Side</b><br>
+In terminal use<br>
+pip3 manage.py runserver<br>
+Runs the app in the development mode.<br>
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+
+
+<b>Run Client Side</b><br>
+In terminal use<br>
+npm start<br>
+Runs the app in the development mode.<br>
+Open http://localhost:3000 to view it in the browser.
+
 <b>Api Detail</b><br>
 "AllCarDetail": "http://localhost:8000/allCarDetail/",<br>
 "ShowRoom": "http://localhost:8000/ShowRoom/",<br>
@@ -34,8 +47,13 @@ All Car Detail<br>
 ![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/All%20Car.png)
 Create Show Room<br>
 ![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/createshowroom.png)
+All Show Room List<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/ShowRoomList.png)
 Show Room Info With Assigned Car<br>
 ![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/showroomInfo.png)
 Owner Assigning To Car<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/OwnerAssignShowroom.png)
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/OwnerAssignToShowroom.png)
+Car Assigning To Showroom<br>
+![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/carassignshowroom.png)
+
 

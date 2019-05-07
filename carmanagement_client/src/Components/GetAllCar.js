@@ -26,9 +26,25 @@ class CarGetAll extends Component {
                    <div className="card-body">
                        <div key={item.id}>
                        <h4 className="text-center">{item.name}</h4>
-                       <div className="row text-center m-center">
-                        <img src={item.file} alt="Smiley face" height="250" width="250"/> 
-                        <br/>
+                       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                          <ol className="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src={item.file} class="d-block w-100" alt="..."/>
+                            </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Next</span>
+                          </a>
                        </div>
                        <div className="row text-center m-center">
                         <label><b>Id:</b></label>
@@ -50,7 +66,6 @@ class CarGetAll extends Component {
                         <label><b>Status:</b></label>
                         <i class="fas fa-building"></i><span>{item.status}</span>
                        </div>
-                       
                     </div>
                   </div> 
                 </div>

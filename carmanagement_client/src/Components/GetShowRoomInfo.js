@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import img1 from './assets/bmw1.jpg'
-import img2 from './assets/bmw2.jpg'
-import img3 from './assets/bmw3.jpeg'
 import {Button } from 'reactstrap'
 class GetShowRoomInfo extends Component {
   constructor(props){
@@ -78,13 +75,7 @@ showButton = () => {
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src={img1} class="d-block w-100" alt="..."/>
-                  </div>
-                  <div className="carousel-item">
-                    <img src={img2} class="d-block w-100" alt="..."/>
-                  </div>
-                  <div className="carousel-item">
-                    <img src={img3} class="d-block w-100" alt="..."/>
+                    <img src={rowdata.car.file} class="d-block w-100" alt="..."/>
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -95,29 +86,29 @@ showButton = () => {
                   <span className="carousel-control-next-icon" aria-hidden="true"></span>
                   <span className="sr-only">Next</span>
                 </a>
-            </div>
-            <h4 className="text-center">Car Info</h4>
-            <label><b>Show Info Id:</b></label>
-            <span >{rowdata.car.id}</span>
-            <br/>
-            <label><b>Car Name:</b></label>
-            <span >{rowdata.car.name}</span>
-            <br/>
-            <label><b>car mileage:</b></label>
-            <span >{rowdata.car.mileage}</span>
-            <br/>
-            <label><b>year:</b></label>
-            <span >{rowdata.car.year}</span>
-            <br/>
-            <label><b>status:</b></label>
-            <span >{rowdata.car.status}</span>
-            <br/>
-            <label><b>transmission:</b></label>
-            <span >{rowdata.car.transmission}</span>
-            <br/>
-            <label><b>price:</b></label>
-            <span >{rowdata.car.price}</span>
-            <br/>
+              </div>
+              <h4 className="text-center">Car Info</h4>
+              <label><b>Show Info Id:</b></label>
+              <span >{rowdata.car.id}</span>
+              <br/>
+              <label><b>Car Name:</b></label>
+              <span >{rowdata.car.name}</span>
+              <br/>
+              <label><b>car mileage:</b></label>
+              <span >{rowdata.car.mileage}</span>
+              <br/>
+              <label><b>year:</b></label>
+              <span >{rowdata.car.year}</span>
+              <br/>
+              <label><b>status:</b></label>
+              <span >{rowdata.car.status}</span>
+              <br/>
+              <label><b>transmission:</b></label>
+              <span >{rowdata.car.transmission}</span>
+              <br/>
+              <label><b>price:</b></label>
+              <span >{rowdata.car.price}</span>
+              <br/>
           </div>
         </div> 
       </div>
