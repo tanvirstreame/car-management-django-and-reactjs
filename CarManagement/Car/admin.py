@@ -1,5 +1,10 @@
 from django.contrib import admin
-# from employee import models
+from Car import models
 
-# Register your models here.
-# admin.site.register(models.Employees)
+admin.site.register(models.ShowRoomOwner)
+admin.site.register(models.ShowRoom)
+admin.site.register(models.Car)
+admin.site.register(models.CarAssignToShowRoom)
+admin.site.register(models.ShowRoomOwnerAssignToShowRoom)
+
+
