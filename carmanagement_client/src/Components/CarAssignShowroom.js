@@ -59,7 +59,7 @@ class CarAssignShowroom extends Component {
         <div className="card">
           <div className="card-body">
             <div className="panel panel-primary" style={panelStyle}>
-              <div className="panel panel-heading">Create Showroom</div>
+              <div className="panel panel-heading">Car Assign Showroom</div>
               <div className="panel panel-body">
                 <form onSubmit={this.handleSubmit} method="post">
                   <strong>Choose Car:</strong>
