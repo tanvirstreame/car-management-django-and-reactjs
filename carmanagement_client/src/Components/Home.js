@@ -18,7 +18,7 @@ class Home extends Component {
         </li>
         
         <li className="nav-item">
-            <Link className="nav-link" to={"/Get"}>All Car</Link>
+            <Link className="nav-link" to={"/GetAllCar"}>All Car</Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to={"/showroom"}>Show Room</Link>

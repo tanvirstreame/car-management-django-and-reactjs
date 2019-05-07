@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './Styles/index.css';
 import CarGetAll from './Components/GetAllCar'
 import CreateCarForm from './Components/CreateCarForm';
 import GetShowRoomInfo from './Components/GetShowRoomInfo';
@@ -20,7 +20,7 @@ const routing = (
     <Router>
       <div>
         <Route path="/" component={Home}/>
-        <Route path="/Get" component={CarGetAll}/>
+        <Route path="/GetAllCar" component={CarGetAll}/>
         <Route path="/CreateOwner" component={CreateOwner}/>
         <Route path="/create" component={CreateCarForm}/>
         <Route path="/showroom/" component={GetShowRoom}/>
