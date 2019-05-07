@@ -7,7 +7,7 @@ Development:Visual Studio Code, Sublime Text<br>
 Database: sqlite<br>
 Server: Ubuntu 18.10<br>
 
-<b>Back-End</b>
+<b>Back-End</b><br>
 Django 2.0.5<br>
 Rest Api<br>
 
@@ -17,6 +17,14 @@ React js<br>
 <b>Project Structure</b><br>
 Server side folder: CarManagement<br>
 Client side folder: carmanagement_client<br>
+
+<b>Api Detail</b><br>
+"AllCarDetail": "http://localhost:8000/allCarDetail/",<br>
+"ShowRoom": "http://localhost:8000/ShowRoom/",<br>
+"ShowRoomOwner": "http://localhost:8000/ShowRoomOwner/",<br>
+"CarAssignToShowRoom": "http://localhost:8000/CarAssignToShowRoom/",<br>
+"ShowRoomOwnerAssignToShowRoom": "http://localhost:8000/ShowRoomOwnerAssignToShowRoom/",<br>
+"GetCarByShowroom":"http://localhost:8000/GetCarByShowroom/?showroom=1"<br>
 
 
 

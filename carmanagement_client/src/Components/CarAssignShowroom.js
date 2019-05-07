@@ -16,7 +16,7 @@ class CarAssignShowroom extends Component {
   }
   componentDidMount() {
     var self = this;
-    fetch('http://localhost:8000/all/')
+    fetch('http://localhost:8000/AllCarDetail/')
     .then(function (res){
         return res.json();
     })
