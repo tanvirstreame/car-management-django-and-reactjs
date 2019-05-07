@@ -25,7 +25,7 @@ class GetShowRoom extends Component {
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Company Name</th>
+                    <th>Showroom Name</th>
                     <th>Action</th>
                   </tr>
                 </thead>
