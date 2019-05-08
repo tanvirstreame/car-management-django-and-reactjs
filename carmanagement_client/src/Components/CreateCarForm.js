@@ -36,36 +36,90 @@ class CreateCarForm extends Component {
   if (this.refs.showroom) {
     return(this.refs.showroom.value);
     }
-}
+  }
 
   render() {
     return(
-        <div className="card">
-            <div className="card-body">
-                <div className="panel panel-primary" style={panelStyle}>
-                    <div className="panel panel-heading">Car Record</div>
-                    <div className="panel panel-body">
-                        <form onSubmit={this.handleSubmit} method="post">
-                            <strong>manufacture Name:</strong> <br /> <input type="text" ref={el => this.manufacture = el} name="manufacture" /> <br />
-                            <strong>tagline</strong> <br /> <input type="text" ref={el => this.tagline= el} name="tagline"  /> <br />
-                            <strong>carModel</strong> <br />  <input type="text" ref={el => this.carModel = el} name="carModel"  /> <br />
-                            <strong>mileage</strong> <br /> <input type="text" ref={el => this.mileage = el} name="mileage"  /> <br />
-                            <strong>year</strong> <br /> <input type="text" ref={el => this.year = el} name="year"  /> <br />
-                            <strong>status</strong> <br /> <input type="text" ref={el => this.status = el} name="status"  /> <br />
-                            <strong>transmission</strong> <br /> <input type="text" ref={el => this.transmission = el} name="transmission"  /> <br />
-                            <strong>price</strong> <br /> <input type="text" ref={el => this.price= el} name="price"  /> <br />
-                            <strong>horsepower</strong> <br /> <input type="text" ref={el => this.horsepower = el} name="horsepower"  /> <br />
-                            <strong>propellant</strong> <br /> <input type="text" ref={el => this.propellant = el} name="propellant"  /> <br />
-                            <input type="file" name="file" accept="image/*"></input>
-                            <br/>
-                            <br/>
-                            <button type="submit" className="btn btn-primary">Create Car Record</button>
-                            <br/>
-                        </form>
-                    </div>
-                </div>
+            <div className="container">
+              <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                      <form id="CreateCar" onSubmit={this.handleSubmit} method="post">
+                          <h4 className="text-center">Create Car</h4>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>Manufacture Name</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.manufacture = el} name="manufacture"/>
+                              </div>
+                          </div>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>Tagline</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.tagline= el} name="tagline" />
+                              </div>
+                          </div>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>Car Model</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.carModel = el} name="carModel"/>
+                              </div>
+                          </div>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>Mileage</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.mileage = el} name="mileage"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>Year</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.year = el} name="year"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Status</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.status = el} name="status"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Transmission</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.transmission = el} name="transmission"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Price</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.price= el} name="price"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Horsepower</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.horsepower = el} name="horsepower"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Propellant</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.propellant = el} name="propellant"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Upload File</label>
+                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Car"/>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
             </div>
-        </div>
     );
   }
 

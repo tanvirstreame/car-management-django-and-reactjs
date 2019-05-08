@@ -21,7 +21,7 @@ class GetShowRoom extends Component {
     return (
       <div className='container'>
           <div className="row">
-             <table class="table table-bordered">
+             <table className="table table-bordered">
                 <thead>
                   <tr>
                     <th>Id</th>

@@ -35,24 +35,44 @@ class CreateShowRoomForm extends Component {
 
   render() {
     return(
-        <div className="card">
-            <div className="card-body">
-                <div className="panel panel-primary" style={panelStyle}>
-                    <div className="panel panel-heading">Create Showroom</div>
-                    <div className="panel panel-body">
-                        <form onSubmit={this.handleSubmit} method="post">
-                            <strong>Name:</strong> <br /> <input type="text" ref={el => this.name= el} name="name" /> <br />
-                            <strong>registrationNumber</strong> <br /> <input type="text" ref={el => this.registrationNumber= el} name="registrationNumber"  /> <br />
-                            <strong>logoType</strong> <br />  <input type="text" ref={el => this.logoType = el} name="logoType"  /> <br />
-                            <strong>contactInfo</strong> <br /> <input type="text" ref={el => this.contactInfo = el} name="contactInfo"  /> <br />
-                            <br/>
-                            <button type="submit" className="btn btn-primary">Create Show Room</button>
-                            <br/>
-                        </form>
-                    </div>
-                </div>
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-8 offset-md-2">
+                      <form id="CreateShowRoom" onSubmit={this.handleSubmit} method="post">
+                          <h4 class="text-center">Create Showroom</h4>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Show Name</label>
+                                  <input type="text" class="form-control shadow-none" ref={el => this.name= el} name="name"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Registration Number</label>
+                                  <input type="text" class="form-control shadow-none" ref={el => this.registrationNumber= el} name="registrationNumber" />
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Logo Type</label>
+                                  <input type="text" class="form-control shadow-none" ref={el => this.logoType = el} name="logoType"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <label>Contact Detail</label>
+                                  <input type="text" class="form-control shadow-none" ref={el => this.contactInfo = el} name="contactInfo"/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <input type="submit" class="btn btn-info btn-block shadow-none" value="Create Show Room"/>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
             </div>
-        </div>
     );
   }
 

@@ -25,21 +25,38 @@ class CreateOwner extends Component {
 
   render() {
     return(
-        <div class="card">
-            <div class="card-body">
-                <div class="panel panel-primary" style={panelStyle}>
-                    <div class="panel panel-heading">Create Owner</div>
-                    <div class="panel panel-body">
-                        <form onSubmit={this.handleSubmit} method="post">
-                            <strong>Username:</strong> <br /> <input type="text" ref={el => this.Username = el} name="username" /> <br />
-                            <strong>Email</strong> <br /> <input type="text" ref={el => this.Email = el} name="email"  /> <br />
-                            <strong>Password</strong> <br />  <input type="text" ref={el => this.Password= el} name="password"  /> <br /><br/>
-                            <button type="submit" class="btn btn-primary">Create Owner</button>
-                        </form>
-                    </div>
-                </div>
+            <div className="container">
+              <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                      <form id="CreateOwner" onSubmit={this.handleSubmit} method="post">
+                          <h4 className="text-center">Create Owner</h4>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>User Name</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Username = el} name="username" required/>
+                              </div>
+                          </div>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>Email</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Email = el} name="email" required/>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <label>Password</label>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Password= el} name="password" required/>
+                              </div>
+                          </div>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner"/>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
             </div>
-        </div>
     );
   }
 

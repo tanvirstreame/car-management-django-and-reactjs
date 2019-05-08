@@ -56,35 +56,40 @@ class CarAssignShowroom extends Component {
 
   render() {
     return(
-        <div className="card">
-          <div className="card-body">
-            <div className="panel panel-primary" style={panelStyle}>
-              <div className="panel panel-heading">Car Assign Showroom</div>
-              <div className="panel panel-body">
-                <form onSubmit={this.handleSubmit} method="post">
-                  <strong>Choose Car:</strong>
-                  <br/>
-                  <select name="car">
-                  {this.state.car.map(item => (
-                      <option value={item.id}>{item.manufacture}({item.id})</option>
-                      ))}
-                  </select>
-                  <br/>
-                  <strong>Choose ShowRoom:</strong>
-                  <br/>
-                  <select name="showroom">
-                  {this.state.showroom.map(item => (
-                      <option value={item.id}>{item.name}({item.id})</option>
-                      ))}
-                  </select>
-                  <br/>
-                  <button type="submit" className="btn btn-primary">Assign</button>
-                  <br/>
-                </form>
-              </div>
+          <div className="container">
+            <div className="row">
+                <div className="col-md-8 offset-md-2">
+                    <form onSubmit={this.handleSubmit} method="post">
+                        <h4 className="text-center">Car Assign Showroom</h4>
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2">
+                                <label>Choose Car:</label>
+                                <select className='form-control' name="car">
+                                {this.state.car.map(item => (
+                                    <option value={item.id}>{item.manufacture}({item.id})</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2">
+                                <label>Choose ShowRoom:</label>
+                                <select className='form-control' name="showroom">
+                                {this.state.showroom.map(item => (
+                                    <option value={item.id}>{item.name}({item.id})</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2">
+                                <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
           </div>
-        </div>
     );
   }
 

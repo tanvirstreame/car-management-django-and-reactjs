@@ -8,37 +8,99 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-    /* Make the image fully responsive */
-    </style>
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="mycss.css">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <title>Car Cater App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div id="root">
+    </div>
   </body>
+  <script>
+        $(function () {
+            $("#CreateCar").validate({
+                rules: {
+                    manufacture: "required",
+                    tagline: "required",
+                    carModel: "required",
+                    status: "required",
+                    transmission: "required",
+                    propellant: "required",
+                    file:"required",
+                    mileage: {
+                        required: true,
+                        number: true
+                    },
+                    year: {
+                        required: true,
+                        number: true
+                    },
+                    price: {
+                        required: true,
+                        number: true
+                    },
+                    horsepower: {
+                        required: true,
+                        number: true
+                    },
+                },
+                messages: {
+                    manufacture: "Please enter car manufacture",
+                    tagline: "Please enter car tagline",
+                    carModel: "Please enter your car model",
+                    status: "Please enter car status",
+                    transmission: "Please enter car transmission",
+                    propellant: "Please enter car propellant",
+                    horsepower: "Please enter car horsepower",
+                    price:"Please enter car price",
+                    year:"Please enter car year",
+                    mileage:"Please enter car mileage",
+                    file:"Please upload image",
+            
+                },
+
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
+
+        $(function () {
+            $("#CreateShowRoom").validate({
+                rules: {
+                    name: "required",
+                    registrationNumber:  {
+                        required: true,
+                        number: true
+                    },
+                    logoType:  {
+                        required: true,
+                        number: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    contactInfo: "required"
+                },
+                messages: {
+                    name: "Please enter show name",
+                    registrationNumber: "Please enter registration number",
+                    logoType: "Please enter logo type",
+                    contactInfo: "Please enter contact info",
+                },
+
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
+
+  </script>
 </html>

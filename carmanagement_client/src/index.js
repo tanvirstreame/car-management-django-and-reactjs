@@ -12,7 +12,6 @@ import CarAssignShowroom from './Components/CarAssignShowroom'
 import OwnerAssignShowroom from './Components/OwnerAssignShowroom'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
-import $ from "jquery";
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 
 
