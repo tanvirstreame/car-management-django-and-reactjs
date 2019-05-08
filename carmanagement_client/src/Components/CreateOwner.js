@@ -9,7 +9,6 @@ function validate(name, email, password) {
   if (name.length === 0) {
     errors.push("Name can't be empty");
   }
-
   if (email.length < 5) {
     errors.push("Email should be at least 5 charcters long");
   }
@@ -19,7 +18,6 @@ function validate(name, email, password) {
   if (email.indexOf(".") === -1) {
     errors.push("Email should contain at least one dot");
   }
-
   if (password.length < 6) {
     errors.push("Password should be at least 6 characters long");
   }
