@@ -1,5 +1,31 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ReactDOM from "react-dom";
+
+function validate(name, email, password) {
+  
+  const errors = [];
+
+  if (name.length === 0) {
+    errors.push("Name can't be empty");
+  }
+
+  if (email.length < 5) {
+    errors.push("Email should be at least 5 charcters long");
+  }
+  if (email.split("").filter(x => x === "@").length !== 1) {
+    errors.push("Email should contain a @");
+  }
+  if (email.indexOf(".") === -1) {
+    errors.push("Email should contain at least one dot");
+  }
+
+  if (password.length < 6) {
+    errors.push("Password should be at least 6 characters long");
+  }
+
+  return errors;
+}
 
 class CreateOwner extends Component {
   constructor() {
@@ -10,9 +36,7 @@ class CreateOwner extends Component {
     username:"",
     email:"",
     password:"",
-    usernameError:"",
-    emailError:"",
-    passwordError:"",
+    errors:[],
   };
 
   change=e=>{
@@ -20,9 +44,18 @@ class CreateOwner extends Component {
     this.setState({[e.target.name]:e.target.value
     });
   };
+  
 
   handleSubmit(event) {
     event.preventDefault();
+    const name = ReactDOM.findDOMNode(this.Username).value;
+    const email = ReactDOM.findDOMNode(this.Email).value;
+    const password = ReactDOM.findDOMNode(this.Password).value;
+    const errors = validate(name, email, password);
+    if (errors.length > 0) {
+      this.setState({ errors });
+      return;
+    }
     const data = new FormData(event.target);
     fetch('http://localhost:8000/showroomowner/', {
       method: 'POST',
@@ -34,6 +67,7 @@ class CreateOwner extends Component {
   }
 
   render() {
+    const { errors } = this.state;
     return(
             <div className="container">
               <div className="row">
@@ -63,7 +97,15 @@ class CreateOwner extends Component {
                                   <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner"/>
                               </div>
                           </div>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                              {errors.map(error => (
+                                <p className="text-danger" key={error}>Error: {error}</p>
+                              ))}
+                              </div>
+                          </div>
                       </form>
+                     
                   </div>
               </div>
             </div>
