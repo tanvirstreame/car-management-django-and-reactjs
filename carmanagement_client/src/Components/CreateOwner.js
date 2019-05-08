@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-var panelStyle = {
-	'max-width': '80%',
-	margin: '0 auto'
-}
 class CreateOwner extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  state = {
+    username:"",
+    email:"",
+    password:"",
+    usernameError:"",
+    emailError:"",
+    passwordError:"",
+  };
+
+  change=e=>{
+    this.props.omChange({[e.target.name]:e.target.value});
+    this.setState({[e.target.name]:e.target.value
+    });
+  };
 
   handleSubmit(event) {
     event.preventDefault();
@@ -33,19 +43,19 @@ class CreateOwner extends Component {
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>User Name</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Username = el} name="username" required/>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Username = el} name="username"/>
                               </div>
                           </div>
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Email</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Email = el} name="email" required/>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Email = el} name="email"/>
                               </div>
                           </div>
                           <div class="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Password</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Password= el} name="password" required/>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Password= el} name="password"/>
                               </div>
                           </div>
                           <div className="row">

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import './Styles/GetAllCar.css'
 class CarGetAll extends Component {
   state = {
-    todos: []
+    car: []
   };
 
   async componentDidMount() {
     try {
       const res = await fetch('http://127.0.0.1:8000/allcardetail');
-      const todos = await res.json();
+      const car = await res.json();
       this.setState({
-        todos
+        car
       });
     } catch (e) {
       console.log(e);
@@ -21,7 +21,7 @@ class CarGetAll extends Component {
     return (
       <div className='container'>
          <div className="row">
-            {this.state.todos.map(item => (
+            {this.state.car.map(item => (
                 <div className="card">
                    <div className="card-body">
                        <div key={item.id}>
