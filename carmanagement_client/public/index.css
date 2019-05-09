@@ -1,0 +1,12 @@
+.btn-block{
+    margin-top: 15px;
+}
+
+.form-control:focus{
+    border:1px solid black;
+}
+
+.error
+{ 
+    color: #D8000C;
+}

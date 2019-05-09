@@ -182,19 +182,19 @@ class CreateCarForm extends Component {
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Mileage</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.mileage = el} name="mileage" value={this.state.mileage} onChange={this.handleUserInput}/>
+                                  <input type="number" className="form-control shadow-none" ref={el => this.mileage = el} name="mileage" value={this.state.mileage} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div class="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Year</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.year = el} name="year" value={this.state.year} onChange={this.handleUserInput}/>
+                                  <input type="number" className="form-control shadow-none" ref={el => this.year = el} name="year" value={this.state.year} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Status</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.status = el} name="status" value={this.state.status} onChange={this.handleUserInput}/>
+                                  <input type="number" className="form-control shadow-none" ref={el => this.status = el} name="status" value={this.state.status} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div class="row">
@@ -206,13 +206,13 @@ class CreateCarForm extends Component {
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Price</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.price= el} name="price" value={this.state.price} onChange={this.handleUserInput}/>
+                                  <input type="number" className="form-control shadow-none" ref={el => this.price= el} name="price" value={this.state.price} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Horsepower</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.horsepower = el} name="horsepower" value={this.state.horsepower} onChange={this.handleUserInput}/>
+                                  <input type="number" className="form-control shadow-none" ref={el => this.horsepower = el} name="horsepower" value={this.state.horsepower} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div class="row">
