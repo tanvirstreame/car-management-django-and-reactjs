@@ -5,6 +5,7 @@
 /.pyc
 db.sqlite3
 /Car/__pycache__
+/Car/migrations/__pycache__
 /CarManagement/__pycache__
 
 
