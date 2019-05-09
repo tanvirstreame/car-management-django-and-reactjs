@@ -42,15 +42,15 @@ class CreateShowRoomForm extends Component {
         break;
       case 'logoType':
         logoTypeValid = value.length != 0;
-        fieldValidationErrors.logoTypeValid = logoTypeValid ? '': 'can not be empty';
+        fieldValidationErrors.logoType = logoTypeValid ? '': 'can not be empty';
         break;
       case 'contactInfo':
         contactInfoValid = value.length != 0;
-        fieldValidationErrors.contactInfoValid = contactInfoValid ? '': 'can not be empty';
+        fieldValidationErrors.contactInfo = contactInfoValid ? '': 'can not be empty';
         break;
       case 'registrationNumber':
         registrationNumberValid = value.length >= 6;
-        fieldValidationErrors.registrationNumberValid = registrationNumberValid ? '': 'is too short';
+        fieldValidationErrors.registrationNumber = registrationNumberValid ? '': 'is too short';
         break;
       default:
         break;
