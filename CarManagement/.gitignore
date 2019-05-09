@@ -4,5 +4,7 @@
 
 /.pyc
 db.sqlite3
-/__pycache__
+/Car/__pycache__
+/CarManagement/__pycache__
+
 
