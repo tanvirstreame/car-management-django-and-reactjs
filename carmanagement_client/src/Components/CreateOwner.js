@@ -1,59 +1,74 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from "react-dom";
-
-function validate(name, email, password) {
-  
-  const errors = [];
-
-  if (name.length === 0) {
-    errors.push("Name can't be empty");
-  }
-  if (email.length < 5) {
-    errors.push("Email should be at least 5 charcters long");
-  }
-  if (email.split("").filter(x => x === "@").length !== 1) {
-    errors.push("Email should contain a @");
-  }
-  if (email.indexOf(".") === -1) {
-    errors.push("Email should contain at least one dot");
-  }
-  if (password.length < 6) {
-    errors.push("Password should be at least 6 characters long");
-  }
-
-  return errors;
-}
+import { FormErrors } from './FormErrors';
 
 class CreateOwner extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      username:"",
+      email:"",
+      password:"",
+      formErrors: {username:'',email: '', password: ''},
+      usernamevalid:false,
+      emailValid: false,
+      passwordValid: false,
+      formValid: false
+    
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  state = {
-    username:"",
-    email:"",
-    password:"",
-    errors:[],
-  };
-
-  change=e=>{
-    this.props.omChange({[e.target.name]:e.target.value});
-    this.setState({[e.target.name]:e.target.value
-    });
-  };
   
+
+  handleUserInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({[name]: value},
+                  () => { this.validateField(name, value) });
+  }
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let usernameValid = this.state.usernameValid;
+    let emailValid = this.state.emailValid;
+    let passwordValid = this.state.passwordValid;
+
+    switch(fieldName) {
+      case 'username':
+        usernameValid= value.length != 0;
+        fieldValidationErrors.username = usernameValid ? '': 'can not be empty';
+        break;
+      case 'email':
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+        break;
+      case 'password':
+        passwordValid = value.length != 0;
+        fieldValidationErrors.password= passwordValid ? '': 'can not be empty';
+        break;
+      default:
+        break;
+    }
+    this.setState({formErrors: fieldValidationErrors,
+                    usernameValid: usernameValid,
+                    emailValid : emailValid ,
+                    passwordValid:passwordValid,
+                  }, this.validateForm);
+  }
+
+
+  validateForm() {
+    this.setState({formValid: this.state.usernameValid && this.state.emailValid && this.state.passwordValid});
+  }
+
+  errorClass(error) {
+    return(error.length === 0 ? '' : 'has-error');
+  }
+
 
   handleSubmit(event) {
     event.preventDefault();
-    const name = ReactDOM.findDOMNode(this.Username).value;
-    const email = ReactDOM.findDOMNode(this.Email).value;
-    const password = ReactDOM.findDOMNode(this.Password).value;
-    const errors = validate(name, email, password);
-    if (errors.length > 0) {
-      this.setState({ errors });
-      return;
-    }
     const data = new FormData(event.target);
     fetch('http://localhost:8000/showroomowner/', {
       method: 'POST',
@@ -65,7 +80,6 @@ class CreateOwner extends Component {
   }
 
   render() {
-    const { errors } = this.state;
     return(
             <div className="container">
               <div className="row">
@@ -75,31 +89,29 @@ class CreateOwner extends Component {
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>User Name</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Username = el} name="username"/>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Username = el} name="username"  value={this.state.username} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Email</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Email = el} name="email"/>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Email = el} name="email"  value={this.state.email} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div class="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Password</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Password= el} name="password"/>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.Password= el} name="password"  value={this.state.password} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
-                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner"/>
+                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner" disabled={!this.state.formValid}/>
                               </div>
                           </div>
-                          <div className="row">
-                              <div className="col-md-8 offset-md-2">
-                              {errors.map(error => (
-                                <p className="text-danger" key={error}>Error: {error}</p>
-                              ))}
+                          <div className="panel panel-default">
+                              <div class="col-md-8 offset-md-2 text-danger">
+                                  <FormErrors formErrors={this.state.formErrors} />
                               </div>
                           </div>
                       </form>
