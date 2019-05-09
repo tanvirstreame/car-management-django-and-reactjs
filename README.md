@@ -32,29 +32,9 @@ Runs the app in the development mode.<br>
 Open http://localhost:3000 to view it in the browser.
 
 <b>Api Detail</b><br>
-"AllCarDetail": "http://localhost:8000/allCarDetail/",<br>
-"ShowRoom": "http://localhost:8000/ShowRoom/",<br>
-"ShowRoomOwner": "http://localhost:8000/ShowRoomOwner/",<br>
-"CarAssignToShowRoom": "http://localhost:8000/CarAssignToShowRoom/",<br>
-"ShowRoomOwnerAssignToShowRoom": "http://localhost:8000/ShowRoomOwnerAssignToShowRoom/",<br>
-"GetCarByShowroom":"http://localhost:8000/GetCarByShowroom/?showroom=1"<br>
-<b>User Interface<b><br>
-Create Owner<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/createowner.png)
-Create Car Detail<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/createcardetail.png)
-All Car Detail<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/All%20Car.png)
-Create Show Room<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/createshowroom.png)
-All Show Room List<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/ShowRoomList.png)
-Show Room Info With Assigned Car<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/showroomInfo.png)
-Owner Assigning To Car<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/OwnerAssignToShowroom.png)
-Car Assigning To Showroom<br>
-![alt text](https://github.com/tanvirstreame/DjangoReactCarManagement/blob/master/Screenshot%20UI/carassignshowroom.png)
-
-
-
+"allcardetail": "http://localhost:8000/allcardetail/",<br>
+"showroom": "http://localhost:8000/showroom/",<br>
+"showroomowner": "http://localhost:8000/showroomowner/",<br>
+"carassigntoshowroom": "http://localhost:8000/carassigntoshowroom/",<br>
+"showroomownerassigntoshowroom": "http://localhost:8000/showroomownerassigntoshowroom/",<br>
+"getcarbyshowroom":"http://localhost:8000/GetCarByShowroom/?showroom=1"<br>
