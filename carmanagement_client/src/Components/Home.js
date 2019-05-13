@@ -11,7 +11,7 @@ class Home extends Component {
             <Link className="nav-link" to={"/createowner"}>Create Owner</Link>
         </li>
         <li className="nav-item">
-            <Link className="nav-link" to={"/createcar"}>Create Car Detail</Link>
+            <Link className="nav-link" to={"/createcar"}>Create Car</Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to={"/createshowroomform"}>Create Show Room</Link>
