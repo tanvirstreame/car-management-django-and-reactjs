@@ -12,8 +12,8 @@ class ShowRoomOwner(models.Model):
 class ShowRoom(models.Model):
     name = models.CharField(max_length=30, blank=True)
     registration_number = models.IntegerField(default=0)
-    logoType = models.CharField(max_length=30, blank=True)
-    contactInfo = models.CharField(max_length=30, blank=True)
+    logo_type = models.CharField(max_length=30, blank=True)
+    contact_info = models.CharField(max_length=30, blank=True)
     def __str__(self):
         return self.name
 
