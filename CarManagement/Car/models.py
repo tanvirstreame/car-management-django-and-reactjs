@@ -19,13 +19,15 @@ class ShowRoom(models.Model):
 
 
 class Car(models.Model):
+    car_status_choice=((0,"Sold"),(1,"In Stock"))
+    car_transmission_choice=((0,"Manual"),(1,"Automatic"))
     manufacture = models.CharField(max_length=30, blank=True)
     tagline = models.CharField(max_length=30, blank=True)
     car_model = models.CharField(max_length=30, blank=True)
     mileage = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00))
     year = models.IntegerField(default=0)
-    status = models.IntegerField(default=0)
-    transmission = models.CharField(max_length=30, blank=True)
+    status = models.IntegerField(default=0,choices=car_status_choice)
+    transmission = models.IntegerField(default=0,choices=car_transmission_choice)
     price = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00))
     horse_power = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00))
     propellant = models.CharField(max_length=30, blank=True)
