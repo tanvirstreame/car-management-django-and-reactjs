@@ -12,7 +12,7 @@ class ShowRoomOwner(models.Model):
 
 class ShowRoom(models.Model):
     name = models.CharField(max_length=30, blank=True)
-    registrationNumber = models.IntegerField(default=0)
+    registration_number = models.IntegerField(default=0)
     logoType = models.CharField(max_length=30, blank=True)
     contactInfo = models.CharField(max_length=30, blank=True)
     
