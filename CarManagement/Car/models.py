@@ -44,3 +44,23 @@ class CarAssignToShowRoom(models.Model):
 class ShowRoomOwnerAssignToShowRoom(models.Model):
     showroom_owner = models.ForeignKey(ShowRoomOwner, on_delete=models.CASCADE)
     showroom = models.ForeignKey(ShowRoom, on_delete=models.CASCADE)
+
+
+class User(models.Model):
+    username = models.CharField(max_length=30)
+    def __str__(self):
+        return self.username
+
+
+class Manufactor(models.Model):
+    name = models.CharField(max_length=30, blank=True)
+    country = models.CharField(max_length=30, blank=True)
+    def __str__(self):
+        return self.name
+        
+
+class ManufactorModel(models.Model):
+    name = models.CharField(max_length=30, blank=True)
+    car_type = models.CharField(max_length=100, blank=True)
+    def __str__(self):
+        return self.name
