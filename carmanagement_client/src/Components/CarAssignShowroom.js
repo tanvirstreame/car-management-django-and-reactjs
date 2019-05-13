@@ -65,6 +65,7 @@ class CarAssignShowroom extends Component {
                             <div className="col-md-8 offset-md-2">
                                 <label>Choose Car:</label>
                                 <select className='form-control' name="car">
+                                    <option value="" selected disabled hidden>Choose here</option>
                                 {this.state.car.map(item => (
                                     <option value={item.id}>{item.manufacture}({item.id})</option>
                                     ))}
@@ -75,6 +76,7 @@ class CarAssignShowroom extends Component {
                             <div className="col-md-8 offset-md-2">
                                 <label>Choose ShowRoom:</label>
                                 <select className='form-control' name="showroom">
+                                    <option value="" selected disabled hidden>Choose here</option>
                                 {this.state.showroom.map(item => (
                                     <option value={item.id}>{item.name}({item.id})</option>
                                     ))}

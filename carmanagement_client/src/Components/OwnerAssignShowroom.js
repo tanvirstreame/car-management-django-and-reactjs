@@ -66,6 +66,7 @@ class OwnerAssignShowroom extends Component {
                             <div className="col-md-8 offset-md-2">
                                 <label>Choose Owner:</label>
                                 <select className="form-control" name="showroomOwner">
+                                    <option value="" selected disabled hidden>Choose here</option>
                                 {this.state.owner.map(item => (
                                     <option value={item.id}>{item.username}({item.id})</option>
                                     ))}
@@ -76,6 +77,7 @@ class OwnerAssignShowroom extends Component {
                             <div className="col-md-8 offset-md-2">
                                 <label>Choose ShowRoom:</label>
                                 <select className="form-control" name="showroom">
+                                    <option value="" selected disabled hidden>Choose here</option>
                                 {this.state.showroom.map(item => (
                                     <option value={item.id}>{item.name}({item.id})</option>
                                     ))}
