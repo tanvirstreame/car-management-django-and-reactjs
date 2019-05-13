@@ -7,14 +7,14 @@ class CreateShowRoomForm extends Component {
     super(props);
     this.state={
       name:'',
-      registrationNumber:'',
-      logoType:'',
-      contactInfo:'',
+      registration_number:'',
+      logo_type:'',
+      contact_info:'',
       nameValid: false,
-      registrationNumberValid: false,
-      logoTypeValid: false,
-      contactInfoValid: false,
-      formErrors: {name: '', registrationNumber: '',logoType: '',contactInfo: ''},
+      registration_numberValid: false,
+      logo_typeValid: false,
+      contact_infoValid: false,
+      formErrors: {name: '', registration_number: '',logo_type: '',contact_info: ''},
       formValid: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,9 +30,9 @@ class CreateShowRoomForm extends Component {
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let nameValid = this.state.nameValid;
-    let registrationNumberValid = this.state.registrationNumberValid;
-    let logoTypeValid = this.state.logoTypeValid;
-    let contactInfoValid = this.state.contactInfoValid;
+    let registration_numberValid = this.state.registration_numberValid;
+    let logo_typeValid = this.state.logo_typeValid;
+    let contact_infoValid = this.state.contact_infoValid;
 
 
     switch(fieldName) {
@@ -40,32 +40,32 @@ class CreateShowRoomForm extends Component {
         nameValid = value.length != 0;
         fieldValidationErrors.name = nameValid ? '': 'can not be empty';
         break;
-      case 'logoType':
-        logoTypeValid = value.length != 0;
-        fieldValidationErrors.logoType = logoTypeValid ? '': 'can not be empty';
+      case 'logo_type':
+        logo_typeValid = value.length != 0;
+        fieldValidationErrors.logo_type = logo_typeValid ? '': 'can not be empty';
         break;
-      case 'contactInfo':
-        contactInfoValid = value.length != 0;
-        fieldValidationErrors.contactInfo = contactInfoValid ? '': 'can not be empty';
+      case 'contact_info':
+        contact_infoValid = value.length != 0;
+        fieldValidationErrors.contact_info = contact_infoValid ? '': 'can not be empty';
         break;
-      case 'registrationNumber':
-        registrationNumberValid = value.length >= 6;
-        fieldValidationErrors.registrationNumber = registrationNumberValid ? '': 'is too short';
+      case 'registration_number':
+        registration_numberValid = value.length >= 6;
+        fieldValidationErrors.registration_number = registration_numberValid ? '': 'is too short';
         break;
       default:
         break;
     }
     this.setState({formErrors: fieldValidationErrors,
                     nameValid: nameValid,
-                    registrationNumberValid : registrationNumberValid ,
-                    logoTypeValid:logoTypeValid,
-                    contactInfoValid:contactInfoValid,
+                    registration_numberValid : registration_numberValid ,
+                    logo_typeValid:logo_typeValid,
+                    contact_infoValid:contact_infoValid,
                   }, this.validateForm);
   }
 
 
   validateForm() {
-    this.setState({formValid: this.state.nameValid && this.state.registrationNumberValid && this.state.logoTypeValid && this.state.contactInfoValid});
+    this.setState({formValid: this.state.nameValid && this.state.registration_numberValid && this.state.logo_typeValid && this.state.contact_infoValid});
   }
 
   errorClass(error) {
@@ -86,9 +86,9 @@ class CreateShowRoomForm extends Component {
     });
      
     this.name.value =''; 
-    this.registrationNumber.value ='';
-    this.logoType.value =''; 
-    this.contactInfo.value =''; 
+    this.registration_number.value ='';
+    this.logo_type.value =''; 
+    this.contact_info.value =''; 
     
   }
   
@@ -115,19 +115,19 @@ class CreateShowRoomForm extends Component {
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Registration Number</label>
-                                  <input type="text" class="form-control shadow-none"  ref={el => this.registrationNumber= el} value={this.state.registrationNumber} name="registrationNumber" onChange={this.handleUserInput} />
+                                  <input type="text" class="form-control shadow-none"  ref={el => this.registration_number= el} value={this.state.registration_number} name="registration_number" onChange={this.handleUserInput} />
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Logo Type</label>
-                                  <input type="text" class="form-control shadow-none" ref={el => this.logoType = el} value={this.state.logoType} name="logoType" onChange={this.handleUserInput} />
+                                  <input type="text" class="form-control shadow-none" ref={el => this.logo_type = el} value={this.state.logo_type} name="logo_type" onChange={this.handleUserInput} />
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Contact Detail</label>
-                                  <input type="text" class="form-control shadow-none" ref={el => this.contactInfo = el} value={this.state.contactInfo} name="contactInfo" onChange={this.handleUserInput} />
+                                  <input type="text" class="form-control shadow-none" ref={el => this.contact_info = el} value={this.state.contact_info} name="contact_info" onChange={this.handleUserInput} />
                               </div>
                           </div>
                           <div class="row">

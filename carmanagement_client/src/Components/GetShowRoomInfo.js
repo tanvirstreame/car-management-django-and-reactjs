@@ -50,16 +50,16 @@ showButton = () => {
           <label><b>Name:</b></label>
           <span >{this.state.showroom.name}</span>
           <br/>
-          <label><b>RegistrationNumber:</b></label>
-          <span className="text-center">{this.state.showroom.registrationNumber}</span>
+          <label><b>Registration Number:</b></label>
+          <span className="text-center">{this.state.showroom.registration_number}</span>
           <br/>
-          <label><b>logoType:</b></label>
-          <span>{this.state.showroom.logoType}</span>
+          <label><b>Logo Type:</b></label>
+          <span>{this.state.showroom.logo_type}</span>
           <br/>
           <Button onClick={ this.showButton }>Veiw Contact Detail</Button>
           { 
             expanded && //show if expanded is true
-            <div>{this.state.showroom.contactInfo}</div>
+            <div>{this.state.showroom.contact_info}</div>
           }
         </div>
         <div className="row">
