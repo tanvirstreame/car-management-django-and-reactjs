@@ -2,19 +2,19 @@ from django.db import models
 from decimal import *
 
 class ShowRoomOwner(models.Model):
-    email=models.CharField(max_length=30, blank=True)
-    username=models.CharField(max_length=30, blank=True)
-    password=models.CharField(max_length=30, blank=True)
+    email = models.CharField(max_length=30, blank=True)
+    username = models.CharField(max_length=30, blank=True)
+    password = models.CharField(max_length=30, blank=True)
     
     def __str__(self):
         return self.email
 
 
 class ShowRoom(models.Model):
-    name=models.CharField(max_length=30, blank=True)
-    registrationNumber=models.IntegerField(default=0)
-    logoType=models.CharField(max_length=30, blank=True)
-    contactInfo=models.CharField(max_length=30, blank=True)
+    name = models.CharField(max_length=30, blank=True)
+    registrationNumber = models.IntegerField(default=0)
+    logoType = models.CharField(max_length=30, blank=True)
+    contactInfo = models.CharField(max_length=30, blank=True)
     
     def __str__(self):
         return self.name
