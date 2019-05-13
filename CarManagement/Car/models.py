@@ -5,7 +5,6 @@ class ShowRoomOwner(models.Model):
     email = models.CharField(max_length=30, blank=True)
     username = models.CharField(max_length=30, blank=True)
     password = models.CharField(max_length=30, blank=True)
-    
     def __str__(self):
         return self.email
 
@@ -15,10 +14,10 @@ class ShowRoom(models.Model):
     registration_number = models.IntegerField(default=0)
     logoType = models.CharField(max_length=30, blank=True)
     contactInfo = models.CharField(max_length=30, blank=True)
-    
     def __str__(self):
         return self.name
-      
+
+
 class Car(models.Model):
     manufacture = models.CharField(max_length=30, blank=True)
     tagline = models.CharField(max_length=30, blank=True)
@@ -31,7 +30,6 @@ class Car(models.Model):
     horse_power = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00))
     propellant = models.CharField(max_length=30, blank=True)
     file = models.FileField(blank=False, null=False)
-    
     def __str__(self):
         return self.manufacture
 
