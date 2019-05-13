@@ -14,10 +14,10 @@ class CreateCarForm extends Component {
         status:'',
         transmission:'',
         price:'',
-        horsepower:'',
+        horse_power:'',
         propellant:'',
         fileupload:'',
-        formErrors: { manufacture:'',tagline:'',carModel:'',mileage:'', year:'',status:'',transmission:'',price:'',horsepower:'',propellant:'',fileupload:'',},
+        formErrors: { manufacture:'',tagline:'',carModel:'',mileage:'', year:'',status:'',transmission:'',price:'',horse_power:'',propellant:'',fileupload:'',},
         manufacturevalid:false,
         taglinevalid:false,
         carModelvalid:false,
@@ -26,7 +26,7 @@ class CreateCarForm extends Component {
         statusvalid:false,
         transmissionvalid:false,
         pricevalid:false,
-        horsepowervalid:false,
+        horse_powervalid:false,
         propellantvalid:false,
         fileuploadvalid:false,
       };
@@ -50,7 +50,7 @@ class CreateCarForm extends Component {
     let mileagevalid = this.state.mileagevalid ;
     let transmissionvalid = this.state.transmissionvalid ;
     let pricevalid = this.state.pricevalid ;
-    let horsepowervalid = this.state.horsepowervalid ;
+    let horse_powervalid = this.state.horse_powervalid ;
     let propellantvalid = this.state.propellantvalid ;
     let fileuploadvalid = this.state.fileuploadvalid ;
     switch(fieldName) {
@@ -86,9 +86,9 @@ class CreateCarForm extends Component {
         pricevalid = value.length != 0;
         fieldValidationErrors.price= pricevalid ? '': 'can not be empty';
         break;
-      case 'horsepower':
-        horsepowervalid = value.length != 0;
-        fieldValidationErrors.horsepower= horsepowervalid ? '': 'can not be empty';
+      case 'horse_power':
+        horse_powervalid = value.length != 0;
+        fieldValidationErrors.horse_power= horse_powervalid ? '': 'can not be empty';
         break;
       case 'propellant':
         propellantvalid = value.length != 0;
@@ -110,7 +110,7 @@ class CreateCarForm extends Component {
                     mileagevalid : mileagevalid ,
                     transmissionvalid : transmissionvalid ,
                     pricevalid : pricevalid ,
-                    horsepowervalid : horsepowervalid ,
+                    horse_powervalid : horse_powervalid ,
                     propellantvalid : propellantvalid ,
                     fileuploadvalid:fileuploadvalid,
                   }, this.validateForm);
@@ -118,7 +118,7 @@ class CreateCarForm extends Component {
 
 
   validateForm() {
-    this.setState({formValid: this.state.manufacturevalid && this.state.taglinevalid && this.state.carModelvalid && this.state.yearvalid && this.state.statusvalid && this.state.mileagevalid && this.state.transmissionvalid && this.state.pricevalid && this.state.horsepowervalid && this.state.propellantvalid});
+    this.setState({formValid: this.state.manufacturevalid && this.state.taglinevalid && this.state.carModelvalid && this.state.yearvalid && this.state.statusvalid && this.state.mileagevalid && this.state.transmissionvalid && this.state.pricevalid && this.state.horse_powervalid && this.state.propellantvalid});
   }
 
   errorClass(error) {
@@ -144,7 +144,7 @@ class CreateCarForm extends Component {
     this.status .value ='';
     this.transmission .value ='';
     this.price.value ='';
-    this.horsepower.value ='';
+    this.horse_power.value ='';
     this.propellant.value ='';
   }
   
@@ -211,8 +211,8 @@ class CreateCarForm extends Component {
                           </div>
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
-                                  <label>Horsepower</label>
-                                  <input type="number" className="form-control shadow-none" ref={el => this.horsepower = el} name="horsepower" value={this.state.horsepower} onChange={this.handleUserInput}/>
+                                  <label>horse_power</label>
+                                  <input type="number" className="form-control shadow-none" ref={el => this.horse_power = el} name="horse_power" value={this.state.horse_power} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div class="row">
@@ -224,7 +224,7 @@ class CreateCarForm extends Component {
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Upload File</label>
-                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file" multiple/>
+                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file"/>
                               </div>
                           </div>
                           <div class="row">
