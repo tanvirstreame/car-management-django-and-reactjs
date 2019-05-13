@@ -118,7 +118,7 @@ class CreateCarForm extends Component {
 
 
   validateForm() {
-    this.setState({formValid: this.state.manufacturevalid && this.state.taglinevalid && this.state.carModelvalid && this.state.yearvalid && this.state.statusvalid && this.state.mileagevalid && this.state.transmissionvalid && this.state.pricevalid && this.state.horse_powervalid && this.state.propellantvalid});
+    this.setState({formValid: this.state.manufacturevalid && this.state.taglinevalid && this.state.carModelvalid && this.state.yearvalid && this.state.mileagevalid  && this.state.pricevalid && this.state.horse_powervalid && this.state.propellantvalid});
   }
 
   errorClass(error) {
@@ -194,13 +194,21 @@ class CreateCarForm extends Component {
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Status</label>
-                                  <input type="number" className="form-control shadow-none" ref={el => this.status = el} name="status" value={this.state.status} onChange={this.handleUserInput}/>
+                                  <select className="form-control" ref={el => this.status = el} name="status">
+                                    <option value="" selected disabled hidden>Choose here</option>
+                                    <option value='0'>Sold</option>
+                                    <option value='1'>In Stock</option>
+                                </select>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Transmission</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.transmission = el} name="transmission" value={this.state.transmission} onChange={this.handleUserInput}/>
+                                  <select className="form-control" ref={el => this.transmission = el} name="transmission" >
+                                    <option value="" selected disabled hidden>Choose here</option>
+                                    <option value='0'>Manual</option>
+                                    <option value='1'>Automatic</option>
+                                </select>
                               </div>
                           </div>
                           <div class="row">
