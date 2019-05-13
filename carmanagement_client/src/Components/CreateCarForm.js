@@ -224,7 +224,7 @@ class CreateCarForm extends Component {
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
                                   <label>Upload File</label>
-                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file"/>
+                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file" multiple/>
                               </div>
                           </div>
                           <div class="row">
