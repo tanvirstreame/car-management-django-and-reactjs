@@ -34,7 +34,7 @@ class GetShowRoom extends Component {
                   <tr>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td><Link  className='btn btn-primary' to={`/getshowroominfo/${item.id}`}>Edit</Link></td>
+                    <td><Link  className='btn btn-primary' to={`/getshowroominfo/${item.id}`}>View Cars</Link></td>
                   </tr> 
                   ))}
                 </tbody>
