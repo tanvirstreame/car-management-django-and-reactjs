@@ -64,7 +64,7 @@ class CarGetAll extends Component {
                        </div>
                        <div className="row text-center m-center">
                         <label><b>Status:</b></label>
-                        <i class="fas fa-building"></i><span>{item.status}</span>
+                        <i class="fas fa-building"></i><span>{item.status=='0' ? "Sold":"In Stock"}</span>
                        </div>
                     </div>
                   </div> 

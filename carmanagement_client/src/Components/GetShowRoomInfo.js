@@ -103,7 +103,7 @@ showButton = () => {
               <span >{rowdata.car.year}</span>
               <br/>
               <label><b>status:</b></label>
-              <span >{rowdata.car.status ? "Sold":"In Stock"}</span>
+              <span >{rowdata.car.status=='0' ? "Sold":"In Stock"}</span>
               <br/>
               <label><b>transmission:</b></label>
               <span >{rowdata.car.transmission}</span>
