@@ -219,7 +219,7 @@ class CreateCarForm extends Component {
                           </div>
                           <div class="row">
                               <div class="col-md-8 offset-md-2">
-                                  <label>horse_power</label>
+                                  <label>Horse Power</label>
                                   <input type="number" className="form-control shadow-none" ref={el => this.horse_power = el} name="horse_power" value={this.state.horse_power} onChange={this.handleUserInput}/>
                               </div>
                           </div>
