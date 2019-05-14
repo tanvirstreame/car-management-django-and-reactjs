@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Styles/GetAllCar.css'
+import { Link } from 'react-router-dom'
+
 class CarGetAll extends Component {
   state = {
     car: []
@@ -22,6 +24,7 @@ class CarGetAll extends Component {
       <div className='container'>
          <div className="row">
             {this.state.car.map(item => (
+              <Link className="linkelement"  to={`/getcarinfo/${item.id}`}>
                 <div className="card">
                    <div className="card-body">
                        <div key={item.id}>
@@ -69,6 +72,7 @@ class CarGetAll extends Component {
                     </div>
                   </div> 
                 </div>
+              </Link>
             ))}
           </div>
       </div>

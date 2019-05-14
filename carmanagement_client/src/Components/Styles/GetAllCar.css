@@ -1,5 +1,7 @@
 .card{
     margin: 30px;
     width: 350px;
-   
   }
+.linkelement:hover{
+  text-decoration: none;
+}
