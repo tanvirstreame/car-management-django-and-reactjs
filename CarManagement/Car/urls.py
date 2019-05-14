@@ -5,14 +5,14 @@ from Car import views
 from django.conf.urls.static import static
 from django.conf import settings
 router = routers.DefaultRouter()
-router.register('allcardetail', views.CarViewSet, 'Car')
+router.register('all-card-detail', views.CarViewSet, 'Car')
 router.register('showroom', views.ShowRoomViewSet, 'ShowRoom')
 router.register('showroomowner', views.ShowRoomOwnerViewSet, 'ShowRoomOwner')
-router.register('carassigntoshowroom', views.CarAssignToShowRoomViewSet, 'CarAssignToShowRoom')
-router.register('showroomownerassigntoshowroom', views.ShowRoomOwnerAssignToShowRoomViewSet, 'ShowRoomOwnerAssignToShowRoom')
+router.register('showroom-all-car', views.CarAssignToShowRoomViewSet, 'CarAssignToShowRoom')
+router.register('owners-all-showroom', views.ShowRoomOwnerAssignToShowRoomViewSet, 'ShowRoomOwnerAssignToShowRoom')
 
 urlpatterns = [
-    path('getcarbyshowroom/', views.GetCarByShowroom.as_view(),name="GetCarByShowroom"),
+    path('get-car-by-showroom/', views.GetCarByShowroom.as_view(),name="GetCarByShowroom"),
     path('', include(router.urls)),
 ]
 
