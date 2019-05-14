@@ -29,27 +29,27 @@ class ShowRoomOwnerTestCase(TestCase):
 
     def test_get_all_car(self):
         new_client = APIClient()
-        res = new_client.get('/allcardetail/', format="json")
+        res = new_client.get('/all-car-detail/', format="json")
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
     def test_get_all_carassigntoshowroom(self):
         new_client = APIClient()
-        res = new_client.get('/carassigntoshowroom/', format="json")
+        res = new_client.get('/showroom-all-car/', format="json")
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
     def test_get_all_showroomownerassigntoshowroom(self):
         new_client = APIClient()
-        res = new_client.get('/showroomownerassigntoshowroom/', format="json")
+        res = new_client.get('/owners-all-showroom/', format="json")
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
     def test_get_all_showroomownerassigntoshowroom(self):
         new_client = APIClient()
-        res = new_client.get('/showroomownerassigntoshowroom/', format="json")
+        res = new_client.get('/owners-all-showroom/', format="json")
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
     def test_get_single_getcarbyshowroominfo(self):
         new_client = APIClient()
-        res = new_client.get('/getcarbyshowroom/', kwargs={'showroom': 1}, format="json")
+        res = new_client.get('/get-car-by-showroom/', kwargs={'showroom': 1}, format="json")
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
    
