@@ -21,7 +21,6 @@ showButton = () => {
         return res.json();
     })
     .then(function(data){
-        console.log(data);
         self.setState({
             car:data,
         })
@@ -32,7 +31,6 @@ showButton = () => {
         return res.json();
     })
     .then(function(data){
-        console.log(data);
         self.setState({
           showroom:data,
         })
@@ -40,7 +38,6 @@ showButton = () => {
 }
    
   render(){
-    const msg=["sold","in stock"]
     const { expanded } = this.state
     return (
       <div className='container'>
@@ -66,29 +63,28 @@ showButton = () => {
         </div>
         <div className="row">
           {this.state.car.map((rowdata,i)=>
-          <Link className="linkelement"  to={`/getcarinfo/${rowdata.id}`}>
-            <div key={rowdata.id}>
+            <Link key={rowdata.id} className="linkelement"  to={`/getcarinfo/${rowdata.id}`}>
               <div className="card">
                 <div className="card-body">
-                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src={rowdata.car.file} class="d-block w-100" alt="..."/>
+                    <div className="carousel-inner">
+                      <div className="carousel-item active">
+                        <img src={rowdata.car.file} className="d-block w-100" alt="..."/>
                       </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    {/* <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                       <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span className="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                       <span className="carousel-control-next-icon" aria-hidden="true"></span>
                       <span className="sr-only">Next</span>
-                    </a>
+                    </a> */}
                   </div>
                   <h4 className="text-center">Car Info</h4>
                   <label><b>Show Info Id:</b></label>
@@ -104,18 +100,17 @@ showButton = () => {
                   <span >{rowdata.car.year}</span>
                   <br/>
                   <label><b>status:</b></label>
-                  <span >{rowdata.car.status=='0' ? "Sold":"In Stock"}</span>
+                  <span >{rowdata.car.status===0 ? "Sold":"In Stock"}</span>
                   <br/>
                   <label><b>transmission:</b></label>
-                  <span >{rowdata.car.transmission=='0'? "Manual":"Automatic"}</span>
+                  <span >{rowdata.car.transmission===0? "Manual":"Automatic"}</span>
                   <br/>
                   <label><b>price:</b></label>
                   <span >{rowdata.car.price}</span>
                   <br/>
                 </div>
               </div> 
-            </div>
-          </Link>
+            </Link>
         )}
        </div>
       </div>

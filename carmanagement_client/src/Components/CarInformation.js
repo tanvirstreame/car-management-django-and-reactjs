@@ -14,12 +14,11 @@ showButton = () => {
 
   componentDidMount(){
     var self = this;
-    fetch('http://127.0.0.1:8000/all-card-detail/'+this.props.match.params.id,)
+    fetch('http://127.0.0.1:8000/all-car-detail/'+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })
     .then(function(data){
-        console.log(data);
         self.setState({
             car:data,
         })
@@ -66,10 +65,10 @@ showButton = () => {
             <span >{this.state.car.year}</span>
             <br/>
             <label><b>status:</b></label>
-            <span >{this.state.car.status=='0' ? "Sold":"In Stock"}</span>
+            <span >{this.state.car.status===0 ? "Sold":"In Stock"}</span>
             <br/>
             <label><b>transmission:</b></label>
-            <span >{this.state.car.transmission =='0'? "Manual":"Automatic"}</span>
+            <span >{this.state.car.transmission ===0? "Manual":"Automatic"}</span>
             <br/>
             <label><b>price:</b></label>
             <span >{this.state.car.price}</span>

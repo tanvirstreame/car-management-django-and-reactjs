@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ReactDOM from "react-dom";
 import { FormErrors } from './FormErrors';
 
 class CreateOwner extends Component {
@@ -36,7 +35,7 @@ class CreateOwner extends Component {
 
     switch(fieldName) {
       case 'username':
-        usernameValid= value.length != 0;
+        usernameValid= value.length !== 0;
         fieldValidationErrors.username = usernameValid ? '': 'can not be empty';
         break;
       case 'email':
@@ -44,7 +43,7 @@ class CreateOwner extends Component {
         fieldValidationErrors.email = emailValid ? '' : ' is invalid';
         break;
       case 'password':
-        passwordValid = value.length != 0;
+        passwordValid = value.length !== 0;
         fieldValidationErrors.password= passwordValid ? '': 'can not be empty';
         break;
       default:
@@ -84,7 +83,7 @@ class CreateOwner extends Component {
             <div className="container">
               <div className="row">
                   <div className="col-md-8 offset-md-2">
-                      <form id="CreateOwner" onSubmit={this.handleSubmit} method="post">
+                      <form className="formtop" id="CreateOwner" onSubmit={this.handleSubmit} method="post">
                           <h4 className="text-center">Create Owner</h4>
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
@@ -98,7 +97,7 @@ class CreateOwner extends Component {
                                   <input type="text" className="form-control shadow-none" ref={el => this.Email = el} name="email"  value={this.state.email} onChange={this.handleUserInput}/>
                               </div>
                           </div>
-                          <div class="row">
+                          <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Password</label>
                                   <input type="text" className="form-control shadow-none" ref={el => this.Password= el} name="password"  value={this.state.password} onChange={this.handleUserInput}/>
@@ -110,7 +109,7 @@ class CreateOwner extends Component {
                               </div>
                           </div>
                           <div className="panel panel-default">
-                              <div class="col-md-8 offset-md-2 text-danger">
+                              <div className="col-md-8 offset-md-2 text-danger">
                                   <FormErrors formErrors={this.state.formErrors} />
                               </div>
                           </div>

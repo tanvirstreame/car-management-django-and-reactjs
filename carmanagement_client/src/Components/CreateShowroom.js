@@ -37,15 +37,15 @@ class CreateShowRoomForm extends Component {
 
     switch(fieldName) {
       case 'name':
-        nameValid = value.length != 0;
+        nameValid = value.length !== 0;
         fieldValidationErrors.name = nameValid ? '': 'can not be empty';
         break;
       case 'logo_type':
-        logo_typeValid = value.length != 0;
+        logo_typeValid = value.length !== 0;
         fieldValidationErrors.logo_type = logo_typeValid ? '': 'can not be empty';
         break;
       case 'contact_info':
-        contact_infoValid = value.length != 0;
+        contact_infoValid = value.length !== 0;
         fieldValidationErrors.contact_info = contact_infoValid ? '': 'can not be empty';
         break;
       case 'registration_number':
@@ -101,42 +101,42 @@ class CreateShowRoomForm extends Component {
 
   render() {
     return(
-            <div class="container">
-              <div class="row">
-                  <div class="col-md-8 offset-md-2">
-                      <form id="CreateShowRoom" onSubmit={this.handleSubmit} method="post">
-                          <h4 class="text-center">Create Showroom</h4>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+            <div className="container">
+              <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                      <form className="formtop" id="CreateShowRoom" onSubmit={this.handleSubmit} method="post">
+                          <h4 className="text-center">Create Showroom</h4>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Show Name</label>
-                                  <input type="text" class="form-control shadow-none" ref={el => this.name= el} value={this.state.name} name="name" onChange={this.handleUserInput} />
+                                  <input type="text" className="form-control shadow-none" ref={el => this.name= el} value={this.state.name} name="name" onChange={this.handleUserInput} />
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Registration Number</label>
-                                  <input type="text" class="form-control shadow-none"  ref={el => this.registration_number= el} value={this.state.registration_number} name="registration_number" onChange={this.handleUserInput} />
+                                  <input type="text" className="form-control shadow-none"  ref={el => this.registration_number= el} value={this.state.registration_number} name="registration_number" onChange={this.handleUserInput} />
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Logo Type</label>
-                                  <input type="text" class="form-control shadow-none" ref={el => this.logo_type = el} value={this.state.logo_type} name="logo_type" onChange={this.handleUserInput} />
+                                  <input type="text" className="form-control shadow-none" ref={el => this.logo_type = el} value={this.state.logo_type} name="logo_type" onChange={this.handleUserInput} />
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Contact Detail</label>
-                                  <input type="text" class="form-control shadow-none" ref={el => this.contact_info = el} value={this.state.contact_info} name="contact_info" onChange={this.handleUserInput} />
+                                  <input type="text" className="form-control shadow-none" ref={el => this.contact_info = el} value={this.state.contact_info} name="contact_info" onChange={this.handleUserInput} />
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
-                                  <input type="submit" class="btn btn-info btn-block shadow-none" value="Create Show Room" disabled={!this.state.formValid}/>
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
+                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Show Room" disabled={!this.state.formValid}/>
                               </div>
                           </div>
                           <div className="panel panel-default">
-                              <div class="col-md-8 offset-md-2 text-danger">
+                              <div className="col-md-8 offset-md-2 text-danger">
                                   <FormErrors formErrors={this.state.formErrors} />
                               </div>
                           </div>

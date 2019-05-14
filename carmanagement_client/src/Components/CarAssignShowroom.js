@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-var panelStyle = {
-	'maxWidth': '80%',
-	margin: '0 auto'
-}
 class CarAssignShowroom extends Component {
   constructor(props) {
     super(props);
@@ -16,12 +12,11 @@ class CarAssignShowroom extends Component {
   }
   componentDidMount() {
     var self = this;
-    fetch('http://localhost:8000/all-card-detail/')
+    fetch('http://localhost:8000/all-car-detail/')
     .then(function (res){
         return res.json();
     })
     .then(function(data){
-        console.log(data);
         self.setState({
             car:data,
         })
@@ -32,7 +27,6 @@ class CarAssignShowroom extends Component {
         return res.json();
     })
     .then(function(data){
-        console.log(data);
         self.setState({
           showroom:data,
         })
@@ -59,15 +53,15 @@ class CarAssignShowroom extends Component {
           <div className="container">
             <div className="row">
                 <div className="col-md-8 offset-md-2">
-                    <form onSubmit={this.handleSubmit} method="post">
+                    <form className="formtop" onSubmit={this.handleSubmit} method="post">
                         <h4 className="text-center">Car Assign Showroom</h4>
                         <div className="row">
                             <div className="col-md-8 offset-md-2">
                                 <label>Choose ShowRoom:</label>
                                 <select className='form-control' name="showroom">
-                                    <option value="" selected disabled hidden>--Select Showroom--</option>
+                                    <option value="" disabled>--Select Showroom--</option>
                                 {this.state.showroom.map(item => (
-                                    <option value={item.id}>{item.name}({item.id})</option>
+                                    <option key={item.id} value={item.id}>{item.name} ( Id- {item.id} )</option>
                                     ))}
                                 </select>
                             </div>
@@ -76,9 +70,9 @@ class CarAssignShowroom extends Component {
                             <div className="col-md-8 offset-md-2">
                                 <label>Choose Car:</label>
                                 <select className='form-control' name="car">
-                                    <option value="" selected disabled hidden>--Select Car--</option>
+                                    <option value="" disabled>--Select Car--</option>
                                 {this.state.car.map(item => (
-                                    <option value={item.id}>{item.manufacture}({item.id})</option>
+                                    <option key={item.id} value={item.id}>{item.manufacture} ( Id- {item.id} )</option>
                                     ))}
                                 </select>
                             </div>

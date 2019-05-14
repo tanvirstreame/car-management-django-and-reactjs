@@ -55,47 +55,47 @@ class CreateCarForm extends Component {
     let fileuploadvalid = this.state.fileuploadvalid ;
     switch(fieldName) {
       case 'manufacture':
-        manufacturevalid= value.length != 0;
+        manufacturevalid= value.length !== 0;
         fieldValidationErrors.manufacture = manufacturevalid ? '': 'can not be empty';
         break;
       case 'tagline':
-        taglinevalid= value.length != 0;
+        taglinevalid= value.length !== 0;
         fieldValidationErrors.tagline = taglinevalid ? '': 'can not be empty';
         break;
       case 'carModel':
-        carModelvalid= value.length != 0;
+        carModelvalid= value.length !== 0;
         fieldValidationErrors.carModel = carModelvalid ? '': 'can not be empty';
         break;
       case 'year':
-        yearvalid = value.length != 0;
+        yearvalid = value.length !== 0;
         fieldValidationErrors.year= yearvalid ? '': 'can not be empty';
         break;
       case 'status':
-        statusvalid = value.length != 0;
+        statusvalid = value.length !== 0;
         fieldValidationErrors.status= statusvalid ? '': 'can not be empty';
         break;
       case 'mileage':
-        mileagevalid = value.length != 0;
+        mileagevalid = value.length !== 0;
         fieldValidationErrors.mileage= mileagevalid ? '': 'can not be empty';
         break;
       case 'transmission':
-        transmissionvalid = value.length != 0;
+        transmissionvalid = value.length !== 0;
         fieldValidationErrors.transmission= transmissionvalid ? '': 'can not be empty';
         break;
       case 'price':
-        pricevalid = value.length != 0;
+        pricevalid = value.length !== 0;
         fieldValidationErrors.price= pricevalid ? '': 'can not be empty';
         break;
       case 'horse_power':
-        horse_powervalid = value.length != 0;
+        horse_powervalid = value.length !== 0;
         fieldValidationErrors.horse_power= horse_powervalid ? '': 'can not be empty';
         break;
       case 'propellant':
-        propellantvalid = value.length != 0;
+        propellantvalid = value.length !== 0;
         fieldValidationErrors.propellant= propellantvalid ? '': 'can not be empty';
         break;
       case 'fileupload':
-        fileuploadvalid = value.length != 0;
+        fileuploadvalid = value.length !== 0;
         fieldValidationErrors.fileupload= fileuploadvalid ? '': 'can not be empty';
         break;
       default:
@@ -131,7 +131,7 @@ class CreateCarForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
     
-    fetch('http://localhost:8000/all-card-detail/', {
+    fetch('http://localhost:8000/all-car-detail/', {
       method: 'POST',
       body: data,
     });
@@ -141,8 +141,8 @@ class CreateCarForm extends Component {
     this.carModel.value =''; 
     this.mileage.value =''; 
     this.year.value ='';
-    this.status .value ='';
-    this.transmission .value ='';
+    this.status.value ='';
+    this.transmission.value ='';
     this.price.value ='';
     this.horse_power.value ='';
     this.propellant.value ='';
@@ -159,7 +159,7 @@ class CreateCarForm extends Component {
             <div className="container">
               <div className="row">
                   <div className="col-md-8 offset-md-2">
-                      <form id="CreateCar" onSubmit={this.handleSubmit} method="post">
+                      <form className="formtop" id="CreateCar" onSubmit={this.handleSubmit} method="post">
                           <h4 className="text-center">Create Car</h4>
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
@@ -185,63 +185,63 @@ class CreateCarForm extends Component {
                                   <input type="number" className="form-control shadow-none" ref={el => this.mileage = el} name="mileage" value={this.state.mileage} onChange={this.handleUserInput}/>
                               </div>
                           </div>
-                          <div class="row">
+                          <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Year</label>
                                   <input type="number" className="form-control shadow-none" ref={el => this.year = el} name="year" value={this.state.year} onChange={this.handleUserInput}/>
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Status</label>
                                   <select className="form-control" ref={el => this.status = el} name="status">
-                                    <option value="" selected disabled hidden>Choose here</option>
+                                    <option defaultValue="0" disabled>Choose here</option>
                                     <option value='0'>Sold</option>
                                     <option value='1'>In Stock</option>
                                 </select>
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Transmission</label>
                                   <select className="form-control" ref={el => this.transmission = el} name="transmission" >
-                                    <option value="" selected disabled hidden>Choose here</option>
+                                    <option value="0" disabled>Choose here</option>
                                     <option value='0'>Manual</option>
                                     <option value='1'>Automatic</option>
                                 </select>
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Price</label>
                                   <input type="number" className="form-control shadow-none" ref={el => this.price= el} name="price" value={this.state.price} onChange={this.handleUserInput}/>
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Horse Power</label>
                                   <input type="number" className="form-control shadow-none" ref={el => this.horse_power = el} name="horse_power" value={this.state.horse_power} onChange={this.handleUserInput}/>
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Propellant</label>
                                   <input type="text" className="form-control shadow-none" ref={el => this.propellant = el} name="propellant" value={this.state.propellant} onChange={this.handleUserInput}/>
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <label>Upload File</label>
                                   <input type="file" className="form-control shadow-none" accept="image/*" name="file"/>
                               </div>
                           </div>
-                          <div class="row">
-                              <div class="col-md-8 offset-md-2">
+                          <div className="row">
+                              <div className="col-md-8 offset-md-2">
                                   <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Car" disabled={!this.state.formValid}/>
                               </div>
                           </div>
                           <div className="panel panel-default">
-                              <div class="col-md-8 offset-md-2 text-danger">
+                              <div className="col-md-8 offset-md-2 text-danger">
                                   <FormErrors formErrors={this.state.formErrors} />
                               </div>
                           </div>
@@ -263,12 +263,8 @@ class CreateCarForm extends Component {
   formHandler(formFields) {
    axios.post('/api/register', formFields)
      .then(function(response){
-       console.log(response);
-       //Perform action based on response
    })
      .catch(function(error){
-       console.log(error);
-       //Perform action based on error
      });
   }
 }

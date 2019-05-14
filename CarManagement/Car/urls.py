@@ -5,7 +5,7 @@ from Car import views
 from django.conf.urls.static import static
 from django.conf import settings
 router = routers.DefaultRouter()
-router.register('all-card-detail', views.CarViewSet, 'Car')
+router.register('all-car-detail', views.CarViewSet, 'Car')
 router.register('showroom', views.ShowRoomViewSet, 'ShowRoom')
 router.register('showroomowner', views.ShowRoomOwnerViewSet, 'ShowRoomOwner')
 router.register('showroom-all-car', views.CarAssignToShowRoomViewSet, 'CarAssignToShowRoom')
