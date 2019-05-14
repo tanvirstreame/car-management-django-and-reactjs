@@ -43,7 +43,7 @@ class OwnerAssignShowroom extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('http://localhost:8000/showroomownerassigntoshowroom/', {
+    fetch('http://localhost:8000/owners-all-showroom/', {
       method: 'POST',
       body: data,
     });  
@@ -65,7 +65,7 @@ class OwnerAssignShowroom extends Component {
                         <div className="row">
                             <div className="col-md-8 offset-md-2">
                                 <label>Choose Owner:</label>
-                                <select className="form-control" name="showroomOwner">
+                                <select className="form-control" name="showroom_owner">
                                     <option value="" selected disabled hidden>Choose here</option>
                                 {this.state.owner.map(item => (
                                     <option value={item.id}>{item.username}({item.id})</option>

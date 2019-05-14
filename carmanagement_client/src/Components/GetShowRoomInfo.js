@@ -16,7 +16,7 @@ showButton = () => {
 
   componentDidMount(){
     var self = this;
-    fetch('http://localhost:8000/getcarbyshowroom/?showroom='+this.props.match.params.id,)
+    fetch('http://localhost:8000/get-car-by-showroom/?showroom='+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })

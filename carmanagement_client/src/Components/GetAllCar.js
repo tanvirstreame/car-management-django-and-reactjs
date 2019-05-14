@@ -7,7 +7,7 @@ class CarGetAll extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/allcardetail');
+      const res = await fetch('http://127.0.0.1:8000/all-card-detail');
       const car = await res.json();
       this.setState({
         car

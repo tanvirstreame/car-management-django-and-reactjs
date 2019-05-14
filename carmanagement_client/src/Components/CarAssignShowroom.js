@@ -16,7 +16,7 @@ class CarAssignShowroom extends Component {
   }
   componentDidMount() {
     var self = this;
-    fetch('http://localhost:8000/allcardetail/')
+    fetch('http://localhost:8000/all-card-detail/')
     .then(function (res){
         return res.json();
     })
@@ -42,7 +42,7 @@ class CarAssignShowroom extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('http://localhost:8000/carassigntoshowroom/', {
+    fetch('http://localhost:8000/showroom-all-car/', {
       method: 'POST',
       body: data,
     });  
