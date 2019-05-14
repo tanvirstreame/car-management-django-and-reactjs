@@ -5,7 +5,6 @@ class GetShowRoomInfo extends Component {
   constructor(props){
     super(props);
     this.state={
-        car_status:["Sold","In stock"],
         car:[],
         showroom:[],
         expanded: false //begin with box closed
@@ -99,7 +98,7 @@ showButton = () => {
                   <span >{rowdata.car.name}</span>
                   <br/>
                   <label><b>car mileage:</b></label>
-                  <span >{rowdata.car.mileage ? "Manual":"Automatic"}</span>
+                  <span >{rowdata.car.mileage}</span>
                   <br/>
                   <label><b>year:</b></label>
                   <span >{rowdata.car.year}</span>
@@ -108,7 +107,7 @@ showButton = () => {
                   <span >{rowdata.car.status=='0' ? "Sold":"In Stock"}</span>
                   <br/>
                   <label><b>transmission:</b></label>
-                  <span >{rowdata.car.transmission}</span>
+                  <span >{rowdata.car.transmission=='0'? "Manual":"Automatic"}</span>
                   <br/>
                   <label><b>price:</b></label>
                   <span >{rowdata.car.price}</span>

@@ -60,7 +60,7 @@ showButton = () => {
             <span >{this.state.car.name}</span>
             <br/>
             <label><b>car mileage:</b></label>
-            <span >{this.state.car.mileage ? "Manual":"Automatic"}</span>
+            <span >{this.state.car.mileage}</span>
             <br/>
             <label><b>year:</b></label>
             <span >{this.state.car.year}</span>
@@ -69,7 +69,7 @@ showButton = () => {
             <span >{this.state.car.status=='0' ? "Sold":"In Stock"}</span>
             <br/>
             <label><b>transmission:</b></label>
-            <span >{this.state.car.transmission}</span>
+            <span >{this.state.car.transmission =='0'? "Manual":"Automatic"}</span>
             <br/>
             <label><b>price:</b></label>
             <span >{this.state.car.price}</span>
