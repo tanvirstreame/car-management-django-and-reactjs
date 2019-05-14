@@ -63,22 +63,22 @@ class CarAssignShowroom extends Component {
                         <h4 className="text-center">Car Assign Showroom</h4>
                         <div className="row">
                             <div className="col-md-8 offset-md-2">
-                                <label>Choose Car:</label>
-                                <select className='form-control' name="car">
-                                    <option value="" selected disabled hidden>Choose here</option>
-                                {this.state.car.map(item => (
-                                    <option value={item.id}>{item.manufacture}({item.id})</option>
+                                <label>Choose ShowRoom:</label>
+                                <select className='form-control' name="showroom">
+                                    <option value="" selected disabled hidden>--Select Showroom--</option>
+                                {this.state.showroom.map(item => (
+                                    <option value={item.id}>{item.name}({item.id})</option>
                                     ))}
                                 </select>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-md-8 offset-md-2">
-                                <label>Choose ShowRoom:</label>
-                                <select className='form-control' name="showroom">
-                                    <option value="" selected disabled hidden>Choose here</option>
-                                {this.state.showroom.map(item => (
-                                    <option value={item.id}>{item.name}({item.id})</option>
+                                <label>Choose Car:</label>
+                                <select className='form-control' name="car">
+                                    <option value="" selected disabled hidden>--Select Car--</option>
+                                {this.state.car.map(item => (
+                                    <option value={item.id}>{item.manufacture}({item.id})</option>
                                     ))}
                                 </select>
                             </div>
