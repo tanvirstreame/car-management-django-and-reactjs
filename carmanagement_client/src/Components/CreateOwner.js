@@ -76,6 +76,7 @@ class CreateOwner extends Component {
      this.Username.value ='';
      this.Email.value = '';
      this.Password.value = '';
+     alert('Owner have been added!');
   }
 
   render() {

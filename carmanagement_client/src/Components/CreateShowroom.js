@@ -89,6 +89,7 @@ class CreateShowRoomForm extends Component {
     this.registration_number.value ='';
     this.logo_type.value =''; 
     this.contact_info.value =''; 
+    alert('Showroom have been created!');
     
   }
   

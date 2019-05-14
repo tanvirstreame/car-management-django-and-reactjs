@@ -146,6 +146,7 @@ class CreateCarForm extends Component {
     this.price.value ='';
     this.horse_power.value ='';
     this.propellant.value ='';
+    alert('Car have been added!');
   }
   
   handleSelectValue() {
