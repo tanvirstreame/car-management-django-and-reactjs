@@ -72,11 +72,26 @@ class CreateOwner extends Component {
     fetch('http://localhost:8000/showroomowner/', {
       method: 'POST',
       body: data,
-    });
-     this.Username.value ='';
-     this.Email.value = '';
-     this.Password.value = '';
-     alert('Owner have been added!');
+    }).then(
+      function(response) {
+        if (response.ok) {    
+          this.Username.value ='';
+          this.Email.value = '';
+          this.Password.value = '';
+          alert('Owner have been added!');
+        }
+        else {
+          alert('Owner have been not added!');
+        }
+      }
+    )
+    .catch(
+      function(error) {
+        alert('server error');
+      }
+    );
+  
+     
   }
 
   render() {

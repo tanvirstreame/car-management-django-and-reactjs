@@ -39,9 +39,19 @@ class OwnerAssignShowroom extends Component {
     fetch('http://localhost:8000/owners-all-showroom/', {
       method: 'POST',
       body: data,
-    }).then(function (res){
-      alert('Owner assigned to showroom!');
-  })
+    }).then(
+      function(response) {
+        if (response.ok) {    
+          alert('Owner assigned to showroom!');
+        }
+        else {
+          alert('Owner is not assigned to showroom!');
+        }
+      }).catch(
+        function() {
+          alert('server error');
+        }
+      );
   }
 
   handleSelectValue() {

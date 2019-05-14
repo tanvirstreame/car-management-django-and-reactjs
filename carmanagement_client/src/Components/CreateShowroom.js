@@ -83,13 +83,28 @@ class CreateShowRoomForm extends Component {
     fetch('http://localhost:8000/showroom/', {
       method: 'POST',
       body: data,
-    });
+    }).then(
+      function(response) {
+        if (response.ok) {    
+          this.name.value =''; 
+          this.registration_number.value ='';
+          this.logo_type.value =''; 
+          this.contact_info.value =''; 
+          alert('Showroom have been added!');
+        }
+        else {
+          alert('Showroom have been not added!');
+        }
+      }
+    )
+    .catch(
+      function(error) {
+        alert('server error');
+      }
+    );
+  
      
-    this.name.value =''; 
-    this.registration_number.value ='';
-    this.logo_type.value =''; 
-    this.contact_info.value =''; 
-    alert('Showroom have been created!');
+   
     
   }
   

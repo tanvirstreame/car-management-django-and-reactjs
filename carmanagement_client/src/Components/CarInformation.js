@@ -58,19 +58,19 @@ showButton = () => {
             <label><b>Car Name:</b></label>
             <span >{this.state.car.name}</span>
             <br/>
-            <label><b>car mileage:</b></label>
+            <label><b>car Mileage:</b></label>
             <span >{this.state.car.mileage}</span>
             <br/>
-            <label><b>year:</b></label>
+            <label><b>Year:</b></label>
             <span >{this.state.car.year}</span>
             <br/>
-            <label><b>status:</b></label>
+            <label><b>Status:</b></label>
             <span >{this.state.car.status===0 ? "Sold":"In Stock"}</span>
             <br/>
-            <label><b>transmission:</b></label>
+            <label><b>Transmission:</b></label>
             <span >{this.state.car.transmission ===0? "Manual":"Automatic"}</span>
             <br/>
-            <label><b>price:</b></label>
+            <label><b>Price:</b></label>
             <span >{this.state.car.price}</span>
             <br/>
       </div>

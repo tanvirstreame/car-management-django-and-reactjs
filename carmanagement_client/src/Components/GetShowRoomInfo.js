@@ -93,19 +93,19 @@ showButton = () => {
                   <label><b>Car Name:</b></label>
                   <span >{rowdata.car.name}</span>
                   <br/>
-                  <label><b>car mileage:</b></label>
+                  <label><b>Car Mileage:</b></label>
                   <span >{rowdata.car.mileage}</span>
                   <br/>
-                  <label><b>year:</b></label>
+                  <label><b>Year:</b></label>
                   <span >{rowdata.car.year}</span>
                   <br/>
-                  <label><b>status:</b></label>
+                  <label><b>Status:</b></label>
                   <span >{rowdata.car.status===0 ? "Sold":"In Stock"}</span>
                   <br/>
-                  <label><b>transmission:</b></label>
+                  <label><b>Transmission:</b></label>
                   <span >{rowdata.car.transmission===0? "Manual":"Automatic"}</span>
                   <br/>
-                  <label><b>price:</b></label>
+                  <label><b>Price:</b></label>
                   <span >{rowdata.car.price}</span>
                   <br/>
                 </div>

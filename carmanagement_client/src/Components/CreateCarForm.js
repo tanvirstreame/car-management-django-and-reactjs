@@ -134,19 +134,34 @@ class CreateCarForm extends Component {
     fetch('http://localhost:8000/all-car-detail/', {
       method: 'POST',
       body: data,
-    });
+    }).then(
+      function(response) {
+        if (response.ok) {    
+          this.manufacture.value =''; 
+          this.tagline.value ='';
+          this.carModel.value =''; 
+          this.mileage.value =''; 
+          this.year.value ='';
+          this.status.value ='';
+          this.transmission.value ='';
+          this.price.value ='';
+          this.horse_power.value ='';
+          this.propellant.value ='';
+          alert('Car have been added!');
+        }
+        else {
+          alert('Car have been not added!');
+        }
+      }
+    )
+    .catch(
+      function(error) {
+        alert('server error');
+      }
+    );
+  
      
-    this.manufacture.value =''; 
-    this.tagline.value ='';
-    this.carModel.value =''; 
-    this.mileage.value =''; 
-    this.year.value ='';
-    this.status.value ='';
-    this.transmission.value ='';
-    this.price.value ='';
-    this.horse_power.value ='';
-    this.propellant.value ='';
-    alert('Car have been added!');
+   
   }
   
   handleSelectValue() {
