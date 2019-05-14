@@ -10,6 +10,7 @@ import CreateOwner from './Components/CreateOwner'
 import CreateShowRoomForm from './Components/CreateShowroom'
 import CarAssignShowroom from './Components/CarAssignShowroom'
 import OwnerAssignShowroom from './Components/OwnerAssignShowroom'
+import CarInformation from './Components/CarInformation'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
@@ -27,6 +28,7 @@ const routing = (
         <Route path="/createshowroomform" component={CreateShowRoomForm}/>
         <Route path="/carassignshowroom" component={CarAssignShowroom}/>
         <Route path="/ownerassignshowroom" component={OwnerAssignShowroom}/>
+        <Route path="/getcarinfo/:id" component={CarInformation}/>
       </div>
     </Router>
 )
