@@ -9,7 +9,7 @@ Server: Ubuntu 18.10<br>
 
 <b>Back-End</b><br>
 Django 2.0.5<br>
-Rest Restframework<br>
+Django Rest framework<br>
 
 <b>Front-End</b><br>
 React js<br>
@@ -32,9 +32,9 @@ Runs the app in the development mode.<br>
 Open http://localhost:3000 to view it in the browser.
 
 <b>Api Detail</b><br>
-"allcardetail": "http://localhost:8000/allcardetail/",<br>
-"showroom": "http://localhost:8000/showroom/",<br>
-"showroomowner": "http://localhost:8000/showroomowner/",<br>
-"carassigntoshowroom": "http://localhost:8000/carassigntoshowroom/",<br>
-"showroomownerassigntoshowroom": "http://localhost:8000/showroomownerassigntoshowroom/",<br>
-"getcarbyshowroom":"http://localhost:8000/GetCarByShowroom/?showroom=1"<br>
+"all-card-detail": "http://127.0.0.1:8000/all-card-detail/"<br>
+"showroom": "http://127.0.0.1:8000/showroom/"<br>
+"showroomowner": "http://127.0.0.1:8000/showroomowner/" <br>
+"showroom-all-car": "http://127.0.0.1:8000/showroom-all-car/" <br>
+"owners-all-showroom": "http://127.0.0.1:8000/owners-all-showroom/" <br>
+"get-car-by-showroom":"http://localhost:8000/GetCarByShowroom/?showroom=1"<br>
