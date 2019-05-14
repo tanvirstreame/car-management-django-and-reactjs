@@ -39,7 +39,9 @@ class CarAssignShowroom extends Component {
     fetch('http://localhost:8000/showroom-all-car/', {
       method: 'POST',
       body: data,
-    });  
+    }).then(function (res){
+      alert('Car assigned to showroom!');
+  })  
   }
  
   handleSelectValue() {

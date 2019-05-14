@@ -61,7 +61,7 @@ showButton = () => {
             expanded && //show if expanded is true
             <div>{this.state.showroom.contact_info}</div>
           }
-        
+          <div className="row">
           {this.state.car.map((rowdata,i)=>
             <Link key={rowdata.id} className="linkelement"  to={`/getcarinfo/${rowdata.id}`}>
               <div className="card showroomcarinfo">
@@ -112,6 +112,7 @@ showButton = () => {
               </div> 
             </Link>
         )}
+          </div>
        </div>
         </div>
         

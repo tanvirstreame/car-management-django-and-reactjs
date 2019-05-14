@@ -33,14 +33,15 @@ class OwnerAssignShowroom extends Component {
     })
   }
 
-
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
     fetch('http://localhost:8000/owners-all-showroom/', {
       method: 'POST',
       body: data,
-    });  
+    }).then(function (res){
+      alert('Owner assigned to showroom!');
+  })
   }
 
   handleSelectValue() {
