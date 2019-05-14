@@ -5,3 +5,9 @@
 .linkelement:hover{
   text-decoration: none;
 }
+.showroomcarinfo{
+  margin-left: 0px !important;
+}
+.showroomcarbodyinfo{
+  margin-left: 0px !important;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import './GetShowRoomInfo.css'
 class GetShowRoomInfo extends Component {
   constructor(props){
     super(props);
@@ -42,7 +43,7 @@ showButton = () => {
     return (
       <div className='container'>
         <div key={this.state.showroom.id}>
-          <h4 className="text-center">Show Room Info</h4>
+          <h4 className="text-center formtop">Show Room Info</h4>
           <label><b>Show Info Id:</b></label>
           <span >{this.state.showroom.id}</span>
           <br/>
@@ -60,12 +61,11 @@ showButton = () => {
             expanded && //show if expanded is true
             <div>{this.state.showroom.contact_info}</div>
           }
-        </div>
-        <div className="row">
+        
           {this.state.car.map((rowdata,i)=>
             <Link key={rowdata.id} className="linkelement"  to={`/getcarinfo/${rowdata.id}`}>
-              <div className="card">
-                <div className="card-body">
+              <div className="card showroomcarinfo">
+                <div className="card-body showroomcarbodyinfo">
                   <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -113,7 +113,9 @@ showButton = () => {
             </Link>
         )}
        </div>
-      </div>
+        </div>
+        
+    
     );
   }
 }

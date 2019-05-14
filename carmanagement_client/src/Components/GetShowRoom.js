@@ -13,7 +13,6 @@ class GetShowRoom extends Component {
         todos
       });
     } catch (e) {
-      console.log(e);
     }
   }
 
