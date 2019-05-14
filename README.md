@@ -37,4 +37,4 @@ Open http://localhost:3000 to view it in the browser.
 "showroomowner": "http://127.0.0.1:8000/showroomowner/" <br>
 "showroom-all-car": "http://127.0.0.1:8000/showroom-all-car/" <br>
 "owners-all-showroom": "http://127.0.0.1:8000/owners-all-showroom/" <br>
-"get-car-by-showroom":"http://localhost:8000/GetCarByShowroom/?showroom=1"<br>
+"get-car-by-showroom":"http://localhost:8000/get-car-by-showroom/?showroom=1"<br>
