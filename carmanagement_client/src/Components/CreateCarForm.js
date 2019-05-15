@@ -137,16 +137,6 @@ class CreateCarForm extends Component {
     }).then(
       function(response) {
         if (response.ok) {    
-          this.manufacture.value =''; 
-          this.tagline.value ='';
-          this.carModel.value =''; 
-          this.mileage.value =''; 
-          this.year.value ='';
-          this.status.value ='';
-          this.transmission.value ='';
-          this.price.value ='';
-          this.horse_power.value ='';
-          this.propellant.value ='';
           alert('Car have been added!');
         }
         else {
@@ -154,14 +144,16 @@ class CreateCarForm extends Component {
         }
       }
     )
-    .catch(
-      function(error) {
-        alert('server error');
-      }
-    );
-  
-     
-   
+    this.manufacture.value =''; 
+    this.tagline.value ='';
+    this.carModel.value =''; 
+    this.mileage.value =''; 
+    this.year.value ='';
+    this.status.value ='';
+    this.transmission.value ='';
+    this.price.value ='';
+    this.horse_power.value ='';
+    this.propellant.value ='';
   }
   
   handleSelectValue() {
@@ -248,7 +240,7 @@ class CreateCarForm extends Component {
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Upload File</label>
-                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file"/>
+                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file[]" multiple/>
                               </div>
                           </div>
                           <div className="row">

@@ -68,6 +68,7 @@ class CreateOwner extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     const data = new FormData(event.target);
     fetch('http://localhost:8000/showroomowner/', {
       method: 'POST',
@@ -75,9 +76,7 @@ class CreateOwner extends Component {
     }).then(
       function(response) {
         if (response.ok) {    
-          this.Username.value ='';
-          this.Email.value = '';
-          this.Password.value = '';
+         
           alert('Owner have been added!');
         }
         else {
@@ -87,11 +86,12 @@ class CreateOwner extends Component {
     )
     .catch(
       function(error) {
-        alert('server error');
+        alert(error);
       }
     );
-  
-     
+    this.Username.value ='';
+    this.Email.value = '';
+    this.Password.value = ''; 
   }
 
   render() {
@@ -121,7 +121,7 @@ class CreateOwner extends Component {
                           </div>
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
-                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner" disabled={!this.state.formValid}/>
+                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner"  disabled={!this.state.formValid}/>
                               </div>
                           </div>
                           <div className="panel panel-default">

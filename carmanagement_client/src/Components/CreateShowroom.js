@@ -86,10 +86,6 @@ class CreateShowRoomForm extends Component {
     }).then(
       function(response) {
         if (response.ok) {    
-          this.name.value =''; 
-          this.registration_number.value ='';
-          this.logo_type.value =''; 
-          this.contact_info.value =''; 
           alert('Showroom have been added!');
         }
         else {
@@ -102,10 +98,10 @@ class CreateShowRoomForm extends Component {
         alert('server error');
       }
     );
-  
-     
-   
-    
+  this.name.value =''; 
+  this.registration_number.value ='';
+  this.logo_type.value =''; 
+  this.contact_info.value =''; 
   }
   
   
