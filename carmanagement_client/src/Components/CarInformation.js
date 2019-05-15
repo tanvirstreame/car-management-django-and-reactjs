@@ -14,7 +14,7 @@ showButton = () => {
 
   componentDidMount(){
     var self = this;
-    fetch('http://127.0.0.1:8000/all-car-detail/'+this.props.match.params.id,)
+    fetch('http://127.0.0.1:8000/single-car-detail/'+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })
@@ -39,7 +39,7 @@ showButton = () => {
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src={this.state.car.file} class="d-block w-100" alt="..."/>
+                <img src={'http://localhost:8000'+this.state.car.file} class="d-block w-100" alt="..."/>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

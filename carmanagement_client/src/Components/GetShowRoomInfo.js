@@ -27,7 +27,7 @@ showButton = () => {
         })
     })
   
-    fetch('http://localhost:8000/showroom/'+this.props.match.params.id+"/",)
+    fetch('http://localhost:8000/single-showroom/'+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })
