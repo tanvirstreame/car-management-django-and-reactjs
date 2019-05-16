@@ -31,13 +31,12 @@ class Car(models.Model):
     price = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00))
     horse_power = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00))
     propellant = models.CharField(max_length=30, blank=True)
-    file = models.FileField(blank=False, null=False)
     def __str__(self):
         return self.manufacture
 
 
 class CarImage(models.Model):
-    car= models.ForeignKey(Car,null=False,default=1,on_delete=models.CASCADE)
+    car= models.ForeignKey(Car,null=False,related_name='image',default=1,on_delete=models.CASCADE)
     image = models.ImageField(null=False,default='default.jpg')
 
 

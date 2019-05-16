@@ -3,11 +3,17 @@ from rest_framework import serializers
 # from rest_framework_serializer_extensions.serializers import SerializerExtensionsMixin
 from .models import Car,ShowRoom,ShowRoomOwner,CarAssignToShowRoom,ShowRoomOwnerAssignToShowRoom,CarImage
 
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CarImage
+        fields ='__all__'
+
+
 class CarSerializers(serializers.ModelSerializer):
+    image = ImageSerializer(many=True)
     class Meta:
         model = Car
-        fields = '__all__'
-
+        fields = ('manufacture','tagline','car_model','mileage','year','status','transmission','price','horse_power','propellant','image')
 
 class ShowRoomSerializers(serializers.ModelSerializer):
     class Meta:
@@ -41,7 +47,3 @@ class GetCarByShowRoomSerializers(serializers.ModelSerializer):
         read_only_fields=('car',)
         depth=1
 
-class ImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CarImage
-        fields ='__all__'
