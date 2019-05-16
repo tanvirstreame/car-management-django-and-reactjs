@@ -1,12 +1,48 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
-from .models import ShowRoomOwner,Car,ShowRoom,CarAssignToShowRoom,ShowRoomOwnerAssignToShowRoom
-from .serializers import CarSerializers,ShowRoomSerializers,ShowRoomOwnerSerializers,CarAssignToShowRoomSerializers,ShowRoomOwnerAssignToShowRoomSerializers,GetCarByShowRoomSerializers
+from .models import ShowRoomOwner,Car,ShowRoom,CarAssignToShowRoom,ShowRoomOwnerAssignToShowRoom,CarImage
+from .serializers import CarSerializers,ShowRoomSerializers,ShowRoomOwnerSerializers,CarAssignToShowRoomSerializers,ShowRoomOwnerAssignToShowRoomSerializers,GetCarByShowRoomSerializers,ImageSerializer
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework import status
 from django.http import Http404
+from rest_framework.parsers import MultiPartParser, FormParser
+from django.http import JsonResponse
+
+def modify_input_for_multiple_files(property_id, image):
+    dict = {}
+    dict['car'] = property_id
+    dict['image'] = image
+    return dict
+
+class ImageView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+    def get(self, request):
+        all_images = CarImage.objects.all()
+        serializer = ImageSerializer(all_images, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    def post(self, request, *args, **kwargs):
+        property_id = request.data['car']
+        images = dict((request.data).lists())['image']
+        flag = 1
+        arr = []
+        for img_name in images:
+            modified_data = modify_input_for_multiple_files(property_id,
+                                                            img_name)
+            file_serializer = ImageSerializer(data=modified_data)
+            if file_serializer.is_valid():
+                file_serializer.save()
+                arr.append(file_serializer.data)
+            else:
+                flag = 0
+
+        if flag == 1:
+            return Response(arr, status=status.HTTP_201_CREATED)
+        else:
+            return Response(arr, status=status.HTTP_400_BAD_REQUEST)
+
 
 class CarViewSet(APIView):
     def get(self,request):

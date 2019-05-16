@@ -36,6 +36,11 @@ class Car(models.Model):
         return self.manufacture
 
 
+class CarImage(models.Model):
+    car= models.ForeignKey(Car,null=False,default=1,on_delete=models.CASCADE)
+    image = models.ImageField(null=False,default='default.jpg')
+
+
 class CarAssignToShowRoom(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     showroom = models.ForeignKey(ShowRoom, on_delete=models.CASCADE)
