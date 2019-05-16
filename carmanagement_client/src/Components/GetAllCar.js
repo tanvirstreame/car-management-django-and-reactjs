@@ -35,7 +35,7 @@ class CarGetAll extends Component {
                       </ol>
                       <div className="carousel-inner">
                         <div className="carousel-item active">
-                          <img src={'http://localhost:8000'+item.file} className="d-block w-100" alt="..."/>
+                          <img src={'http://localhost:8000'+item.image_feild['image'][0]} className="d-block w-100" alt="..."/>
                         </div>
                       </div>
                       {/* <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -8,7 +8,7 @@ class CreateCarForm extends Component {
     this.state = {
         manufacture:'',
         tagline:'',
-        carModel:'',
+        car_model:'',
         mileage:'', 
         year:'',
         status:'',
@@ -17,10 +17,10 @@ class CreateCarForm extends Component {
         horse_power:'',
         propellant:'',
         fileupload:'',
-        formErrors: { manufacture:'',tagline:'',carModel:'',mileage:'', year:'',status:'',transmission:'',price:'',horse_power:'',propellant:'',fileupload:'',},
+        formErrors: { manufacture:'',tagline:'',car_model:'',mileage:'', year:'',status:'',transmission:'',price:'',horse_power:'',propellant:'',fileupload:'',},
         manufacturevalid:false,
         taglinevalid:false,
-        carModelvalid:false,
+        car_modelvalid:false,
         mileagevalid:false,
         yearvalid:false,
         statusvalid:false,
@@ -44,7 +44,7 @@ class CreateCarForm extends Component {
     let fieldValidationErrors = this.state.formErrors;
     let manufacturevalid = this.state.manufacturevalid;
     let taglinevalid = this.state.taglinevalid ;
-    let carModelvalid = this.state.carModelvalid ;
+    let car_modelvalid = this.state.car_modelvalid ;
     let yearvalid = this.state.yearvalid ;
     let statusvalid = this.state.statusvalid ;
     let mileagevalid = this.state.mileagevalid ;
@@ -62,9 +62,9 @@ class CreateCarForm extends Component {
         taglinevalid= value.length !== 0;
         fieldValidationErrors.tagline = taglinevalid ? '': 'can not be empty';
         break;
-      case 'carModel':
-        carModelvalid= value.length !== 0;
-        fieldValidationErrors.carModel = carModelvalid ? '': 'can not be empty';
+      case 'car_model':
+        car_modelvalid= value.length !== 0;
+        fieldValidationErrors.car_model = car_modelvalid ? '': 'can not be empty';
         break;
       case 'year':
         yearvalid = value.length !== 0;
@@ -104,7 +104,7 @@ class CreateCarForm extends Component {
     this.setState({formErrors: fieldValidationErrors,
                     manufacturevalid : manufacturevalid,
                     taglinevalid : taglinevalid ,
-                    carModelvalid : carModelvalid ,
+                    car_modelvalid : car_modelvalid ,
                     yearvalid : yearvalid ,
                     statusvalid : statusvalid ,
                     mileagevalid : mileagevalid ,
@@ -117,7 +117,7 @@ class CreateCarForm extends Component {
   }
 
   validateForm() {
-    this.setState({formValid: this.state.manufacturevalid && this.state.taglinevalid && this.state.carModelvalid && this.state.yearvalid && this.state.mileagevalid  && this.state.pricevalid && this.state.horse_powervalid && this.state.propellantvalid});
+    this.setState({formValid: this.state.manufacturevalid && this.state.taglinevalid && this.state.car_modelvalid && this.state.yearvalid && this.state.mileagevalid  && this.state.pricevalid && this.state.horse_powervalid && this.state.propellantvalid});
   }
 
   errorClass(error) {
@@ -128,7 +128,7 @@ class CreateCarForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
     
-    fetch('http://localhost:8000/all-car-detail/', {
+    fetch('http://localhost:8000/createcar/', {
       method: 'POST',
       body: data,
     }).then(
@@ -143,7 +143,7 @@ class CreateCarForm extends Component {
     )
     this.manufacture.value =''; 
     this.tagline.value ='';
-    this.carModel.value =''; 
+    this.car_model.value =''; 
     this.mileage.value =''; 
     this.year.value ='';
     this.status.value ='';
@@ -181,7 +181,7 @@ class CreateCarForm extends Component {
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Car Model</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.carModel = el} name="carModel" value={this.state.carModel} onChange={this.handleUserInput}/>
+                                  <input type="text" className="form-control shadow-none" ref={el => this.car_model = el} name="car_model" value={this.state.car_model} onChange={this.handleUserInput}/>
                               </div>
                           </div>
                           <div className="row">
@@ -237,7 +237,7 @@ class CreateCarForm extends Component {
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Upload File</label>
-                                  <input type="file" className="form-control shadow-none" accept="image/*" name="image_feild[]" multiple/>
+                                  <input type="file" className="form-control shadow-none" accept="image/*" name="image" multiple/>
                               </div>
                           </div>
                           <div className="row">
