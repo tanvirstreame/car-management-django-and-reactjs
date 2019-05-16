@@ -4,6 +4,7 @@ class CarInformation extends Component {
     super(props);
     this.state={
         car:[],
+        image:[],
         showroom:[],
         expanded: false //begin with box closed
     }
@@ -23,6 +24,16 @@ showButton = () => {
             car:data,
         })
     })
+
+    fetch('http://127.0.0.1:8000/single-car-image/'+this.props.match.params.id,)
+    .then(function (res){
+        return res.json();
+    })
+    .then(function(data){
+        self.setState({
+            image:data,
+        })
+    })
   
 }
    
@@ -39,7 +50,11 @@ showButton = () => {
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src={'http://localhost:8000'+this.state.car.image_feild} class="d-block w-100" alt="..."/>
+                 {this.state.image.map((rowData,i)=> (
+                 <img src={rowData.image} class="d-block w-100" alt="..."/>
+                     ))};
+
+               
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

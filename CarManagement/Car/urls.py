@@ -14,7 +14,7 @@ urlpatterns = [
     path('showroom-all-car/', views.CarAssignToShowRoomDetail.as_view(),name="showroom-all-car"),
     path('owners-all-showroom/', views.ShowRoomOwnerAssignToShowRoomDetail.as_view(),name="owners-all-showroom"),
     path('showroomowner/', views.ShowRoomOwnerDetail.as_view(),name="showroomowner"),
-    path('createcar/', views.ImageView.as_view(),name="create-car"),
+    path('createcar/', views.CreateCar.as_view(),name="create-car"),
     path('single-car-image/<int:pk>', views.CarInformationImage.as_view(),name="single-car-info-image"),
 
 ]

@@ -16,7 +16,7 @@ def modify_input_for_multiple_files(car_id, image):
     dict['image'] = image
     return dict
 
-class ImageView(APIView):
+class CreateCar(APIView):
     parser_classes = (MultiPartParser, FormParser)
     def get(self, request):
         all_images = CarImage.objects.all()
@@ -181,4 +181,11 @@ class CarInformationImage(generics.ListAPIView):
         showroom = self.request.query_params.get('car', None)
         if showroom is not None:
             queryset = queryset.filter(Car=car)
+        return queryset
+
+class CarInformationWithSingleImage(generics.ListAPIView):
+    serializer_class =  ImageSerializer
+    def get_queryset(self):
+        queryset = CarImage.objects.all()
+        queryset = queryset.filter(image=1)
         return queryset
