@@ -8,15 +8,18 @@ class CarSerializers(serializers.ModelSerializer):
         model = Car
         fields = '__all__'
 
+
 class ShowRoomSerializers(serializers.ModelSerializer):
     class Meta:
         model = ShowRoom
         fields = '__all__'
 
+
 class ShowRoomOwnerSerializers(serializers.ModelSerializer):
     class Meta:
         model = ShowRoomOwner
         fields = '__all__'
+
 
 class CarAssignToShowRoomSerializers(serializers.ModelSerializer):
     class Meta:
@@ -24,10 +27,12 @@ class CarAssignToShowRoomSerializers(serializers.ModelSerializer):
         fields = '__all__'
         # read_only_fields=('car',)
 
+
 class ShowRoomOwnerAssignToShowRoomSerializers(serializers.ModelSerializer):
     class Meta:
         model = ShowRoomOwnerAssignToShowRoom
         fields = '__all__'
+
 
 class GetCarByShowRoomSerializers(serializers.ModelSerializer):
     class Meta:

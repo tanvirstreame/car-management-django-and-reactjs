@@ -94,6 +94,7 @@ class ShowRoomOwnerAssignToShowRoomDetail(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ShowRoomOwnerDetail(APIView):
     def get(self,request):
         showroomowner= ShowRoomOwner.objects.all()
@@ -105,15 +106,6 @@ class ShowRoomOwnerDetail(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-
-    	
-# class ShowRoomOwnerAssignToShowRoomViewSet(generics.ListCreateAPIView):
-# 	queryset = ShowRoomOwnerAssignToShowRoom.objects.all()
-# 	serializer_class = ShowRoomOwnerAssignToShowRoomSerializers
 
 
 class GetCarByShowroom(generics.ListAPIView):
