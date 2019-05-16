@@ -24,7 +24,18 @@ class ImageView(APIView):
         return JsonResponse(serializer.data, safe=False)
 
     def post(self, request, *args, **kwargs):
-        property_id = request.data['car']
+        manufacture = request.data['manufacture']
+        tagline = request.data['tagline']
+        car_model = request.data['car_model']
+        mileage = request.data['mileage']
+        year = request.data['year']
+        carstatus = request.data['status']
+        transmission= request.data['transmission']
+        price= request.data['price']
+        horse_power= request.data['horse_power']
+        propellant= request.data['propellant']
+        property_id = Car.objects.latest("id").id+1
+        Car.objects.create(manufacture=manufacture,tagline=tagline,car_model=car_model,mileage=mileage,year=year,status=carstatus,transmission=transmission,price=price,horse_power=horse_power,propellant=propellant)
         images = dict((request.data).lists())['image']
         flag = 1
         arr = []
@@ -43,6 +54,9 @@ class ImageView(APIView):
         else:
             return Response(arr, status=status.HTTP_400_BAD_REQUEST)
 
+# class CarViewSet(generics.ListCreateAPIView):
+#     queryset = Car.objects.all()
+#     serializer_class = CarSerializers
 
 class CarViewSet(APIView):
     def get(self,request):

@@ -6,15 +6,15 @@ from .models import Car,ShowRoom,ShowRoomOwner,CarAssignToShowRoom,ShowRoomOwner
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = CarImage
-        fields ='__all__'
+        fields =('id','car','image')
 
 
 class CarSerializers(serializers.ModelSerializer):
-    image = ImageSerializer(many=True)
+    image_feild = ImageSerializer(many=True)
     class Meta:
         model = Car
-        fields = ('manufacture','tagline','car_model','mileage','year','status','transmission','price','horse_power','propellant','image')
-
+        fields = ('id','manufacture','tagline','car_model','mileage','year','status','transmission','price','horse_power','propellant','image_feild' )
+        
 class ShowRoomSerializers(serializers.ModelSerializer):
     class Meta:
         model = ShowRoom
