@@ -22,11 +22,11 @@ class CarGetAll extends Component {
     return (
       <div className='container'>
         <div className="row">
-            {this.state.car.map(item => (
-              <Link key={item.id} className="linkelement"  to={`/getcarinfo/${item.id}`}>
+            {this.state.car.map((rowData,i)=> (
+              <Link key={rowData.id} className="linkelement"  to={`/getcarinfo/${rowData.id}`}>
                 <div className="card">
                   <div className="card-body">
-                    <h4 className="text-center">{item.name}</h4>
+                    <h4 className="text-center">{rowData.name}</h4>
                     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                       <ol className="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -35,7 +35,19 @@ class CarGetAll extends Component {
                       </ol>
                       <div className="carousel-inner">
                         <div className="carousel-item active">
-                          <img src={'http://localhost:8000'+item.image_feild[0].image} className="d-block w-100" alt="..."/>
+                         
+                                {
+                                  rowData.image_feild.map((subRow,k)=>
+                                  
+                                    <img src={'http://localhost:8000'+subRow.image} className="d-block w-100" alt="..."/>
+                                  
+                                  
+            )
+                                }
+                            
+
+
+                           
                         </div>
                       </div>
                       {/* <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -48,19 +60,19 @@ class CarGetAll extends Component {
                       </a> */}
                     </div>
                     <label><b>Id:</b></label>
-                    <span>{item.id}</span>
+                    <span>{rowData.id}</span>
                     <br/>
                     <label><b>Manufacture:</b></label>
-                    <span>{item.manufacture}</span>
+                    <span>{rowData.manufacture}</span>
                     <br/>
                     <label><b>Mileage:</b></label>
-                    <span>{item.mileage}</span>
+                    <span>{rowData.mileage}</span>
                     <br/>
                     <label><b>Year:</b></label>
-                    <span>{item.year}</span>
+                    <span>{rowData.year}</span>
                     <br/>
                     <label><b>Status:</b></label>
-                    <i className="fas fa-building"></i><span>{item.status===0 ? "Sold":"In Stock"}</span>
+                    <i className="fas fa-building"></i><span>{rowData.status===0 ? "Sold":"In Stock"}</span>
                   </div>
                 </div> 
               </Link>

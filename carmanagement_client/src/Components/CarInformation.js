@@ -39,7 +39,7 @@ showButton = () => {
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src={'http://localhost:8000'+this.state.car.file} class="d-block w-100" alt="..."/>
+                <img src={'http://localhost:8000'+this.state.car.image_feild} class="d-block w-100" alt="..."/>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

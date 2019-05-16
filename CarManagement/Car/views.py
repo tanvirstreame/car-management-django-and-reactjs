@@ -10,9 +10,9 @@ from django.http import Http404
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.http import JsonResponse
 
-def modify_input_for_multiple_files(property_id, image):
+def modify_input_for_multiple_files(car_id, image):
     dict = {}
-    dict['car'] = property_id
+    dict['car'] = car_id
     dict['image'] = image
     return dict
 
@@ -34,13 +34,20 @@ class ImageView(APIView):
         price= request.data['price']
         horse_power= request.data['horse_power']
         propellant= request.data['propellant']
-        property_id = Car.objects.latest("id").id+1
+        try:
+            car_id = Car.objects.latest("id").id+1
+            if car_id!=NULL:
+                car_id=car_id
+            else:
+                car_id=1
+        except:
+            pass
         Car.objects.create(manufacture=manufacture,tagline=tagline,car_model=car_model,mileage=mileage,year=year,status=carstatus,transmission=transmission,price=price,horse_power=horse_power,propellant=propellant)
         images = dict((request.data).lists())['image']
         flag = 1
         arr = []
         for img_name in images:
-            modified_data = modify_input_for_multiple_files(property_id,
+            modified_data = modify_input_for_multiple_files(car_id,
                                                             img_name)
             file_serializer = ImageSerializer(data=modified_data)
             if file_serializer.is_valid():
@@ -165,4 +172,13 @@ class GetCarByShowroom(generics.ListAPIView):
         showroom = self.request.query_params.get('showroom', None)
         if showroom is not None:
             queryset = queryset.filter(showroom=showroom)
+        return queryset
+
+class CarInformationImage(generics.ListAPIView):
+    serializer_class =  ImageSerializer
+    def get_queryset(self):
+        queryset = CarImage.objects.all()
+        showroom = self.request.query_params.get('car', None)
+        if showroom is not None:
+            queryset = queryset.filter(Car=car)
         return queryset
