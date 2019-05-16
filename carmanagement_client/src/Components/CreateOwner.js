@@ -129,8 +129,7 @@ class CreateOwner extends Component {
                                   <FormErrors formErrors={this.state.formErrors} />
                               </div>
                           </div>
-                      </form>
-                     
+                      </form>   
                   </div>
               </div>
             </div>

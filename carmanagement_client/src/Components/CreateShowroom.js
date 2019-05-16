@@ -72,10 +72,6 @@ class CreateShowRoomForm extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
-
-  
-  
-
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);

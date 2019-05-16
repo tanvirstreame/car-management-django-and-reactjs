@@ -116,7 +116,6 @@ class CreateCarForm extends Component {
                   }, this.validateForm);
   }
 
-
   validateForm() {
     this.setState({formValid: this.state.manufacturevalid && this.state.taglinevalid && this.state.carModelvalid && this.state.yearvalid && this.state.mileagevalid  && this.state.pricevalid && this.state.horse_powervalid && this.state.propellantvalid});
   }
@@ -124,8 +123,6 @@ class CreateCarForm extends Component {
   errorClass(error) {
     return(error.length === 0 ? '' : 'has-error');
   }
-
-
 
   handleSubmit(event) {
     event.preventDefault();
@@ -240,7 +237,7 @@ class CreateCarForm extends Component {
                           <div className="row">
                               <div className="col-md-8 offset-md-2">
                                   <label>Upload File</label>
-                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file[]" multiple/>
+                                  <input type="file" className="form-control shadow-none" accept="image/*" name="file" multiple/>
                               </div>
                           </div>
                           <div className="row">
