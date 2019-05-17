@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./CarInformation.css"
+import defaultimage from './assets/loading.png'
 class CarInformation extends Component {
   constructor(props){
     super(props);
@@ -41,31 +44,27 @@ showButton = () => {
     return (
       <div className='container'>
         <div className="row">
-          <div key={this.state.car.id}>
-            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-            <ol className="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div className="carousel-inner">
+          <div className="formtop" key={this.state.car.id}>
+            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+              <div className="carousel-inner">
                 <div className="carousel-item active">
-                 {this.state.image.map((rowData,i)=> (
-                  <div key={rowData.image}>
-                    <img src={rowData.image} className="d-block w-100" alt="..."/>
-                  </div>
-                 ))};
+                  <img src={defaultimage} alt="Los Angeles" width="1100" height="500"/>
                 </div>
-            </div>
-            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  {this.state.image.map((rowData,i)=> (
+                <div key={rowData.image} className="carousel-item ">
+                  <img src={rowData.image} className="d-block w-100" alt="..."/>
+                </div>
+                  ))};
+              </div>
+              <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span className="sr-only">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              </a>
+              <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="sr-only">Next</span>
-            </a>
-            </div>
+              </a>
+            </div> 
             <h4 className="text-center">Car Info</h4>
             <label><b>Show Info Id:</b></label>
             <span >{this.state.car.id}</span>
@@ -88,9 +87,9 @@ showButton = () => {
             <label><b>Price:</b></label>
             <span >{this.state.car.price}</span>
             <br/>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
     );
   }
 }
