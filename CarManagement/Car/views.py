@@ -62,9 +62,6 @@ class CreateCar(APIView):
         else:
             return Response(arr, status=status.HTTP_400_BAD_REQUEST)
 
-# class CarViewSet(generics.ListCreateAPIView):
-#     queryset = Car.objects.all()
-#     serializer_class = CarSerializers
 
 class CarViewSet(APIView):
     def get(self,request):

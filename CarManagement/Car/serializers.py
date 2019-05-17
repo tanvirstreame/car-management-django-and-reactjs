@@ -31,7 +31,6 @@ class CarAssignToShowRoomSerializers(serializers.ModelSerializer):
     class Meta:
         model = CarAssignToShowRoom
         fields = '__all__'
-        # read_only_fields=('car',)
 
 
 class ShowRoomOwnerAssignToShowRoomSerializers(serializers.ModelSerializer):
@@ -45,9 +44,4 @@ class GetCarByShowRoomSerializers(serializers.ModelSerializer):
     class Meta:
         model = CarAssignToShowRoom
         fields = ('id','car','showroom')
-        # depth=1
-     
-
-
         
-
