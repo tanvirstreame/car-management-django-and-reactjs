@@ -34,6 +34,7 @@ class CreateCar(APIView):
         price= request.data['price']
         horse_power= request.data['horse_power']
         propellant= request.data['propellant']
+        car_id=1
         try:
             car_id = Car.objects.latest("id").id+1
             if car_id!=NULL:

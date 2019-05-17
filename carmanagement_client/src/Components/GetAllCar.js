@@ -37,11 +37,11 @@ class CarGetAll extends Component {
                         <div className="carousel-item active">
                          
                                 {
-                                  rowData.image_feild.map((subRow,k)=>
+                                  rowData.image_feild.slice(0,1).map((subRow,k)=>
                                   
                                     <img src={'http://localhost:8000'+subRow.image} className="d-block w-100" alt="..."/>
                                   
-                                  
+                                   
             )
                                 }
                             
