@@ -74,7 +74,18 @@ showButton = () => {
                     </ol>
                     <div className="carousel-inner">
                       <div className="carousel-item active">
-                        <img src={rowdata.car.image_feild} className="d-block w-100" alt="..."/>
+                      {
+                        
+                        (typeof(rowdata.image_feild)=='object')?
+                        <div>
+                        {
+                          rowdata.image_feild.map((subRowData,k)=>
+                            <img src={subRowData.image} className="d-block w-100" alt="..."/>
+                            )
+                        } 
+                        </div>:null
+                      }
+                       
                       </div>
                     </div>
                     {/* <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

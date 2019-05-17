@@ -35,19 +35,13 @@ class CarGetAll extends Component {
                       </ol>
                       <div className="carousel-inner">
                         <div className="carousel-item active">
-                         
-                                {
-                                  rowData.image_feild.slice(0,1).map((subRow,k)=>
-                                  
-                                    <img src={'http://localhost:8000'+subRow.image} className="d-block w-100" alt="..."/>
-                                  
-                                   
-            )
-                                }
-                            
-
-
-                           
+                        {
+                          rowData.image_feild.slice(0,1).map((subRow,k)=>
+                            <div key={subRow.image}>
+                            <img src={'http://localhost:8000'+subRow.image} className="d-block w-100" alt="..."/>
+                            </div>
+                            )
+                        }
                         </div>
                       </div>
                       {/* <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
