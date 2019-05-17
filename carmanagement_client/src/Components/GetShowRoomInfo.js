@@ -88,14 +88,6 @@ showButton = () => {
                        
                       </div>
                     </div>
-                    {/* <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span className="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span className="sr-only">Next</span>
-                    </a> */}
                   </div>
                   <h4 className="text-center">Car Info</h4>
                   <label><b>Show Info Id:</b></label>
