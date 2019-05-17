@@ -75,7 +75,6 @@ showButton = () => {
                     <div className="carousel-inner">
                       <div className="carousel-item active">
                       {
-                        
                         (typeof(rowdata.image_feild)=='object')?
                         <div>
                         {
@@ -85,7 +84,6 @@ showButton = () => {
                         } 
                         </div>:null
                       }
-                       
                       </div>
                     </div>
                   </div>
