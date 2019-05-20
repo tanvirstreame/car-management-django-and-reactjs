@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./CarInformation.css"
-import defaultimage from './assets/loading.png'
 class CarInformation extends Component {
   constructor(props){
     super(props);
@@ -42,7 +41,7 @@ showButton = () => {
    
   render(){
     let show = this.state.image.map((rowData,i)=> {
-      let carouselClass = i == '0'?"carousel-item active":"carousel-item";
+      let carouselClass = (i === 0)?"carousel-item active":"carousel-item";
       return <div key={rowData.image} className={carouselClass}>
               <img src={rowData.image} className="d-block w-100" alt="..."/>
             </div>
