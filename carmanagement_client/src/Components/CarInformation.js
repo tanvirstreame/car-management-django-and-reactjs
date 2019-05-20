@@ -41,20 +41,19 @@ showButton = () => {
 }
    
   render(){
+    let show = this.state.image.map((rowData,i)=> {
+      let carouselClass = i == '0'?"carousel-item active":"carousel-item";
+      return <div key={rowData.image} className={carouselClass}>
+              <img src={rowData.image} className="d-block w-100" alt="..."/>
+            </div>
+    })
     return (
       <div className='container'>
         <div className="row">
           <div className="formtop" key={this.state.car.id}>
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
               <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <img src={defaultimage} alt="Los Angeles" width="1100" height="500"/>
-                </div>
-                  {this.state.image.map((rowData,i)=> (
-                <div key={rowData.image} className="carousel-item ">
-                  <img src={rowData.image} className="d-block w-100" alt="..."/>
-                </div>
-                  ))};
+                  {show};
               </div>
               <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
