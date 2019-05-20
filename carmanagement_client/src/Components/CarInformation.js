@@ -72,7 +72,7 @@ showButton = () => {
             <label><b>Car Name:</b></label>
             <span >{this.state.car.name}</span>
             <br/>
-            <label><b>car Mileage:</b></label>
+            <label><b>Car Mileage:</b></label>
             <span >{this.state.car.mileage}</span>
             <br/>
             <label><b>Year:</b></label>
