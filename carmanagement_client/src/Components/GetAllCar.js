@@ -28,15 +28,15 @@ class CarGetAll extends Component {
                   <div className="card-body">
                     <h4 className="text-center">{rowData.name}</h4>
                       <div className="carousel-inner">
-                        <div className="carousel-item active">
-                        {
-                          rowData.image_feild.slice(0,1).map((subRow,k)=>
-                            <div key={subRow.image}>
-                            <img src={'http://localhost:8000'+subRow.image} className="" alt="..."/>
-                            </div>
-                            )
-                        }
-                        </div>
+                     { rowData.image_feild.map((subRow,k)=>
+                        (k===0)?
+                        <div key={subRow.image} className="carousel-item active">
+                          <img src={subRow.image} className="" alt="..."/>
+                        </div> :
+                        <div key={subRow.image} className="carousel-item">
+                            <img src={subRow.image} className="" alt="..."/>
+                        </div>   
+                        )}
                       </div>
                     <label><b>Id:</b></label>
                     <span>{rowData.id}</span>

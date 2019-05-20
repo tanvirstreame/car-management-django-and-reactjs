@@ -1,73 +1,84 @@
-from django.shortcuts import render
-from rest_framework import viewsets
+'''
+This file should contain views
+'''
+
+from django.http import JsonResponse
+from django.http import Http404
 from rest_framework.response import Response
-from .models import ShowRoomOwner,Car,ShowRoom,CarAssignToShowRoom,ShowRoomOwnerAssignToShowRoom,CarImage
-from .serializers import CarSerializers,ShowRoomSerializers,ShowRoomOwnerSerializers,CarAssignToShowRoomSerializers,ShowRoomOwnerAssignToShowRoomSerializers,GetCarByShowRoomSerializers,ImageSerializer
 from rest_framework import generics
 from rest_framework.views import APIView
+from rest_framework.generics import ListCreateAPIView
 from rest_framework import status
-from django.http import Http404
-from rest_framework.parsers import MultiPartParser, FormParser
-from django.http import JsonResponse
+from rest_framework.parsers import (MultiPartParser, FormParser)
+from .models import (
+    ShowRoomOwner,
+    Car,
+    ShowRoom,
+    CarAssignToShowRoom,
+    ShowRoomOwnerAssignToShowRoom,
+    CarImage
+)
+from .serializers import (
+    CarSerializers,
+    ShowRoomSerializers,
+    ShowRoomOwnerSerializers,
+    CarAssignToShowRoomSerializers,
+    ShowRoomOwnerAssignToShowRoomSerializers,
+    GetCarByShowRoomSerializers,
+    ImageSerializer
+)
 
-def modify_input_for_multiple_files(car_id, image):
+
+def modify_input_for_multiple_files(lattest_car, image):
+    '''
+    multiple files send via dict
+    '''
     dict = {}
-    dict['car'] = car_id
+    dict['car'] = lattest_car.id
     dict['image'] = image
     return dict
 
+
 class CreateCar(APIView):
+    '''
+    Creating car
+    '''
     parser_classes = (MultiPartParser, FormParser)
+
     def get(self, request):
         all_images = CarImage.objects.all()
         serializer = ImageSerializer(all_images, many=True)
         return JsonResponse(serializer.data, safe=False)
 
     def post(self, request, *args, **kwargs):
-        manufacture = request.data['manufacture']
-        tagline = request.data['tagline']
-        car_model = request.data['car_model']
-        mileage = request.data['mileage']
-        year = request.data['year']
-        carstatus = request.data['status']
-        transmission= request.data['transmission']
-        price= request.data['price']
-        horse_power= request.data['horse_power']
-        propellant= request.data['propellant']
-        car_id=1
-        try:
-            car_id = Car.objects.latest("id").id+1
-            if car_id!=NULL:
-                car_id=car_id
-            else:
-                car_id=1
-        except:
-            pass
-        Car.objects.create(manufacture=manufacture,tagline=tagline,car_model=car_model,mileage=mileage,year=year,status=carstatus,transmission=transmission,price=price,horse_power=horse_power,propellant=propellant)
+        key = ['manufacture', 'tagline', 'car_model', 'mileage',
+               'year', 'status', 'transmission', 'price', 'horse_power', 'propellant'],
+        data = {}
+        for item in data:
+            data.update(item, request.data[item])
+
+        lattest_car = Car.objects.create(**data)
         images = dict((request.data).lists())['image']
-        flag = 1
-        arr = []
+
         for img_name in images:
-            modified_data = modify_input_for_multiple_files(car_id,
-                                                            img_name)
-            file_serializer = ImageSerializer(data=modified_data)
+            file_serializer = ImageSerializer(
+                data=modify_input_for_multiple_files(
+                    lattest_car,
+                    img_name
+                )
+            )
+
             if file_serializer.is_valid():
                 file_serializer.save()
-                arr.append(file_serializer.data)
-            else:
-                flag = 0
+                return Response(file_serializer.data, status=status.HTTP_201_CREATED)
 
-        if flag == 1:
-            return Response(arr, status=status.HTTP_201_CREATED)
-        else:
-            return Response(arr, status=status.HTTP_400_BAD_REQUEST)
+        return Response('error', status=status.HTTP_400_BAD_REQUEST)
 
 
-class CarViewSet(APIView):
-    def get(self,request):
-        car = Car.objects.all()
-        serializer = CarSerializers(car,many=True)
-        return Response(serializer.data)
+class CarViewSet(ListCreateAPIView):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializers
+
     def post(self, request, format=None):
         serializer = CarSerializers(data=request.data)
         if serializer.is_valid():
@@ -77,11 +88,15 @@ class CarViewSet(APIView):
 
 
 class SingleCarDetail(APIView):
+    '''
+    Single car detail
+    '''
     def get_object(self, pk):
         try:
             return Car.objects.get(pk=pk)
         except Car.DoesNotExist:
             raise Http404
+
     def get(self, request, pk, format=None):
         snippet = self.get_object(pk)
         serializer = CarSerializers(snippet)
@@ -89,10 +104,14 @@ class SingleCarDetail(APIView):
 
 
 class ShowRoomDetail(APIView):
-    def get(self,request):
-        showroom= ShowRoom.objects.all()
-        serializer = ShowRoomSerializers(showroom,many=True)
+    '''
+    Showroom detail
+    '''
+    def get(self, request):
+        showroom = ShowRoom.objects.all()
+        serializer = ShowRoomSerializers(showroom, many=True)
         return Response(serializer.data)
+
     def post(self, request, format=None):
         serializer = ShowRoomSerializers(data=request.data)
         if serializer.is_valid():
@@ -100,12 +119,17 @@ class ShowRoomDetail(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class SingleShowRoomDetail(APIView):
+    '''
+    Single show room detail
+    '''
     def get_object(self, pk):
         try:
             return ShowRoom.objects.get(pk=pk)
         except ShowRoom.DoesNotExist:
             raise Http404
+
     def get(self, request, pk, format=None):
         snippet = self.get_object(pk)
         serializer = ShowRoomSerializers(snippet)
@@ -113,10 +137,15 @@ class SingleShowRoomDetail(APIView):
 
 
 class CarAssignToShowRoomDetail(APIView):
-    def get(self,request):
-        carassigntoshowroom= CarAssignToShowRoom.objects.all()
-        serializer = CarAssignToShowRoomSerializers(carassigntoshowroom,many=True)
+    '''
+    Car assign to showroom detail
+    '''
+    def get(self, request):
+        carassigntoshowroom = CarAssignToShowRoom.objects.all()
+        serializer = CarAssignToShowRoomSerializers(
+            carassigntoshowroom, many=True)
         return Response(serializer.data)
+
     def post(self, request, format=None):
         serializer = CarAssignToShowRoomSerializers(data=request.data)
         if serializer.is_valid():
@@ -126,11 +155,15 @@ class CarAssignToShowRoomDetail(APIView):
 
 
 class GetCarAssignToShowRoom(APIView):
+    '''
+    Get car assign to showroom
+    '''
     def get_object(self, pk):
         try:
             return CarAssignToShowRoom.objects.get(pk=pk)
         except CarAssignToShowRoom.DoesNotExist:
             raise Http404
+
     def get(self, request, pk, format=None):
         snippet = self.get_object(pk)
         serializer = CarAssignToShowRoom(snippet)
@@ -138,12 +171,18 @@ class GetCarAssignToShowRoom(APIView):
 
 
 class ShowRoomOwnerAssignToShowRoomDetail(APIView):
-    def get(self,request):
-        showroomownerassigntoshowroom= ShowRoomOwnerAssignToShowRoom.objects.all()
-        serializer = ShowRoomOwnerAssignToShowRoomSerializers(showroomownerassigntoshowroom,many=True)
+    '''
+    Showroom owner assign to showroom detail
+    '''
+    def get(self, request):
+        showroomownerassigntoshowroom = ShowRoomOwnerAssignToShowRoom.objects.all()
+        serializer = ShowRoomOwnerAssignToShowRoomSerializers(
+            showroomownerassigntoshowroom, many=True)
         return Response(serializer.data)
+
     def post(self, request, format=None):
-        serializer = ShowRoomOwnerAssignToShowRoomSerializers(data=request.data)
+        serializer = ShowRoomOwnerAssignToShowRoomSerializers(
+            data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -151,10 +190,14 @@ class ShowRoomOwnerAssignToShowRoomDetail(APIView):
 
 
 class ShowRoomOwnerDetail(APIView):
-    def get(self,request):
-        showroomowner= ShowRoomOwner.objects.all()
-        serializer = ShowRoomOwnerSerializers(showroomowner,many=True)
+    '''
+    Showroom owner detail
+    '''
+    def get(self, request):
+        showroomowner = ShowRoomOwner.objects.all()
+        serializer = ShowRoomOwnerSerializers(showroomowner, many=True)
         return Response(serializer.data)
+
     def post(self, request, format=None):
         serializer = ShowRoomOwnerSerializers(data=request.data)
         if serializer.is_valid():
@@ -164,7 +207,11 @@ class ShowRoomOwnerDetail(APIView):
 
 
 class GetCarByShowroom(generics.ListAPIView):
-    serializer_class =  GetCarByShowRoomSerializers
+    '''
+    Get car by showroom
+    '''
+    serializer_class = GetCarByShowRoomSerializers
+
     def get_queryset(self):
         queryset = CarAssignToShowRoom.objects.all()
         showroom = self.request.query_params.get('showroom', None)
@@ -172,17 +219,27 @@ class GetCarByShowroom(generics.ListAPIView):
             queryset = queryset.filter(showroom=showroom)
         return queryset
 
+
 class CarInformationImage(generics.ListAPIView):
-    serializer_class =  ImageSerializer
+    '''
+    Car information image
+    '''
+    serializer_class = ImageSerializer
+
     def get_queryset(self):
         queryset = CarImage.objects.all()
-        showroom = self.request.query_params.get('car', None)
-        if showroom is not None:
-            queryset = queryset.filter(Car=car)
+        car = self.request.query_params.get('car', None)
+        if car is not None:
+            queryset = queryset.filter(car=car)
         return queryset
 
+
 class CarInformationWithSingleImage(generics.ListAPIView):
-    serializer_class =  ImageSerializer
+    '''
+    Car information single image
+    '''
+    serializer_class = ImageSerializer
+
     def get_queryset(self):
         queryset = CarImage.objects.all()
         queryset = queryset.filter(image=1)

@@ -27,7 +27,7 @@ showButton = () => {
         })
     })
 
-    fetch('http://127.0.0.1:8000/single-car-image/'+this.props.match.params.id,)
+    fetch('http://127.0.0.1:8000/single-car-image/?car='+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })
