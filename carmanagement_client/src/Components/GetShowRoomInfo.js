@@ -67,7 +67,7 @@ showButton = () => {
               <div className="card showroomcarinfo">
                 <div className="card-body showroomcarbodyinfo">
                   <h4 className="text-center">Car Info</h4>
-                  <label><b>Show Info Id:</b></label>
+                  <label><b>Car Id:</b></label>
                   <span >{rowdata.car.id}</span>
                   <br/>
                   <label><b>Car Mileage:</b></label>
