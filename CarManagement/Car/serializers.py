@@ -45,11 +45,12 @@ class ShowRoomOwnerSerializers(serializers.ModelSerializer):
     '''
     ShowRoomOwnerSerializers
     '''
-    email = serializers.EmailField(validators=[UniqueValidator(queryset=ShowRoomOwner.objects.all())])
+    email = serializers.EmailField(
+        validators=[UniqueValidator(queryset=ShowRoomOwner.objects.all())])
+
     class Meta:
         model = ShowRoomOwner
         fields = '__all__'
-         
 
 
 class CarAssignToShowRoomSerializers(serializers.ModelSerializer):
