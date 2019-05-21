@@ -63,7 +63,7 @@ class CreateCar(APIView):
         propellant = request.data['propellant']
         lattest_car = Car.objects.create(manufacture=manufacture, tagline=tagline, car_model=car_model, mileage=mileage,
                                          year=year, status=carstatus, transmission=transmission, price=price, horse_power=horse_power, propellant=propellant)
-
+        flag = 1
         images = dict((request.data).lists())['image']
 
         for img_name in images:
@@ -76,9 +76,9 @@ class CreateCar(APIView):
 
             if file_serializer.is_valid():
                 file_serializer.save()
-                return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-
-        return Response('error', status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response("Error", status=status.HTTP_400_BAD_REQUEST)
+        return Response("Success", status=status.HTTP_201_CREATED)
 
 
 class CarViewSet(ListCreateAPIView):
