@@ -96,19 +96,10 @@ class Manufactor(models.Model):
     '''
     Manufactor comapany and country
     '''
-    name = models.CharField(max_length=30, blank=True)
-    country = models.CharField(max_length=30, blank=True)
-
-    def __str__(self):
-        return self.name
-
+    pass
 
 class ManufactorModel(models.Model):
     '''
     Manufactor model with car type
     '''
-    name = models.CharField(max_length=30, blank=True)
-    car_type = models.CharField(max_length=100, blank=True)
-
-    def __str__(self):
-        return self.name
+    pass
