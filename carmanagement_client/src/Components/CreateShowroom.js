@@ -76,7 +76,7 @@ class CreateShowRoomForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
     
-    fetch('http://localhost:8000/showroom/', {
+    fetch('http://localhost:8000/api/v1/showroom/', {
       method: 'POST',
       body: data,
     }).then(

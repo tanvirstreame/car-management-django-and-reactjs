@@ -17,7 +17,7 @@ showButton = () => {
 
   componentDidMount(){
     var self = this;
-    fetch('http://127.0.0.1:8000/single-car-detail/'+this.props.match.params.id,)
+    fetch('http://127.0.0.1:8000/api/v1/single-car-detail/'+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })
@@ -27,7 +27,7 @@ showButton = () => {
         })
     })
 
-    fetch('http://127.0.0.1:8000/single-car-image/?car='+this.props.match.params.id,)
+    fetch('http://127.0.0.1:8000/api/v1/single-car-image/?car='+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })

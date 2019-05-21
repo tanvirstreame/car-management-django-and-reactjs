@@ -17,7 +17,7 @@ showButton = () => {
 
   componentDidMount(){
     var self = this;
-    fetch('http://localhost:8000/get-car-by-showroom/?showroom='+this.props.match.params.id,)
+    fetch('http://localhost:8000/api/v1/get-car-by-showroom/?showroom='+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })
@@ -27,7 +27,7 @@ showButton = () => {
         })
     })
   
-    fetch('http://localhost:8000/single-showroom/'+this.props.match.params.id,)
+    fetch('http://localhost:8000/api/v1/single-showroom/'+this.props.match.params.id,)
     .then(function (res){
         return res.json();
     })

@@ -51,13 +51,19 @@ class CreateCar(APIView):
         return JsonResponse(serializer.data, safe=False)
 
     def post(self, request, *args, **kwargs):
-        key = ['manufacture', 'tagline', 'car_model', 'mileage',
-               'year', 'status', 'transmission', 'price', 'horse_power', 'propellant'],
-        data = {}
-        for item in data:
-            data.update(item, request.data[item])
+        manufacture = request.data['manufacture']
+        tagline = request.data['tagline']
+        car_model = request.data['car_model']
+        mileage = request.data['mileage']
+        year = request.data['year']
+        carstatus = request.data['status']
+        transmission = request.data['transmission']
+        price = request.data['price']
+        horse_power = request.data['horse_power']
+        propellant = request.data['propellant']
+        lattest_car = Car.objects.create(manufacture=manufacture, tagline=tagline, car_model=car_model, mileage=mileage,
+                                         year=year, status=carstatus, transmission=transmission, price=price, horse_power=horse_power, propellant=propellant)
 
-        lattest_car = Car.objects.create(**data)
         images = dict((request.data).lists())['image']
 
         for img_name in images:
@@ -91,6 +97,7 @@ class SingleCarDetail(APIView):
     '''
     Single car detail
     '''
+
     def get_object(self, pk):
         try:
             return Car.objects.get(pk=pk)
@@ -107,6 +114,7 @@ class ShowRoomDetail(APIView):
     '''
     Showroom detail
     '''
+
     def get(self, request):
         showroom = ShowRoom.objects.all()
         serializer = ShowRoomSerializers(showroom, many=True)
@@ -124,6 +132,7 @@ class SingleShowRoomDetail(APIView):
     '''
     Single show room detail
     '''
+
     def get_object(self, pk):
         try:
             return ShowRoom.objects.get(pk=pk)
@@ -140,6 +149,7 @@ class CarAssignToShowRoomDetail(APIView):
     '''
     Car assign to showroom detail
     '''
+
     def get(self, request):
         carassigntoshowroom = CarAssignToShowRoom.objects.all()
         serializer = CarAssignToShowRoomSerializers(
@@ -158,6 +168,7 @@ class GetCarAssignToShowRoom(APIView):
     '''
     Get car assign to showroom
     '''
+
     def get_object(self, pk):
         try:
             return CarAssignToShowRoom.objects.get(pk=pk)
@@ -174,6 +185,7 @@ class ShowRoomOwnerAssignToShowRoomDetail(APIView):
     '''
     Showroom owner assign to showroom detail
     '''
+
     def get(self, request):
         showroomownerassigntoshowroom = ShowRoomOwnerAssignToShowRoom.objects.all()
         serializer = ShowRoomOwnerAssignToShowRoomSerializers(
@@ -193,6 +205,7 @@ class ShowRoomOwnerDetail(APIView):
     '''
     Showroom owner detail
     '''
+
     def get(self, request):
         showroomowner = ShowRoomOwner.objects.all()
         serializer = ShowRoomOwnerSerializers(showroomowner, many=True)

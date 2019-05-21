@@ -7,7 +7,7 @@ class GetShowRoom extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/showroom/');
+      const res = await fetch('http://127.0.0.1:8000/api/v1/showroom/');
       const todos = await res.json();
       this.setState({
         todos
