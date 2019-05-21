@@ -3,7 +3,6 @@ This file should contain views
 '''
 
 from django.http import JsonResponse
-from django.http import Http404
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.views import APIView
@@ -92,130 +91,58 @@ class CarViewSet(ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class SingleCarDetail(APIView):
+class SingleCarDetail(generics.RetrieveUpdateDestroyAPIView):
     '''
     Single car detail
     '''
 
-    def get_object(self, pk):
-        try:
-            return Car.objects.get(pk=pk)
-        except Car.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk, format=None):
-        snippet = self.get_object(pk)
-        serializer = CarSerializers(snippet)
-        return Response(serializer.data)
+    queryset = Car.objects.all()
+    serializer_class = CarSerializers
 
 
-class ShowRoomDetail(APIView):
+class ShowRoomDetail(generics.ListCreateAPIView):
     '''
     Showroom detail
     '''
-    
-    def get(self, request):
-        showroom = ShowRoom.objects.all()
-        serializer = ShowRoomSerializers(showroom, many=True)
-        return Response(serializer.data)
 
-    def post(self, request, format=None):
-        serializer = ShowRoomSerializers(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = ShowRoom.objects.all()
+    serializer_class = ShowRoomSerializers
 
 
-class SingleShowRoomDetail(APIView):
+class SingleShowRoomDetail(generics.RetrieveUpdateDestroyAPIView):
     '''
     Single show room detail
     '''
 
-    def get_object(self, pk):
-        try:
-            return ShowRoom.objects.get(pk=pk)
-        except ShowRoom.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk, format=None):
-        snippet = self.get_object(pk)
-        serializer = ShowRoomSerializers(snippet)
-        return Response(serializer.data)
+    queryset = ShowRoom.objects.all()
+    serializer_class = ShowRoomSerializers
 
 
-class CarAssignToShowRoomDetail(APIView):
+class CarAssignToShowRoomDetail(generics.ListCreateAPIView):
     '''
     Car assign to showroom detail
     '''
 
-    def get(self, request):
-        carassigntoshowroom = CarAssignToShowRoom.objects.all()
-        serializer = CarAssignToShowRoomSerializers(
-            carassigntoshowroom, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = CarAssignToShowRoomSerializers(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = CarAssignToShowRoom.objects.all()
+    serializer_class = CarAssignToShowRoomSerializers
 
 
-class GetCarAssignToShowRoom(APIView):
-    '''
-    Get car assign to showroom
-    '''
-
-    def get_object(self, pk):
-        try:
-            return CarAssignToShowRoom.objects.get(pk=pk)
-        except CarAssignToShowRoom.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk, format=None):
-        snippet = self.get_object(pk)
-        serializer = CarAssignToShowRoom(snippet)
-        return Response(serializer.data)
-
-
-class ShowRoomOwnerAssignToShowRoomDetail(APIView):
+class ShowRoomOwnerAssignToShowRoomDetail(generics.ListCreateAPIView):
     '''
     Showroom owner assign to showroom detail
     '''
 
-    def get(self, request):
-        showroomownerassigntoshowroom = ShowRoomOwnerAssignToShowRoom.objects.all()
-        serializer = ShowRoomOwnerAssignToShowRoomSerializers(
-            showroomownerassigntoshowroom, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = ShowRoomOwnerAssignToShowRoomSerializers(
-            data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = ShowRoomOwnerAssignToShowRoom.objects.all()
+    serializer_class = ShowRoomOwnerAssignToShowRoomSerializers
 
 
-class ShowRoomOwnerDetail(APIView):
+class ShowRoomOwnerDetail(generics.ListCreateAPIView):
     '''
     Showroom owner detail
     '''
 
-    def get(self, request):
-        showroomowner = ShowRoomOwner.objects.all()
-        serializer = ShowRoomOwnerSerializers(showroomowner, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = ShowRoomOwnerSerializers(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = ShowRoomOwner.objects.all()
+    serializer_class = ShowRoomOwnerSerializers
 
 
 class GetCarByShowroom(generics.ListAPIView):
@@ -243,16 +170,4 @@ class CarInformationImage(generics.ListAPIView):
         car = self.request.query_params.get('car', None)
         if car is not None:
             queryset = queryset.filter(car=car)
-        return queryset
-
-
-class CarInformationWithSingleImage(generics.ListAPIView):
-    '''
-    Car information single image
-    '''
-    serializer_class = ImageSerializer
-
-    def get_queryset(self):
-        queryset = CarImage.objects.all()
-        queryset = queryset.filter(image=1)
         return queryset
