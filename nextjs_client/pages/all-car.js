@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Link from 'next/link'
-import Nav from '../components/Nav'
-import Header from '../components/Header'
+import Link from 'next/link';
+import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 
 class CarGetAll extends Component {
   state = {
@@ -22,13 +22,14 @@ class CarGetAll extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Nav />
+        <Header title={'Car Detail'}/>
+        <Navbar />
 
         <div className='container'>
           <div className="row">
             {this.state.car.map((rowData, i) => (
-              <Link key={rowData.id} className="linkelement" to={`/getcarinfo/${rowData.id}`}>
+              <Link key={rowData.id} href={`/get-car-info/${rowData.id}`}>
+                
                 <div className="card">
                   <div className="card-body">
                     <h4 className="text-center">{rowData.name}</h4>
@@ -36,10 +37,11 @@ class CarGetAll extends Component {
                       {rowData.image_feild.map((subRow, k) =>
                         (k === 0) ?
                           <div key={subRow.image} className="carousel-item active">
-                            <img src={subRow.image} className="" alt="..." />
-                          </div> :
+                            <img src={subRow.image} className="rounded img-thumbnail" alt="..." />
+                          </div> 
+                          :
                           <div key={subRow.image} className="carousel-item">
-                            <img src={subRow.image} className="" alt="..." />
+                            <img src={subRow.image} className="rounded img-thumbnail" alt="..." />
                           </div>
                       )}
                     </div>

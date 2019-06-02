@@ -1,6 +1,8 @@
 .card{
     margin: 30px;
     width: 300px;
+    cursor: pointer;
+    background-color: #f3f3ea;
   }
 .linkelement:hover{
   text-decoration: none;
@@ -12,6 +14,10 @@
   margin-left: 0px !important;
 }
 img{
-  height: 200px;
-
+  height: 200px !important;
+  width: 270px;
+  margin-bottom: 20px;
+}
+span{
+  font-family: "Times New Roman", Times, serif;
 }

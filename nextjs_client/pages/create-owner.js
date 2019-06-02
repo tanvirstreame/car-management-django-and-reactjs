@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import Nav from '../components/Nav'
+import Navbar from '../components/Navbar'
 import Header from '../components/Header'
 
 
@@ -99,8 +98,8 @@ class CreateOwner extends Component {
   render() {
     return(
       <div>
-        <Header/>
-        <Nav/>
+        <Header title={'Car Owner'} />
+        <Navbar />
       
             <div className="container">
               <div className="row">
@@ -126,13 +125,12 @@ class CreateOwner extends Component {
                               </div>
                           </div>
                           <div className="row">
-                              <div className="col-md-8 offset-md-2">
+                              <div className="col-md-8 offset-md-2 formtop">
                                   <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner"/>
                               </div>
                           </div>
                           <div className="panel panel-default">
                               <div className="col-md-8 offset-md-2 text-danger">
-                                  
                               </div>
                           </div>
                       </form>   

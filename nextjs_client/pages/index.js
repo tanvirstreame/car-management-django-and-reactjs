@@ -1,10 +1,10 @@
 import Header from '../components/Header'
-import Nav from '../components/Nav'
+import Navbar from '../components/Navbar'
 function Home() {
-    return <div>
+    <div>
         <Header />
-        <Nav />
+        <Navbar />
     </div>
 }
 
-export default Home;
+export default Home

@@ -11,7 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/all-car": [
+    "/car-assign-showroom": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/owner-assign-showroom": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
