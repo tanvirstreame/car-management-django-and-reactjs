@@ -1,6 +1,6 @@
 {
   "devFiles": [
-    "static/development/dll/dll_599a58a60c43245180de.js"
+    "static/development/dll/dll_2011977376de5c4d4cfb.js"
   ],
   "pages": {
     "/_app": [
@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/car-assign-showroom": [
+    "/all-car": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/owner-assign-showroom": [
+    "/car-info": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

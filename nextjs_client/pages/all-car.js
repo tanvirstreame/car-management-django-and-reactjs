@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
+import { Link } from './routes'
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 
@@ -28,7 +28,7 @@ class CarGetAll extends Component {
         <div className='container'>
           <div className="row">
             {this.state.car.map((rowData, i) => (
-              <Link key={rowData.id} href={`/get-car-info/${rowData.id}`}>
+              <Link key={rowData.id} href="/car-info" route="car-info" id="1" as={`/car-info/${rowData.id}`}>
                 
                 <div className="card">
                   <div className="card-body">

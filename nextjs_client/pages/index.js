@@ -1,10 +1,19 @@
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-function Home() {
+
+const Layout=()=> {
+	return(
     <div>
         <Header />
         <Navbar />
-    </div>
+    </div>);
 }
 
-export default Home
+const Home=()=> {
+	return (
+	  <div>
+	  	<Layout/>
+	  </div>
+	);
+}
+export default Home;
