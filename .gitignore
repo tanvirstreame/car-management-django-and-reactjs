@@ -5,6 +5,8 @@ __pycache__/
 media
 node_modules
 environments
+venv
+.next
 ** /.pnp
 ** .pnp.js
 ** /coverage

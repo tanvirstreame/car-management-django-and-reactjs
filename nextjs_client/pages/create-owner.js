@@ -1,147 +1,71 @@
-import React, { Component } from 'react';
+import React , { useState } from 'react';
+import axios from 'axios';
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
 
+const CreateOwner =()=>{
+    const intailFormState= { username : '' , email : '' , password : '' };
+    const [ owner , setOwner ] = useState(intailFormState);
 
-class CreateOwner extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username:"",
-      email:"",
-      password:"",
-      formErrors: {username:'',email: '', password: ''},
-      usernamevalid:false,
-      emailValid: false,
-      passwordValid: false,
-      formValid: false
-    
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  
-
-  handleUserInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    this.setState({[name]: value},
-                  () => { this.validateField(name, value) });
-  }
-
-  validateField(fieldName, value) {
-    let fieldValidationErrors = this.state.formErrors;
-    let usernameValid = this.state.usernameValid;
-    let emailValid = this.state.emailValid;
-    let passwordValid = this.state.passwordValid;
-
-    switch(fieldName) {
-      case 'username':
-        usernameValid= value.length !== 0;
-        fieldValidationErrors.username = usernameValid ? '': 'can not be empty';
-        break;
-      case 'email':
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        fieldValidationErrors.email = emailValid ? '' : ' is invalid';
-        break;
-      case 'password':
-        passwordValid = value.length !== 0;
-        fieldValidationErrors.password= passwordValid ? '': 'can not be empty';
-        break;
-      default:
-        break;
+    const handleUserInput = event => {
+        const {name , value}= event.target;
+        setOwner( { ...owner , [name] : value } );
     }
-    this.setState({formErrors: fieldValidationErrors,
-                    usernameValid: usernameValid,
-                    emailValid : emailValid ,
-                    passwordValid:passwordValid,
-                  }, this.validateForm);
-  }
 
-
-  validateForm() {
-    this.setState({formValid: this.state.usernameValid && this.state.emailValid && this.state.passwordValid});
-  }
-
-  errorClass(error) {
-    return(error.length === 0 ? '' : 'has-error');
-  }
-
-
-  handleSubmit(event) {
-    event.preventDefault();
-
-    const data = new FormData(event.target);
-    fetch('http://localhost:8000/api/v1/showroomowner/', {
-      method: 'POST',
-      body: data,
-    }).then(
-      function(response) {
-        if (response.ok) {    
-         
-          alert('Owner have been added!');
+    const handleSubmit = event =>{
+        {event.preventDefault() 
+        axios.post("http://localhost:8000/api/v1/showroomowner/", { username:owner.username ,email:owner.email , password : owner.password })
+        .then(res => {
+            alert("Owner Added");
+            setOwner(intailFormState);
+        }).catch(error=>{
+            console.log(error);
+        });
         }
-        else {
-          alert('Owner have been not added!');
-        }
-      }
-    )
-    .catch(
-      function(error) {
-        alert(error);
-      }
-    );
-    this.Username.value ='';
-    this.Email.value = '';
-    this.Password.value = ''; 
-  }
+    }
 
-  render() {
-    return(
-      <div>
-        <Header title={'Car Owner'} />
-        <Navbar />
-      
+    return ( 
+        <form
+            onSubmit={handleSubmit}>
+            <Header title={'Car Owner'} />
+            <Navbar />
             <div className="container">
               <div className="row">
                   <div className="col-md-8 offset-md-2">
-                      <form className="formtop" id="CreateOwner" onSubmit={this.handleSubmit} method="post">
-                          <h4 className="text-center">Create Owner</h4>
-                          <div className="row">
-                              <div className="col-md-8 offset-md-2">
-                                  <label>User Name</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Username = el} name="username"  value={this.state.username} onChange={this.handleUserInput}/>
-                              </div>
-                          </div>
-                          <div className="row">
-                              <div className="col-md-8 offset-md-2">
-                                  <label>Email</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Email = el} name="email"  value={this.state.email} onChange={this.handleUserInput}/>
-                              </div>
-                          </div>
-                          <div className="row">
-                              <div className="col-md-8 offset-md-2">
-                                  <label>Password</label>
-                                  <input type="text" className="form-control shadow-none" ref={el => this.Password= el} name="password"  value={this.state.password} onChange={this.handleUserInput}/>
-                              </div>
-                          </div>
-                          <div className="row">
-                              <div className="col-md-8 offset-md-2 formtop">
-                                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner"/>
-                              </div>
-                          </div>
-                          <div className="panel panel-default">
-                              <div className="col-md-8 offset-md-2 text-danger">
-                              </div>
-                          </div>
-                      </form>   
+                        <h4 className="text-center">Create Owner</h4>
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2">
+                                <label>User Name</label>
+                                <input type="text" className="form-control shadow-none" name="username"  value={ owner.username} onChange={ handleUserInput }/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2">
+                                <label>Email</label>
+                                <input type="text" className="form-control shadow-none" name="email" value={ owner.email } onChange={ handleUserInput }/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2">
+                                <label>Password</label>
+                                <input type="text" className="form-control shadow-none" name="password"  value={ owner.password } onChange={ handleUserInput }/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2 formtop">
+                                <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Owner"/>
+                            </div>
+                        </div>
+                        <div className="panel panel-default">
+                            <div className="col-md-8 offset-md-2 text-danger">
+                            </div>
+                        </div>
                   </div>
               </div>
             </div>
-          </div>
-    );
-  }
 
-
+        </form>
+    )
 }
 
-export default CreateOwner
+export default CreateOwner;

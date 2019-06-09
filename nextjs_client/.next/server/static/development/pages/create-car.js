@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/tanvir/Desktop/Workstation_old/nextjs_client/components/Header.js";
+var _jsxFileName = "/media/streame/VIDEO/Ubuntu/download/DjangoReactCarManagement-master/DjangoReactCarManagement/nextjs_client/components/Header.js";
 
 
 
@@ -202,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/tanvir/Desktop/Workstation_old/nextjs_client/components/Navbar.js";
+var _jsxFileName = "/media/streame/VIDEO/Ubuntu/download/DjangoReactCarManagement-master/DjangoReactCarManagement/nextjs_client/components/Navbar.js";
 
 
 
@@ -1366,7 +1366,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/home/tanvir/Desktop/Workstation_old/nextjs_client/pages/create-car.js";
+var _jsxFileName = "/media/streame/VIDEO/Ubuntu/download/DjangoReactCarManagement-master/DjangoReactCarManagement/nextjs_client/pages/create-car.js";
 
 
 
@@ -2145,14 +2145,14 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 6:
 /*!***********************************!*\
   !*** multi ./pages/create-car.js ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/tanvir/Desktop/Workstation_old/nextjs_client/pages/create-car.js */"./pages/create-car.js");
+module.exports = __webpack_require__(/*! /media/streame/VIDEO/Ubuntu/download/DjangoReactCarManagement-master/DjangoReactCarManagement/nextjs_client/pages/create-car.js */"./pages/create-car.js");
 
 
 /***/ }),
