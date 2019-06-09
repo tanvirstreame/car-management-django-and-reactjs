@@ -4,11 +4,21 @@ import Header from '../components/Header'
 
 export default class CarInformation extends React.Component {
   static  getInitialProps({ query }) {
-    return fetch(`http://127.0.0.1:8000/api/v1/single-car-detail/${query.id}`).then(x => x.json())
+    return fetch(`http://127.0.0.1:8000/api/v1/single-car-detail/${query.id}`)
+      .then((response) => response.text())
+      .then((myJsonData) => {
+        return (JSON.parse(myJsonData))
+      })
   }
  
    
   render(){
+    let show = this.props.image_feild.map((rowData,i)=> {
+      let carouselClass = (i === 0)?"carousel-item active":"carousel-item";
+      return <div key={rowData.image} className={carouselClass}>
+              <img src={rowData.image} className="d-block w-100" alt="..."/>
+            </div>
+    })
     return (
     <div>
       <Header title={'Get Show Room'}/>
@@ -18,7 +28,7 @@ export default class CarInformation extends React.Component {
           <div className="formtop" key={this.props.id}>
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
               <div className="carousel-inner">
-                <img src={this.props.image_feild.image} className="d-block w-100" alt="..."/>
+                {show}
               </div>
               <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
