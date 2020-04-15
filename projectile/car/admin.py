@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Car import models
+from car import models
 
 admin.site.register(models.ShowRoomOwner)
 admin.site.register(models.ShowRoom)

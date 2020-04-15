@@ -2,7 +2,7 @@
 This file should contain the main url
 '''
 from django.urls import path
-from Car import views
+from car import views
 
 urlpatterns = [
     path('api/v1/get-car-by-showroom/', views.GetCarByShowroom.as_view(),
