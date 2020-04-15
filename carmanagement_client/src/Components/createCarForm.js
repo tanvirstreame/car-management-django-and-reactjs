@@ -53,10 +53,27 @@ class CreateCarForm extends Component {
       (response) => {
         if (response.ok) {
           alert('Car have been added!');
+
+          this.setState({
+            manufacture: '',
+            tagline: '',
+            car_model: '',
+            mileage: '',
+            year: '',
+            status: '',
+            transmission: '',
+            price: '',
+            horse_power: '',
+            propellant: '',
+            fileupload: '',
+          })
+
+
         }
         else {
           alert('Car have been not added!');
         }
+
       }
     )
   }
