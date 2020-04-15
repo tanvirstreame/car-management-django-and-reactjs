@@ -11,6 +11,7 @@ import CreateShowRoomForm from './Components/createShowroom'
 import CarAssignShowroom from './Components/carAssignShowroom'
 import OwnerAssignShowroom from './Components/ownerAssignShowroom'
 import CarInformation from './Components/carInformation'
+import Dashboard from './Components/dashboard'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
@@ -19,16 +20,15 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 const routing = (
     <Router>
       <div>
-        <Route path="/" component={Home}/>
-        <Route path="/getallcar" component={CarGetAll}/>
-        <Route path="/createowner" component={CreateOwner}/>
-        <Route path="/createcar" component={CreateCarForm}/>
-        <Route path="/showroom/" component={GetShowRoom}/>
-        <Route path="/getshowroominfo/:id" component={GetShowRoomInfo}/>
-        <Route path="/createshowroomform" component={CreateShowRoomForm}/>
-        <Route path="/carassignshowroom" component={CarAssignShowroom}/>
-        <Route path="/ownerassignshowroom" component={OwnerAssignShowroom}/>
-        <Route path="/getcarinfo/:id" component={CarInformation}/>
+        <Route path="/" component={CreateCarForm} exact/>  
+        <Route path="/getallcar" component={CarGetAll} exact/>
+        <Route path="/createowner" component={CreateOwner} exact/>
+        <Route path="/showroom/" component={GetShowRoom} exact/>
+        <Route path="/getshowroominfo/:id" component={GetShowRoomInfo} exact/>
+        <Route path="/createshowroomform" component={CreateShowRoomForm} exact/>
+        <Route path="/carassignshowroom" component={CarAssignShowroom} exact/>
+        <Route path="/ownerassignshowroom" component={OwnerAssignShowroom} exact/>
+        <Route path="/getcarinfo/:id" component={CarInformation} exacts/>
       </div>
     </Router>
 )

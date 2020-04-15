@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import Dashboard from './dashboard';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./car-information.css";
 class CarInformation extends Component {
@@ -43,8 +44,11 @@ class CarInformation extends Component {
       </div>
     })
     return (
-      <div className='container'>
-        <div className="row">
+      <Dashboard
+        title="Car Info"
+      >
+      <div className='container card'>
+        <div className="row mb-5">
           <div className="formtop" key={this.state.car.id}>
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
               <div className="carousel-inner">
@@ -59,7 +63,6 @@ class CarInformation extends Component {
                 <span className="sr-only">Next</span>
               </a>
             </div>
-            <h4 className="text-center">Car Info</h4>
             <label><b>Car Id:</b></label>
             <span >{this.state.car.id}</span>
             <br />
@@ -81,6 +84,7 @@ class CarInformation extends Component {
           </div>
         </div>
       </div>
+      </Dashboard>
     );
   }
 }

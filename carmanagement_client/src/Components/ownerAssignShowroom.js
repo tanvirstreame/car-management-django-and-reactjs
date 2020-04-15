@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Dashboard from './dashboard';
 class OwnerAssignShowroom extends Component {
   constructor(props) {
     super(props);
@@ -57,42 +57,45 @@ class OwnerAssignShowroom extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 offset-md-2">
-            <form className="formtop" onSubmit={this.handleSubmit} method="post">
-              <h4 className="text-center">Owner Assign Showroom</h4>
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-                  <label>Choose Owner:</label>
-                  <select className="form-control" name="showroom_owner">
-                    <option value="" disabled>--Select Owner--</option>
-                    {this.state.owner.map(item => (
-                      <option key={item.id} value={item.id}>{item.username} ( Id- {item.id} )</option>
-                    ))}
-                  </select>
+      <Dashboard
+        title="Owner Assign Showroom"
+      >
+        <div className="container card">
+          <div className="row  mb-5">
+            <div className="col-md-8 offset-md-2">
+              <form className="formtop" onSubmit={this.handleSubmit} method="post">
+                <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                    <label>Choose Owner:</label>
+                    <select className="form-control" name="showroom_owner">
+                      <option value="" disabled>--Select Owner--</option>
+                      {this.state.owner.map(item => (
+                        <option key={item.id} value={item.id}>{item.username} ( Id- {item.id} )</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-                  <label>Choose ShowRoom:</label>
-                  <select className="form-control" name="showroom">
-                    <option value="" disabled>--Select Showroom--</option>
-                    {this.state.showroom.map(item => (
-                      <option key={item.id} value={item.id}>{item.name} ( Id- {item.id} )</option>
-                    ))}
-                  </select>
+                <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                    <label>Choose ShowRoom:</label>
+                    <select className="form-control" name="showroom">
+                      <option value="" disabled>--Select Showroom--</option>
+                      {this.state.showroom.map(item => (
+                        <option key={item.id} value={item.id}>{item.name} ( Id- {item.id} )</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
+                <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                    <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      </Dashboard>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Dashboard from './dashboard';
 
 class CarAssignShowroom extends Component {
   constructor(props) {
@@ -50,11 +51,13 @@ class CarAssignShowroom extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
+      <Dashboard
+        title="Car Assign Showroom"
+      >
+      <div className="container card">
+        <div className="row mb-5">
           <div className="col-md-8 offset-md-2">
             <form className="formtop" onSubmit={this.handleSubmit} method="post">
-              <h4 className="text-center">Car Assign Showroom</h4>
               <div className="row">
                 <div className="col-md-8 offset-md-2">
                   <label>Choose ShowRoom:</label>
@@ -86,6 +89,7 @@ class CarAssignShowroom extends Component {
           </div>
         </div>
       </div>
+      </Dashboard>
     );
   }
 }
