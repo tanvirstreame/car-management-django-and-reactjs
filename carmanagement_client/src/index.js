@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Styles/index.css';
-import CarGetAll from './Components/GetAllCar'
-import CreateCarForm from './Components/CreateCarForm';
-import GetShowRoomInfo from './Components/GetShowRoomInfo';
-import GetShowRoom from './Components/GetShowRoom';
-import Home from './Components/Home';
-import CreateOwner from './Components/CreateOwner'
-import CreateShowRoomForm from './Components/CreateShowroom'
-import CarAssignShowroom from './Components/CarAssignShowroom'
-import OwnerAssignShowroom from './Components/OwnerAssignShowroom'
-import CarInformation from './Components/CarInformation'
+import CarGetAll from './Components/getAllCar'
+import CreateCarForm from './Components/createCarForm';
+import GetShowRoomInfo from './Components/getShowRoomInfo';
+import GetShowRoom from './Components/getShowRoom';
+import Home from './Components/home';
+import CreateOwner from './Components/createOwner'
+import CreateShowRoomForm from './Components/createShowroom'
+import CarAssignShowroom from './Components/carAssignShowroom'
+import OwnerAssignShowroom from './Components/ownerAssignShowroom'
+import CarInformation from './Components/carInformation'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom'

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 class GetShowRoom extends Component {
   state = {
-    todos: []
+    showRoom: []
   };
 
-  async componentDidMount() {
-    try {
-      const res = await fetch('http://127.0.0.1:8000/api/v1/showroom/');
-      const todos = await res.json();
-      this.setState({
-        todos
-      });
-    } catch (e) {
-    }
+  componentDidMount() {
+      axios.get('http://127.0.0.1:8000/api/v1/showroom/').then(
+        response => {
+          this.setState({
+            showRoom: response.data
+          });
+        }
+      );
   }
 
   render() {
@@ -30,11 +30,11 @@ class GetShowRoom extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                 {this.state.todos.map(item => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.name}</td>
-                    <td><Link  className='btn btn-primary' to={`/getshowroominfo/${item.id}`}>View Cars</Link></td>
+                 {this.state.showRoom.map(room => (
+                  <tr key={room.id}>
+                    <td>{room.id}</td>
+                    <td>{room.name}</td>
+                    <td><Link  className='btn btn-primary' to={`/getshowroominfo/${room.id}`}>View Cars</Link></td>
                   </tr> 
                   ))}
                 </tbody>
