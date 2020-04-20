@@ -34,6 +34,11 @@ STATICFILES_DIRS = (
 MEDIA_URL =  '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+# GraphQL
+GRAPHENE = {
+ 'SCHEMA': 'src.schema.schema'
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'car',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
