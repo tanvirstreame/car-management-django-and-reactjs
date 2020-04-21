@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 import './Styles/index.css';
 import CarGetAll from './Components/getAllCar'
 import CreateCarForm from './Components/createCarForm';
@@ -14,10 +16,14 @@ import CarInformation from './Components/carInformation'
 import Dashboard from './Components/dashboard'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Route, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
+const client = new ApolloClient({
+  uri: 'http://127.0.0.1:8000/graphql/',
+});
 
 const routing = (
+  <ApolloProvider client={client}>
     <Router>
       <div>
         <Route path="/" component={CreateCarForm} exact/>  
@@ -31,6 +37,7 @@ const routing = (
         <Route path="/getcarinfo/:id" component={CarInformation} exacts/>
       </div>
     </Router>
+  </ApolloProvider>
 )
 ReactDOM.render(routing, window.document.getElementById('root'));
 

@@ -89,7 +89,7 @@ class CreateCar(graphene.Mutation):
         
     def mutate(self, info, input=None):
         car = Car.objects.create(**input)
-        return CreateCarImage(car=car)
+        return CreateCar(car=car)
 
 
 class CarImageInput(graphene.InputObjectType):
@@ -111,6 +111,7 @@ class CreateCarImage(graphene.Mutation):
 
 class Mutation(ObjectType):
     create_car_image = CreateCarImage.Field()
+    create_car = CreateCar.Field()
 
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

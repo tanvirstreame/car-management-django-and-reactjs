@@ -6,17 +6,19 @@ class CreateCarForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      manufacture: '',
-      tagline: '',
-      car_model: '',
-      mileage: '',
-      year: '',
-      status: '',
-      transmission: '',
-      price: '',
-      horse_power: '',
-      propellant: '',
-      fileupload: '',
+      formValue: {
+        manufacture: '',
+        tagline: '',
+        car_model: '',
+        mileage: '',
+        year: '',
+        status: '',
+        transmission: '',
+        price: '',
+        horse_power: '',
+        propellant: '',
+        fileupload: '',
+      },
       formErrors: {
         manufacture: '',
         tagline: '',
@@ -38,7 +40,10 @@ class CreateCarForm extends Component {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      [name]: value
+      ...this.state.formValue,
+      formValue: {
+        [name]: value
+      }
     })
   }
 
@@ -47,9 +52,28 @@ class CreateCarForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    fetch('http://localhost:8000/api/v1/createcar/', {
-      method: 'POST',
-      body: data,
+    axios({
+      url: 'http://127.0.0.1:8000/graphql/',
+      method: 'post',
+      data: {
+        query: `
+          mutation {
+            createShowroom(input: {
+              name : "${this.state.formValue.formValue.name}" 
+              registrationNumber : "${this.state.formValue.formValue.registration_number}"
+              logoType : "${this.state.formValue.formValue.logo_type}"
+              contactInfo : "${this.state.formValue.formValue.contact_info}"
+          
+          
+          }) {
+              showroom {
+                name
+                
+              }
+            }
+          }
+          `
+      }
     }).then(
       (response) => {
         if (response.ok) {
@@ -93,31 +117,31 @@ class CreateCarForm extends Component {
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Manufacture Name</label>
-                    <input type="text" className="form-control shadow-none" name="manufacture" value={this.state.manufacture} onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" name="manufacture" value={this.state.formValue.manufacture} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Tagline</label>
-                    <input type="text" className="form-control shadow-none" name="tagline" value={this.state.tagline} onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" name="tagline" value={this.state.formValue.tagline} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Car Model</label>
-                    <input type="text" className="form-control shadow-none" name="car_model" value={this.state.car_model} onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" name="car_model" value={this.state.formValue.car_model} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Mileage</label>
-                    <input type="number" className="form-control shadow-none" name="mileage" value={this.state.mileage} onChange={this.handleUserInput} />
+                    <input type="number" className="form-control shadow-none" name="mileage" value={this.state.formValue.mileage} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Year</label>
-                    <input type="number" className="form-control shadow-none" name="year" value={this.state.year} onChange={this.handleUserInput} />
+                    <input type="number" className="form-control shadow-none" name="year" value={this.state.formValue.year} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
@@ -143,19 +167,19 @@ class CreateCarForm extends Component {
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Price</label>
-                    <input type="number" className="form-control shadow-none" name="price" value={this.state.price} onChange={this.handleUserInput} />
+                    <input type="number" className="form-control shadow-none" name="price" value={this.state.formValue.price} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Horse Power</label>
-                    <input type="number" className="form-control shadow-none" name="horse_power" value={this.state.horse_power} onChange={this.handleUserInput} />
+                    <input type="number" className="form-control shadow-none" name="horse_power" value={this.state.formValue.horse_power} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Propellant</label>
-                    <input type="text" className="form-control shadow-none" name="propellant" value={this.state.propellant} onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" name="propellant" value={this.state.formValue.propellant} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">

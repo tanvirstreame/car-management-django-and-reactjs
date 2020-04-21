@@ -3,12 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/react-components": "^3.1.5",
+    "@apollo/react-hooks": "^3.1.5",
+    "apollo-boost": "^0.4.7",
     "axios": "^0.18.0",
+    "babel-loader": "8.0.5",
     "bootstrap": "^4.3.1",
+    "graphql": "^15.0.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
     "query-string": "^6.5.0",
     "react": "^16.8.6",
+    "react-apollo": "^3.1.5",
     "react-bootstrap-sweetalert": "^4.4.1",
     "react-dom": "^16.8.6",
     "react-image-slider": "^0.1.0",
@@ -16,8 +22,7 @@
     "react-responsive-carousel": "^3.1.49",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "reactstrap": "^8.0.0",
-    "babel-loader": "8.0.5"
+    "reactstrap": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

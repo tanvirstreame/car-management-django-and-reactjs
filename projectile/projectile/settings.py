@@ -25,7 +25,7 @@ SECRET_KEY = 'zl=&3gl_wl!!2x_u(tkui8kajc*mx2%s*xuj8ript!l%4roah2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'graphene_django',
     'car',
     'showroom',

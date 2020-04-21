@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import axios from 'axios';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo'
 import Dashboard from './dashboard';
-class GetShowRoom extends Component {
-  state = {
-    showRoom: []
-  };
 
-  componentDidMount() {
-    axios.get('http://127.0.0.1:8000/api/v1/showroom/').then(
-      response => {
-        this.setState({
-          showRoom: response.data
-        });
-      }
-    );
+
+const GET_SHOWROOM = gql`
+  {
+    showrooms {
+      id
+      name
+    }
+  }
+`;
+
+class GetShowRoom extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showRoom: []
+    };
   }
 
   render() {
+    const { showrooms } = this.props.data;
     return (
       <Dashboard
         title="Showroom List"
@@ -25,6 +31,7 @@ class GetShowRoom extends Component {
         <div className='container card'>
           <h4 className="text-center formtop">Showroom List</h4>
           <div className="row  mb-5">
+          
             <table className="table table-bordered">
               <thead>
                 <tr>
@@ -34,15 +41,16 @@ class GetShowRoom extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.showRoom.map(room => (
+                {showrooms ? showrooms.map(room => (
                   <tr key={room.id}>
                     <td>{room.id}</td>
                     <td>{room.name}</td>
                     <td><Link className='btn btn-primary' to={`/getshowroominfo/${room.id}`}>View Cars</Link></td>
                   </tr>
-                ))}
+                )): ""}
               </tbody>
             </table>
+          
           </div>
         </div>
       </Dashboard>
@@ -50,4 +58,4 @@ class GetShowRoom extends Component {
   }
 }
 
-export default GetShowRoom;
+export default graphql (GET_SHOWROOM)(GetShowRoom);
