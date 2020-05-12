@@ -53,7 +53,7 @@ class Registration extends Component {
 
                     </div>
                     <div className="col-md-4">
-                        <div className="card login-card">
+                        <div className="card login-card w-100">
                             <div className="card-body">
                                 <form className="login-form m-4">
                                     <label>Username</label>

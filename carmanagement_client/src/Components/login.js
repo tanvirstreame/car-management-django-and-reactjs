@@ -65,7 +65,7 @@ class Login extends Component {
                                     <input className="mt-5 btn btn-primary btn-submit btn-block" value="Submit" onClick={e => this.handleSubmit(e)} type="button" />
 
                                 </form>
-                                <p className="ml-4">Don't have an account?<Link className="ml-1" to={"/Register"}>Sign Up</Link></p>
+                                <p className="ml-4">Don't have an account?<Link className="ml-1" to={"/register"}>Sign Up</Link></p>
                             </div>
                         </div>
 

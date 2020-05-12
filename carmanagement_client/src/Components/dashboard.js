@@ -2,11 +2,20 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import "../Components/Styles/dashboard.css";
 import  CheckAuth  from "../helper/auth";
+const createHistory = require("history").createBrowserHistory;
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
   };
+
+  logout = () => {
+    let history = createHistory();
+    history.push("/login");
+    let pathUrl = window.location.href;
+    window.location.href = pathUrl; 
+    localStorage.clear();
+  }
 
 
   render() {
@@ -91,7 +100,7 @@ class Dashboard extends Component {
                         <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                           aria-expanded="false"><i className="fas fa-user-circle fa-lg"></i></a>
                         <div className="dropdown-menu">
-                          <a className="dropdown-item" href="/logout"></a>
+                          <a onClick={event=>{this.logout(event)}} className="dropdown-item" >logout</a>
                           <div className="dropdown-divider"></div>
 
                         </div>
