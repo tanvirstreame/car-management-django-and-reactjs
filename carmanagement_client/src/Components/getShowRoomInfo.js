@@ -61,7 +61,7 @@ class GetShowRoomInfo extends Component {
               expanded && //show if expanded is true
               <div>{this.state.showroom.contact_info}</div>
             }
-            <div className="row">
+            <div className="row m-2">
               {this.state.car.map((rowdata, i) =>
                 <Link key={rowdata.car.id} className="linkelement" to={`/getcarinfo/${rowdata.car.id}`}>
                   <div className="card showroomcarinfo">

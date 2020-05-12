@@ -30,6 +30,10 @@ class CreateCarForm extends Component {
         propellant: '',
         fileupload: '',
       },
+      status: {
+        succeed: "",
+        failed: "",
+      }
     };
 
   }
@@ -52,9 +56,7 @@ class CreateCarForm extends Component {
       body: data,
     }).then(
       (response) => {
-        if (response.ok) {
-          alert('Car have been added!');
-
+        if (response.status == 201) {
           this.setState({
             manufacture: '',
             tagline: '',
@@ -67,12 +69,21 @@ class CreateCarForm extends Component {
             horse_power: '',
             propellant: '',
             fileupload: '',
+            status: {
+              succeed: "Inserted Successfully",
+              failed: ""
+            }
           })
 
 
         }
         else {
-          alert('Car have been not added!');
+          this.setState({
+            status: {
+              succeed: "",
+              failed: "Operation failed"
+            }
+          })
         }
 
       }
@@ -169,8 +180,10 @@ class CreateCarForm extends Component {
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Car" />
                   </div>
                 </div>
-                <div className="panel panel-default">
-                  <div className="col-md-8 offset-md-2 text-danger">
+                <div className="row">
+                  <div className="col-md-8 offset-md-2 mt-2">
+                    <span className="text-success">{this.state.status.succeed}</span>
+                    <span className="text-danger">{this.state.status.failed}</span>
                   </div>
                 </div>
               </form>

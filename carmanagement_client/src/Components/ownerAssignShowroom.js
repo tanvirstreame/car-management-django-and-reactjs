@@ -7,6 +7,10 @@ class OwnerAssignShowroom extends Component {
     this.state = {
       owner: [],
       showroom: [],
+      status: {
+        succeed: "",
+        failed: ""
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -28,31 +32,32 @@ class OwnerAssignShowroom extends Component {
 
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
     fetch('http://localhost:8000/api/v1/owners-all-showroom/', {
       method: 'POST',
       body: data,
     }).then(
-      function (response) {
-        if (response.ok) {
-          alert('Owner assigned to showroom!');
+      response => {
+        if (response.status==201) {
+          this.setState({
+            status: {
+              ...this.state.status,
+              succeed: "Assigned successfully"
+            }
+          })
         }
         else {
-          alert('Owner is not assigned to showroom!');
+          this.setState({
+            status: {
+              ...this.state.status,
+              failed: "Operation failed"
+            }
+          })
         }
-      }).catch(
-        function () {
-          alert('server error');
         }
       );
-  }
-
-  handleSelectValue() {
-    if (this.refs.showroom) {
-      return (this.refs.showroom.value);
-    }
   }
 
   render() {
@@ -89,6 +94,12 @@ class OwnerAssignShowroom extends Component {
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-8 offset-md-2 mt-2">
+                    <span className="text-success">{this.state.status.succeed}</span>
+                    <span className="text-danger">{this.state.status.failed}</span>
                   </div>
                 </div>
               </form>

@@ -1,66 +1,114 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Dashboard from './dashboard';
+import { blankValidtiaion } from "../validation/validations"
 
 class CreateShowRoomForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      registration_number: '',
-      logo_type: '',
-      contact_info: '',
-      nameValid: false,
-      registration_numberValid: false,
-      logo_typeValid: false,
-      contact_infoValid: false,
-      formErrors: {
+      formValue: {
+        name: '',
+        registration_number: '',
+        logo_type: '',
+        contact_info: '',
+      },
+      formError: {
         name: '',
         registration_number: '',
         logo_type: '',
         contact_info: ''
       },
-      formValid: false
+      status: {
+        succuess: '',
+        failed: ''
+      }
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleUserInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      [name]: value
-    })
+      formValue: {
+        ...this.state.formValue,
+        [name]: value,
+      },
+      formError: {
+        ...this.state.formError,
+        [name]: ""
+      },
+      status: {
+        succuess: "",
+        failed: ""
+      }
+    });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.target);
+    let succuess = "";
+    let failed = "";
+    const { valid, error } = blankValidtiaion(this.state.formValue);
+    console.log("valid",valid, error);
+    
+    if (valid) {
 
-    fetch('http://localhost:8000/api/v1/showroom/', {
-      method: 'POST',
-      body: data,
-    }).then(
-      function (response) {
-        if (response.ok) {
-          alert('Showroom have been added!');
+      axios.post('http://localhost:8000/api/v1/showroom/', {
+        ...this.state.formValue
+      }).then(response => {
+        console.log("response", response);
+
+        if (response.status == 201) {
+          succuess = "Inserted succesfully";
+          this.setState({
+            formValue: {
+              name: '',
+              registration_number: '',
+              logo_type: '',
+              contact_info: '',
+            },
+            status: {
+              ...this.state.status,
+              succuess,
+            }
+          })
         }
         else {
-          alert('Showroom have been not added!');
+          failed = "Operation failed";
+          this.setState({
+            status: {
+              ...this.state.status,
+              failed,
+            }
+          })
         }
       }
-    )
-      .catch(
-        function (error) {
-          alert('server error');
-        }
-      );
-  }
+      )
+        .catch(
+          (error) => {
+            failed = "Operation failed error message" + error;
+            this.setState({
+              status: {
+                ...this.state.status,
+                failed
+              }
 
+            })
+          }
+        );
+    }
+    if (!valid) {
+      this.setState({
 
-  handleSelectValue() {
-    if (this.refs.showroom) {
-      return (this.refs.showroom.value);
+        status: {
+          succuess,
+          failed
+        },
+        formError: error
+
+      })
     }
   }
 
@@ -76,25 +124,29 @@ class CreateShowRoomForm extends Component {
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Show Name</label>
-                    <input type="text" className="form-control shadow-none" value={this.state.name} name="name" onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" value={this.state.formValue.name} name="name" onChange={this.handleUserInput} />
+                    <span className="text-danger">{this.state.formError.name}</span>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Registration Number</label>
-                    <input type="text" className="form-control shadow-none" value={this.state.registration_number} name="registration_number" onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" value={this.state.formValue.registration_number} name="registration_number" onChange={this.handleUserInput} />
+                    <span className="text-danger">{this.state.formError.registration_number}</span>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Logo Type</label>
-                    <input type="text" className="form-control shadow-none" value={this.state.logo_type} name="logo_type" onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" value={this.state.formValue.logo_type} name="logo_type" onChange={this.handleUserInput} />
+                    <span className="text-danger">{this.state.formError.logo_type}</span>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-8 offset-md-2">
                     <label>Contact Detail</label>
-                    <input type="text" className="form-control shadow-none" value={this.state.contact_info} name="contact_info" onChange={this.handleUserInput} />
+                    <input type="text" className="form-control shadow-none" value={this.state.formValue.contact_info} name="contact_info" onChange={this.handleUserInput} />
+                    <span className="text-danger">{this.state.formError.contact_info}</span>
                   </div>
                 </div>
                 <div className="row">
@@ -102,8 +154,10 @@ class CreateShowRoomForm extends Component {
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Show Room" />
                   </div>
                 </div>
-                <div className="panel panel-default">
-                  <div className="col-md-8 offset-md-2 text-danger">
+                <div className="row">
+                  <div className="col-md-8 offset-md-2 mt-2">
+                    <span className="text-success">{this.state.status.succuess}</span>
+                    <span className="text-danger">{this.state.status.failed}</span>
                   </div>
                 </div>
               </form>

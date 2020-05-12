@@ -8,8 +8,11 @@ class CarAssignShowroom extends Component {
     this.state = {
       car: [],
       showroom: [],
+      status: {
+        succeed: "",
+        failed: ""
+      }
     }
-
   }
   componentDidMount() {
     axios.get('http://localhost:8000/api/v1/all-car-detail/')
@@ -28,6 +31,16 @@ class CarAssignShowroom extends Component {
       })
   }
 
+  onSelectChange = (event) => {
+    this.setState({
+      status: {
+        succeed: "",
+        failed: ""
+      }
+    })
+
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
@@ -35,18 +48,24 @@ class CarAssignShowroom extends Component {
       method: 'POST',
       body: data,
     }).then(
-      function (response) {
-        if (response.ok) {
-          alert('Car assigned to showroom!');
+      response => {
+        if (response.status==201) {
+          this.setState({
+            status: {
+              ...this.state.status,
+              succeed: "Assigned successfully"
+            }
+          })
         }
         else {
-          alert('Car is not assigned to showroom!');
+          this.setState({
+            status: {
+              ...this.state.status,
+              failed: "Operation failed"
+            }
+          })
         }
-      }).catch(
-        function () {
-          alert('server error');
-        }
-      );
+      })
   }
 
   render() {
@@ -54,41 +73,47 @@ class CarAssignShowroom extends Component {
       <Dashboard
         title="Car Assign Showroom"
       >
-      <div className="container card">
-        <div className="row mb-5">
-          <div className="col-md-8 offset-md-2">
-            <form className="formtop" onSubmit={this.handleSubmit} method="post">
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-                  <label>Choose ShowRoom:</label>
-                  <select className='form-control' name="showroom">
-                    <option value="" disabled>--Select Showroom--</option>
-                    {this.state.showroom.map(item => (
-                      <option key={item.id} value={item.id}>{item.name} ( Id- {item.id} )</option>
-                    ))}
-                  </select>
+        <div className="container card">
+          <div className="row mb-5">
+            <div className="col-md-8 offset-md-2">
+              <form className="formtop" onSubmit={this.handleSubmit} method="post">
+                <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                    <label>Choose ShowRoom:</label>
+                    <select className='form-control' name="showroom" onChange={event=>{this.onSelectChange(event)}}>
+                      <option value="" disabled>--Select Showroom--</option>
+                      {this.state.showroom.map(item => (
+                        <option key={item.id} value={item.id}>{item.name} | Id- {item.id}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-                  <label>Choose Car:</label>
-                  <select className='form-control' name="car">
-                    <option value="" disabled>--Select Car--</option>
-                    {this.state.car.map(item => (
-                      <option key={item.id} value={item.id}>{item.manufacture} ( Id- {item.id} )</option>
-                    ))}
-                  </select>
+                <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                    <label>Choose Car:</label>
+                    <select className='form-control' name="car" onChange={event=>{this.onSelectChange(event)}}>
+                      <option value="" disabled>--Select Car--</option>
+                      {this.state.car.map(item => (
+                        <option key={item.id} value={item.id}>{item.manufacture} | Id- {item.id} | Manufacturer- {item.manufacture}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-                  <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
+                <div className="row">
+                  <div className="col-md-8 offset-md-2">
+                    <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
+                  </div>
                 </div>
-              </div>
-            </form>
+                <div className="row">
+                  <div className="col-md-8 offset-md-2 mt-2">
+                    <span className="text-success">{this.state.status.succeed}</span>
+                    <span className="text-danger">{this.state.status.failed}</span>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
       </Dashboard>
     );
   }

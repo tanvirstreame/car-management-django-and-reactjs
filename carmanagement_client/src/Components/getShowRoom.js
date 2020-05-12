@@ -24,7 +24,7 @@ class GetShowRoom extends Component {
       >
         <div className='container card'>
           <h4 className="text-center formtop">Showroom List</h4>
-          <div className="row  mb-5">
+          <div className="row  mb-5 ml-2 mr-2">
             <table className="table table-bordered">
               <thead>
                 <tr>
