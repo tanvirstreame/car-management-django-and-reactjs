@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-loader": "8.0.5",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+    "node-sass": "^4.14.1",
     "popper.js": "^1.15.0",
     "query-string": "^6.5.0",
     "react": "^16.8.6",
@@ -16,8 +18,7 @@
     "react-responsive-carousel": "^3.1.49",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "reactstrap": "^8.0.0",
-    "babel-loader": "8.0.5"
+    "reactstrap": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

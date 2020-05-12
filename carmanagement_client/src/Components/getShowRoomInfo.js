@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import Dashboard from './dashboard';
-import './get-show-room-info.css'
+import '../Components/Styles/get-show-room-info.css'
 
 class GetShowRoomInfo extends Component {
   constructor(props) {

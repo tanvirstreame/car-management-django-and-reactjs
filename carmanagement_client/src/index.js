@@ -6,12 +6,14 @@ import CreateCarForm from './Components/createCarForm';
 import GetShowRoomInfo from './Components/getShowRoomInfo';
 import GetShowRoom from './Components/getShowRoom';
 import Home from './Components/home';
-import CreateOwner from './Components/createOwner'
-import CreateShowRoomForm from './Components/createShowroom'
-import CarAssignShowroom from './Components/carAssignShowroom'
-import OwnerAssignShowroom from './Components/ownerAssignShowroom'
-import CarInformation from './Components/carInformation'
-import Dashboard from './Components/dashboard'
+import CreateOwner from './Components/createOwner';
+import CreateShowRoomForm from './Components/createShowroom';
+import CarAssignShowroom from './Components/carAssignShowroom';
+import OwnerAssignShowroom from './Components/ownerAssignShowroom';
+import CarInformation from './Components/carInformation';
+import Dashboard from './Components/dashboard';
+import Login from './Components/login';
+import Register from './Components/registration';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
@@ -20,6 +22,8 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 const routing = (
     <Router>
       <div>
+        <Route path="/login" component={Login} exact/>  
+        <Route path="/register" component={Register} exact/>  
         <Route path="/" component={CreateCarForm} exact/>  
         <Route path="/getallcar" component={CarGetAll} exact/>
         <Route path="/createowner" component={CreateOwner} exact/>

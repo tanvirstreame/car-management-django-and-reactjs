@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom'
-import "./dashboard.css";
+import "../Components/Styles/dashboard.css";
 
 class Dashboard extends Component {
   constructor(props) {

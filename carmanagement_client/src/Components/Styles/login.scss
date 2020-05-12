@@ -1,0 +1,58 @@
+.login-page {
+    margin-top: 100px;
+    .login-form input[type="text"]{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #0099CC;
+        background: inherit;
+        box-sizing: border-box;
+        outline: none;
+        
+        font-size: 1.4em;
+        // padding: 0.6em 0.6em;
+        width: 100%;
+        caret-color: #0099CC;
+    }
+
+    .login-form input[type="password"]{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #0099CC;
+        background: inherit;
+        box-sizing: border-box;
+        outline: none;
+        
+        font-size: 1.4em;
+        // padding: 0.6em 0.6em;
+        width: 100%;
+        caret-color: #0099CC;
+      }
+
+      .login-form input[type="email"]{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #0099CC;
+        background: inherit;
+        box-sizing: border-box;
+        outline: none;
+        
+        font-size: 1.4em;
+        // padding: 0.6em 0.6em;
+        width: 100%;
+        caret-color: #0099CC;
+      }
+
+
+      .btn-submit:focus {
+          outline: unset;
+          box-shadow: unset !important;
+      }
+
+      .login-card  {
+        //   width: 50%;
+      
+      }
+}
