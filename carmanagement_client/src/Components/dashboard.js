@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import "../Components/Styles/dashboard.css";
+import  CheckAuth  from "../helper/auth";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Dashboard extends Component {
   render() {
     return (
       <Fragment>
-
+        <CheckAuth/>
         <section id="dashboard">
           <div className="container-fluid">
             <div className="dashboard-container row">

@@ -75,7 +75,7 @@ class OwnerAssignShowroom extends Component {
                     <select className="form-control" name="showroom_owner">
                       <option value="" disabled>--Select Owner--</option>
                       {this.state.owner.map(item => (
-                        <option key={item.id} value={item.id}>{item.username} ( Id- {item.id} )</option>
+                        <option key={item.id} value={item.id}>{item.username} | Id- {item.id}</option>
                       ))}
                     </select>
                   </div>
@@ -86,7 +86,7 @@ class OwnerAssignShowroom extends Component {
                     <select className="form-control" name="showroom">
                       <option value="" disabled>--Select Showroom--</option>
                       {this.state.showroom.map(item => (
-                        <option key={item.id} value={item.id}>{item.name} ( Id- {item.id} )</option>
+                        <option key={item.id} value={item.id}>{item.name} | Id- {item.id}</option>
                       ))}
                     </select>
                   </div>

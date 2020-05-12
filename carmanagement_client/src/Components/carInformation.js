@@ -3,6 +3,7 @@ import axios from "axios";
 import Dashboard from './dashboard';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../Components/Styles/car-information.css";
+
 class CarInformation extends Component {
   constructor(props) {
     super(props);
