@@ -51,7 +51,7 @@ class CreateCarForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    fetch('http://localhost:8000/api/v1/createcar/', {
+    fetch('/api/v1/createcar/', {
       method: 'POST',
       body: data,
     }).then(

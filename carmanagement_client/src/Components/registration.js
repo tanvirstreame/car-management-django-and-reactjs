@@ -33,7 +33,7 @@ class Registration extends Component {
     handleSubmit = () => {
         console.log(this.state.formValue)
 
-        axios.post('http://localhost:8000/core/api/register/', {
+        axios.post('/core/api/register/', {
             ...this.state.formValue
         })
             .then(response => {

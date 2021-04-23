@@ -51,7 +51,7 @@ class CreateOwner extends Component {
     const { valid, error } = blankValidtiaion(this.state.formValue);
     if (valid) {
 
-      axios.post('http://localhost:8000/api/v1/showroomowner/', {
+      axios.post('/api/v1/showroomowner/', {
         ...this.state.formValue
       }).then(response => {
         console.log("response", response);

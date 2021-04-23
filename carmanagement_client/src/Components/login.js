@@ -34,7 +34,7 @@ class Login extends Component {
     handleSubmit = () => {
         console.log(this.state.formValue)
 
-        axios.post('http://localhost:8000/core/api/token/', {
+        axios.post('/core/api/token/', {
             ...this.state.formValue
         })
             .then(response => {

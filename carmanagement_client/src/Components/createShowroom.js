@@ -55,7 +55,7 @@ class CreateShowRoomForm extends Component {
     
     if (valid) {
 
-      axios.post('http://localhost:8000/api/v1/showroom/', {
+      axios.post('/api/v1/showroom/', {
         ...this.state.formValue
       }).then(response => {
         console.log("response", response);

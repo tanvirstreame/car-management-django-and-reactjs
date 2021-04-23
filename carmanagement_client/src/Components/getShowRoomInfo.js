@@ -21,7 +21,7 @@ class GetShowRoomInfo extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8000/api/v1/get-car-by-showroom/?showroom=${this.props.match.params.id}`)
+    axios.get(`/api/v1/get-car-by-showroom/?showroom=${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           car: response.data,
@@ -29,7 +29,7 @@ class GetShowRoomInfo extends Component {
       })
 
 
-    axios.get(`http://localhost:8000/api/v1/single-showroom/${this.props.match.params.id}`)
+    axios.get(`/api/v1/single-showroom/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           showroom: response.data,

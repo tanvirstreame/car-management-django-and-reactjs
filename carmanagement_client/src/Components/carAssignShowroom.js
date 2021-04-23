@@ -15,7 +15,7 @@ class CarAssignShowroom extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:8000/api/v1/all-car-detail/')
+    axios.get('/api/v1/all-car-detail/')
       .then(response => {
         this.setState({
           car: response.data,
@@ -23,7 +23,7 @@ class CarAssignShowroom extends Component {
       })
 
 
-    axios.get('http://localhost:8000/api/v1/showroom/')
+    axios.get('/api/v1/showroom/')
       .then(response => {
         this.setState({
           showroom: response.data,
@@ -44,7 +44,7 @@ class CarAssignShowroom extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('http://localhost:8000/api/v1/showroom-all-car/', {
+    fetch('/api/v1/showroom-all-car/', {
       method: 'POST',
       body: data,
     }).then(

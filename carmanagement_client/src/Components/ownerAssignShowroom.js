@@ -15,7 +15,7 @@ class OwnerAssignShowroom extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    axios.get('http://localhost:8000/api/v1/showroomowner/')
+    axios.get('/api/v1/showroomowner/')
       .then(response => {
         this.setState({
           owner: response.data,
@@ -23,7 +23,7 @@ class OwnerAssignShowroom extends Component {
       })
 
 
-    axios.get('http://localhost:8000/api/v1/showroom/')
+    axios.get('/api/v1/showroom/')
       .then(response => {
         this.setState({
           showroom: response.data,
@@ -35,7 +35,7 @@ class OwnerAssignShowroom extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('http://localhost:8000/api/v1/owners-all-showroom/', {
+    fetch('/api/v1/owners-all-showroom/', {
       method: 'POST',
       body: data,
     }).then(
