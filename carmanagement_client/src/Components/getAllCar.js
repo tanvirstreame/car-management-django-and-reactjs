@@ -13,9 +13,8 @@ class CarGetAll extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:8000/api/v1/all-car-detail').then(
+    axios.get('car/api/v1/all-car-detail').then(
       response => {
-        console.log("response ----->", response)
         this.setState({
           car: response.data
         });
@@ -31,7 +30,8 @@ class CarGetAll extends Component {
       >
         <div className='container card  mb-5'>
           <div className="row">
-            {this.state.car.map((rowData, i) => (
+            {this.state.car.length > 0 ?
+            this.state.car && this.state.car.map((rowData, i) => (
               <Link key={rowData.id} className="linkelement" to={`/getcarinfo/${rowData.id}`}>
                 <div className="card">
                   <div className="card-body">
@@ -64,7 +64,7 @@ class CarGetAll extends Component {
                   </div>
                 </div>
               </Link>
-            ))}
+            )) : <div className="text-center w-100 mt-3"><p className="pb-3">No Data</p></div>}
           </div>
         </div>
       </Dashboard>

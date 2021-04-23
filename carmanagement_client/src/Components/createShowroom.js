@@ -55,7 +55,7 @@ class CreateShowRoomForm extends Component {
     
     if (valid) {
 
-      axios.post('/api/v1/showroom/', {
+      axios.post('car/api/v1/showroom/', {
         ...this.state.formValue
       }).then(response => {
         console.log("response", response);
@@ -119,38 +119,35 @@ class CreateShowRoomForm extends Component {
       >
         <div className="container card">
           <div className="row  mb-5">
-            <div className="col-md-8 offset-md-2">
+            <div className="col-md-12">
               <form className="formtop" id="CreateShowRoom" onSubmit={this.handleSubmit} method="post">
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Show Name</label>
                     <input type="text" className="form-control shadow-none" value={this.state.formValue.name} name="name" onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formError.name}</span>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                
+                  <div className="col-md-6">
                     <label>Registration Number</label>
                     <input type="text" className="form-control shadow-none" value={this.state.formValue.registration_number} name="registration_number" onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formError.registration_number}</span>
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Logo Type</label>
                     <input type="text" className="form-control shadow-none" value={this.state.formValue.logo_type} name="logo_type" onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formError.logo_type}</span>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Contact Detail</label>
                     <input type="text" className="form-control shadow-none" value={this.state.formValue.contact_info} name="contact_info" onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formError.contact_info}</span>
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-3">
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Show Room" />
                   </div>
                 </div>

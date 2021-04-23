@@ -49,13 +49,16 @@ class Registration extends Component {
 
             <div className="login-page">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-7">
 
                     </div>
                     <div className="col-md-4">
                         <div className="card login-card w-100">
+                            <div className="text-center mt-2">
+                                <h4>Registration</h4>
+                            </div>
                             <div className="card-body">
-                                <form className="login-form m-4">
+                                <form className="login-form ml-4 mb-4 mr-4  mt-2">
                                     <label>Username</label>
                                     <input defaultValue="" className="" type="text" onChange={e => this.handleOnChange(e)} name="username" value={username} />
                                     <label className="mt-3">Email</label>
@@ -71,7 +74,7 @@ class Registration extends Component {
 
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-1">
 
                     </div>
                 </div>

@@ -41,15 +41,6 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="sn-group">
-                  <h5>User</h5>
-                  <nav>
-                    <Link className="sn-link" to={"/createowner"}>
-                      <i className="fas fa-user-tie"></i>Create Owner
-                    </Link>
-                  </nav>
-                </div>
-
-                <div className="sn-group">
                   <h5>Car</h5>
                   <nav>
                     <Link className="sn-link" to={"/"}>
@@ -74,11 +65,20 @@ class Dashboard extends Component {
                     <Link className="sn-link" to={"/carassignshowroom"}>
                       <i className="fas fa-user-tie"></i>Car Assign Showroom
                     </Link>
+                  </nav>
+
+                </div>
+
+                <div className="sn-group">
+                  <h5>User</h5>
+                  <nav>
+                    <Link className="sn-link" to={"/createowner"}>
+                      <i className="fas fa-user-tie"></i>Create Owner
+                    </Link>
                     <Link className="sn-link" to={"/ownerassignshowroom"}>
                       <i className="fas fa-user-tie"></i>Owner Assign Showroom
                     </Link>
                   </nav>
-
                 </div>
 
 

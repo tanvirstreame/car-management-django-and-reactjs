@@ -4,7 +4,7 @@ import Header from '../components/Header'
 
 export default class CarInformation extends React.Component {
   static  getInitialProps({ query }) {
-    return fetch(`http://127.0.0.1:8000/api/v1/single-car-detail/${query.id}`)
+    return fetch(`/api/v1/single-car-detail/${query.id}`)
       .then((response) => response.text())
       .then((myJsonData) => {
         return (JSON.parse(myJsonData))

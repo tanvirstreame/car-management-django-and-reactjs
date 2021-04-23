@@ -8,7 +8,7 @@ class GetShowRoom extends Component {
   };
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:8000/api/v1/showroom/').then(
+    axios.get('car/api/v1/showroom/').then(
       response => {
         this.setState({
           showRoom: response.data
@@ -23,6 +23,7 @@ class GetShowRoom extends Component {
         title="Showroom List"
       >
         <div className='container card'>
+          {this.state.showRoom.length > 0 ? <>
           <h4 className="text-center formtop">Showroom List</h4>
           <div className="row  mb-5 ml-2 mr-2">
             <table className="table table-bordered">
@@ -34,7 +35,7 @@ class GetShowRoom extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.showRoom.map(room => (
+                {this.state.showRoom && this.state.showRoom.map(room => (
                   <tr key={room.id}>
                     <td>{room.id}</td>
                     <td>{room.name}</td>
@@ -44,6 +45,8 @@ class GetShowRoom extends Component {
               </tbody>
             </table>
           </div>
+          </>
+          : <div className="text-center w-100 mt-3"><p className="pb-3">No Data</p></div>}
         </div>
       </Dashboard>
     );

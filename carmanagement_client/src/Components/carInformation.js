@@ -21,7 +21,7 @@ class CarInformation extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/api/v1/single-car-detail/${this.props.match.params.id}`)
+    axios.get(`car/api/v1/single-car-detail/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           car: response.data,
@@ -29,7 +29,7 @@ class CarInformation extends Component {
       })
       
 
-    axios.get(`http://127.0.0.1:8000/api/v1/single-car-image/?car=${this.props.match.params.id}`)
+    axios.get(`/api/v1/single-car-image/?car=${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           image: response.data,

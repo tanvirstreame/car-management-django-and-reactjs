@@ -114,38 +114,36 @@ class CreateOwner extends Component {
       <Dashboard
         title="Create Owner"
       >
-        <div className="container card">
+        <div className="container card shadow">
           <div className="row  mb-5">
-            <div className="col-md-8 offset-md-2">
+            <div className="col-md-12">
               <form className="formtop" id="CreateOwner" >
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>User Name</label>
                     <input type="text" className="form-control shadow-none" name="username" value={this.state.formValue.username} onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formErrors.username}</span>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Email</label>
                     <input type="text" className="form-control shadow-none" name="email" value={this.state.formValue.email} onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formErrors.email}</span>
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Password</label>
                     <input type="text" className="form-control shadow-none" name="password" value={this.state.formValue.password} onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formErrors.password}</span>
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-2">
                     <input type="button" onClick={event => this.handleSubmit(event)} className="btn btn-info btn-block shadow-none" value="Create Owner" />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2 mt-2">
+                  <div className="col-md-8mt-2">
                     <span className="text-success">{this.state.status.succeed}</span>
                     <span className="text-danger">{this.state.status.failed}</span>
                   </div>

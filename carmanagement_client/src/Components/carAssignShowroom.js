@@ -44,7 +44,7 @@ class CarAssignShowroom extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('/api/v1/showroom-all-car/', {
+    fetch('car/api/v1/showroom-all-car/', {
       method: 'POST',
       body: data,
     }).then(
@@ -75,10 +75,10 @@ class CarAssignShowroom extends Component {
       >
         <div className="container card">
           <div className="row mb-5">
-            <div className="col-md-8 offset-md-2">
+            <div className="col-md-12">
               <form className="formtop" onSubmit={this.handleSubmit} method="post">
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Choose ShowRoom:</label>
                     <select className='form-control' name="showroom" onChange={event=>{this.onSelectChange(event)}}>
                       <option value="" disabled>--Select Showroom--</option>
@@ -87,9 +87,8 @@ class CarAssignShowroom extends Component {
                       ))}
                     </select>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                
+                  <div className="col-md-6">
                     <label>Choose Car:</label>
                     <select className='form-control' name="car" onChange={event=>{this.onSelectChange(event)}}>
                       <option value="" disabled>--Select Car--</option>
@@ -100,12 +99,12 @@ class CarAssignShowroom extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-2">
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2 mt-2">
+                  <div className="col-md-8 mt-2">
                     <span className="text-success">{this.state.status.succeed}</span>
                     <span className="text-danger">{this.state.status.failed}</span>
                   </div>

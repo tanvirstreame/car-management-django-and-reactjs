@@ -51,7 +51,7 @@ class CreateCarForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    fetch('/api/v1/createcar/', {
+    fetch('car/api/v1/createcar/', {
       method: 'POST',
       body: data,
     }).then(
@@ -97,42 +97,38 @@ class CreateCarForm extends Component {
       <Dashboard
         title="Create Car"
       >
-        <div className="container card">
+        <div className="container card shadow">
           <div className="row  mb-5">
-            <div className="col-md-8 offset-md-2">
+            <div className="col-md-12">
               <form className="formtop" id="CreateCar" onSubmit={this.handleSubmit} method="post">
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Manufacture Name</label>
                     <input type="text" className="form-control shadow-none" name="manufacture" value={this.state.manufacture} onChange={this.handleUserInput} />
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+
+                  <div className="col-md-6">
                     <label>Tagline</label>
                     <input type="text" className="form-control shadow-none" name="tagline" value={this.state.tagline} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Car Model</label>
                     <input type="text" className="form-control shadow-none" name="car_model" value={this.state.car_model} onChange={this.handleUserInput} />
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+
+                  <div className="col-md-6">
                     <label>Mileage</label>
                     <input type="number" className="form-control shadow-none" name="mileage" value={this.state.mileage} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Year</label>
                     <input type="number" className="form-control shadow-none" name="year" value={this.state.year} onChange={this.handleUserInput} />
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Status</label>
                     <select className="form-control" name="status">
                       <option defaultValue="0" disabled>Choose here</option>
@@ -142,7 +138,7 @@ class CreateCarForm extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Transmission</label>
                     <select className="form-control" ref={el => this.transmission = el} name="transmission" >
                       <option value="0" disabled>Choose here</option>
@@ -150,38 +146,35 @@ class CreateCarForm extends Component {
                       <option value='1'>Automatic</option>
                     </select>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+
+                  <div className="col-md-6">
                     <label>Price</label>
                     <input type="number" className="form-control shadow-none" name="price" value={this.state.price} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Horse Power</label>
                     <input type="number" className="form-control shadow-none" name="horse_power" value={this.state.horse_power} onChange={this.handleUserInput} />
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Propellant</label>
                     <input type="text" className="form-control shadow-none" name="propellant" value={this.state.propellant} onChange={this.handleUserInput} />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Upload File</label>
                     <input type="file" className="form-control shadow-none" accept="image/*" name="image" multiple />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-2">
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Car" />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2 mt-2">
+                  <div className="col-md-8 mt-2">
                     <span className="text-success">{this.state.status.succeed}</span>
                     <span className="text-danger">{this.state.status.failed}</span>
                   </div>
@@ -191,7 +184,6 @@ class CreateCarForm extends Component {
           </div>
         </div>
       </Dashboard>
-
     );
   }
 }

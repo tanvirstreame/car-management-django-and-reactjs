@@ -1,5 +1,8 @@
 .login-page {
-    margin-top: 60px;
+    padding-top: 60px;
+    background-image: url("../../asset/background.jpg");
+    background-size: cover;
+    min-height: 599px;
     .login-form input[type="text"]{
         border-top: none;
         border-left: none;

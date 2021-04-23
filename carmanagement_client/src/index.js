@@ -16,6 +16,7 @@ import Login from './Components/login';
 import Register from './Components/registration';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
+import './Components/Styles/dashboard.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 
 

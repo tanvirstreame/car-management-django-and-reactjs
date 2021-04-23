@@ -15,7 +15,7 @@ class OwnerAssignShowroom extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    axios.get('/api/v1/showroomowner/')
+    axios.get('car/api/v1/showroomowner/')
       .then(response => {
         this.setState({
           owner: response.data,
@@ -23,7 +23,7 @@ class OwnerAssignShowroom extends Component {
       })
 
 
-    axios.get('/api/v1/showroom/')
+    axios.get('car/api/v1/showroom/')
       .then(response => {
         this.setState({
           showroom: response.data,
@@ -35,12 +35,12 @@ class OwnerAssignShowroom extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-    fetch('/api/v1/owners-all-showroom/', {
+    fetch('car/api/v1/owners-all-showroom/', {
       method: 'POST',
       body: data,
     }).then(
       response => {
-        if (response.status==201) {
+        if (response.status == 201) {
           this.setState({
             status: {
               ...this.state.status,
@@ -56,8 +56,8 @@ class OwnerAssignShowroom extends Component {
             }
           })
         }
-        }
-      );
+      }
+    );
   }
 
   render() {
@@ -67,10 +67,10 @@ class OwnerAssignShowroom extends Component {
       >
         <div className="container card">
           <div className="row  mb-5">
-            <div className="col-md-8 offset-md-2">
+            <div className="col-md-12">
               <form className="formtop" onSubmit={this.handleSubmit} method="post">
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Choose Owner:</label>
                     <select className="form-control" name="showroom_owner">
                       <option value="" disabled>--Select Owner--</option>
@@ -79,9 +79,7 @@ class OwnerAssignShowroom extends Component {
                       ))}
                     </select>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-6">
                     <label>Choose ShowRoom:</label>
                     <select className="form-control" name="showroom">
                       <option value="" disabled>--Select Showroom--</option>
@@ -92,12 +90,12 @@ class OwnerAssignShowroom extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2">
+                  <div className="col-md-2">
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8 offset-md-2 mt-2">
+                  <div className="col-md-8 mt-2">
                     <span className="text-success">{this.state.status.succeed}</span>
                     <span className="text-danger">{this.state.status.failed}</span>
                   </div>
