@@ -25,9 +25,25 @@ class CreateOwner extends Component {
     };
   }
 
+  validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
   handleUserInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
+
+    let customError = {};
+
+    if(name === "email") {
+      if(!this.validateEmail(value)) {
+        customError = {
+          email: "Please enter correct email"
+        }
+      }
+    }
+
     this.setState({
       formValue: {
         ...this.state.formValue,
@@ -35,7 +51,8 @@ class CreateOwner extends Component {
       },
       formErrors: {
         ...this.state.formErrors,
-        [name]: ""
+        [name]: "",
+        ...customError
       },
       status: {
         succeed: "",
@@ -102,7 +119,7 @@ class CreateOwner extends Component {
           succeed,
           failed
         },
-        formErrors: error
+        formErrors: {...this.state.formErrors, ...error}
 
       })
     }
@@ -143,7 +160,7 @@ class CreateOwner extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-8mt-2">
+                  <div className="col-md-8 mt-2">
                     <span className="text-success">{this.state.status.succeed}</span>
                     <span className="text-danger">{this.state.status.failed}</span>
                   </div>
