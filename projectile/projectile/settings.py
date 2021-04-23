@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,11 +27,11 @@ SECRET_KEY = 'zl=&3gl_wl!!2x_u(tkui8kajc*mx2%s*xuj8ript!l%4roah2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'Client', "static"),  # update the STATICFILES_DIRS
+    os.path.join(BASE_DIR, 'client', "static"),  # update the STATICFILES_DIRS
 )
 
 MEDIA_URL =  '/media/'
@@ -82,9 +84,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'projectile.wsgi.application'
 
+django_heroku.settings(locals())
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+
+
 
 DATABASES = {
     'default': {
@@ -92,6 +99,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [],
@@ -123,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Client'),],
+        'DIRS': [os.path.join(BASE_DIR, 'client'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
