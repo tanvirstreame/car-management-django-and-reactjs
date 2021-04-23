@@ -54,7 +54,7 @@ class Registration extends Component {
                     </div>
                     <div className="col-md-4">
                         <div className="card login-card w-100">
-                            <div className="text-center mt-2">
+                            <div className="text-center mt-4">
                                 <h4>Registration</h4>
                             </div>
                             <div className="card-body">
