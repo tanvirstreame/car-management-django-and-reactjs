@@ -65,7 +65,7 @@ class Login extends Component {
                                     <label>Username</label>
                                     <input defaultValue="" className="" type="text" onChange={e => this.handleOnChange(e)} name="username" value={username} />
                                     <label className="mt-3">Password</label>
-                                    <input defaultValue="" className="" type="text" onChange={e => this.handleOnChange(e)} name="password" value={password} />
+                                    <input defaultValue="" className="" type="password" onChange={e => this.handleOnChange(e)} name="password" value={password} />
                                     <input className="mt-5 btn btn-primary btn-submit btn-block" value="Submit" onClick={e => this.handleSubmit(e)} type="button" />
 
                                 </form>
