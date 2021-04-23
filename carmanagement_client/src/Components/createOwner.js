@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Dashboard from './dashboard';
+import swal from 'sweetalert';
 import { blankValidtiaion } from "../validation/validations";
 
 class CreateOwner extends Component {
@@ -71,8 +72,6 @@ class CreateOwner extends Component {
       axios.post('/api/v1/showroomowner/', {
         ...this.state.formValue
       }).then(response => {
-        console.log("response", response);
-
         if (response.status == 201) {
           succeed = "Inserted succesfully";
           this.setState({
@@ -85,7 +84,8 @@ class CreateOwner extends Component {
               ...this.state.status,
               succeed,
             }
-          })
+          });
+          swal("", "Inserted successfully", "success");
         }
         else {
           failed = "Operation failed";
@@ -94,7 +94,8 @@ class CreateOwner extends Component {
               ...this.state.status,
               failed,
             }
-          })
+          });
+          swal("", "Operation failed", "error");
         }
       }
       )
@@ -108,6 +109,7 @@ class CreateOwner extends Component {
               }
 
             })
+            swal("", "Operation failed", "error");
           }
         );
 
@@ -122,6 +124,7 @@ class CreateOwner extends Component {
         formErrors: {...this.state.formErrors, ...error}
 
       })
+      swal("", "Operation failed", "error");
     }
 
   }

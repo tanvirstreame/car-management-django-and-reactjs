@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Dashboard from './dashboard';
+import swal from 'sweetalert';
 
 class CreateCarForm extends Component {
   constructor(props) {
@@ -84,10 +85,19 @@ class CreateCarForm extends Component {
               failed: "Operation failed"
             }
           })
+          swal("", "Operation failed", "error");
         }
 
       }
-    )
+    ).catch(error => {
+      this.setState({
+        status: {
+          succeed: "",
+          failed: "Operation failed"
+        }
+      })
+      swal("", "Operation failed", "error");
+    })
   }
 
 

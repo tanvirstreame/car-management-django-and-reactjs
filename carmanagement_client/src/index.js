@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Styles/index.css';
 import CarGetAll from './Components/getAllCar'
 import CreateCarForm from './Components/createCarForm';
 import GetShowRoomInfo from './Components/getShowRoomInfo';
