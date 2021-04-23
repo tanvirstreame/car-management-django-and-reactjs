@@ -1,8 +1,13 @@
+from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.response import Response
 from django.contrib.auth.hashers import make_password
 from rest_framework import status
 from .models import User
+
+def index(request):    
+    return render(request, 'index.html')
+
 
 class UserList(generics.ListCreateAPIView):
     '''
