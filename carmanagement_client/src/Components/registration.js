@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import "../Components/Styles/login.scss";
+import Home from "../Components/home"
 
 class Registration extends Component {
 
@@ -21,11 +22,11 @@ class Registration extends Component {
         const name = event.target.name;
         const value = event.target.value;
         this.setState({
-           
+
             formValue: {
                 ...this.state.formValue,
                 [name]: value,
-               
+
             }
         })
     }
@@ -39,23 +40,20 @@ class Registration extends Component {
             .then(response => {
                 if (response.status == 200) {
                     this.props.history.push("/login");
-                }          
+                }
             })
     }
 
     render() {
-        const { username, password, email} = this.state.formValue
+        const { username, password, email } = this.state.formValue
         return (
+            <Home>
+                <div className="login-page">
+                    <div className="row">
 
-            <div className="login-page">
-                <div className="row">
-                    <div className="col-md-7">
-
-                    </div>
-                    <div className="col-md-4">
                         <div className="card login-card w-100">
                             <div className="text-center mt-4">
-                                <h4>Registration</h4>
+                                <h4>Sign Up</h4>
                             </div>
                             <div className="card-body">
                                 <form className="login-form ml-4 mb-4 mr-4  mt-2">
@@ -74,12 +72,9 @@ class Registration extends Component {
 
                     </div>
 
-                    <div className="col-md-1">
-
-                    </div>
+                    {/* <CustomTabView/>  */}
                 </div>
-                {/* <CustomTabView/>  */}
-            </div>
+            </Home>
         )
     }
 }

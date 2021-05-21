@@ -18,7 +18,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Components/Styles/dashboard.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 
-
 const routing = (
     <Router>
       <div>
@@ -33,6 +32,7 @@ const routing = (
         <Route path="/carassignshowroom" component={CarAssignShowroom} exact/>
         <Route path="/ownerassignshowroom" component={OwnerAssignShowroom} exact/>
         <Route path="/getcarinfo/:id" component={CarInformation} exacts/>
+        <Route path="/home" component={Home} exacts/>
       </div>
     </Router>
 )

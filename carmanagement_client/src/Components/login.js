@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Route , withRouter, useHistory } from 'react-router-dom';
+import { Route, withRouter, useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
 import "../Components/Styles/login.scss";
+import Home from "../Components/home"
 
 class Login extends Component {
 
@@ -48,17 +49,14 @@ class Login extends Component {
     render() {
         const { username, password } = this.state.formValue
         return (
+            <Home>
+                <div className="login-page">
 
-            <div className="login-page">
-                
-                <div className="row">
-                    <div className="col-md-7">
+                    <div className="row">
 
-                    </div>
-                    <div className="col-md-4">
                         <div className="card login-card w-100">
                             <div className="text-center mt-4">
-                                <h4>Login</h4>
+                                <h4>Sign In</h4>
                             </div>
                             <div className="card-body">
                                 <form className="login-form ml-4 mb-4 mr-4  mt-2">
@@ -74,13 +72,9 @@ class Login extends Component {
                         </div>
 
                     </div>
-
-                    <div className="col-md-1">
-
-                    </div>
+                    {/* <CustomTabView/>  */}
                 </div>
-                {/* <CustomTabView/>  */}
-            </div>
+            </Home>
         )
     }
 }
