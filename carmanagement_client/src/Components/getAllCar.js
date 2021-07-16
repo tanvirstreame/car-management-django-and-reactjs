@@ -42,10 +42,10 @@ class CarGetAll extends Component {
                           {rowData.image_feild.map((subRow, k) =>
                             (k === 0) ?
                               <div key={subRow.image} className="carousel-item active">
-                                <img src={subRow.image} className="" alt="..." />
+                                <img src={subRow.image} className="" alt="Heroku can't load the image" />
                               </div> :
                               <div key={subRow.image} className="carousel-item">
-                                <img src={subRow.image} className="" alt="..." />
+                                <img src={subRow.image} className="" alt="Heroku can't load the image" />
                               </div>
                           )}
                         </div>

@@ -21,7 +21,7 @@ class CarInformation extends Component {
   }
 
   componentDidMount() {
-    axios.get(`car/api/v1/single-car-detail/${this.props.match.params.id}`)
+    axios.get(`/car/api/v1/single-car-detail/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           car: response.data,
@@ -29,7 +29,7 @@ class CarInformation extends Component {
       })
 
 
-    axios.get(`/api/v1/single-car-image/?car=${this.props.match.params.id}`)
+    axios.get(`/car/api/v1/single-car-image/?car=${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           image: response.data,
@@ -50,8 +50,8 @@ class CarInformation extends Component {
       >
         <div className='container card'>
           <div className="row mb-5">
-            <div className="formtop" key={this.state.car.id}>
-              <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+            <div className="formtop w-100 mt-4" key={this.state.car.id}>
+              {/* <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
                   {show};
               </div>
@@ -63,9 +63,11 @@ class CarInformation extends Component {
                   <span className="carousel-control-next-icon" aria-hidden="true"></span>
                   <span className="sr-only">Next</span>
                 </a>
-              </div>
+              </div> */}
+              
               <div className="ml-4 mr-4">
-              <div>
+              <img src={this.state.image[0] && this.state.image[0].image} className="d-block w-100" alt="Heroku can load the image" />
+              <div className="mt-4">
                 <label><b>Car Id:</b></label>
                 <span >{this.state.car.id}</span>
               </div>
