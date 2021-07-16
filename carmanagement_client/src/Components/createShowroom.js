@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Dashboard from './dashboard';
-import { blankValidtiaion } from "../validation/validations"
+import { blankValidtiaion } from "../validation/validations";
+import swal  from "sweetalert";
 
 class CreateShowRoomForm extends Component {
   constructor(props) {
@@ -51,15 +52,13 @@ class CreateShowRoomForm extends Component {
     let succuess = "";
     let failed = "";
     const { valid, error } = blankValidtiaion(this.state.formValue);
-    console.log("valid",valid, error);
-    
+    console.log("valid", valid, error);
+
     if (valid) {
 
       axios.post('car/api/v1/showroom/', {
         ...this.state.formValue
       }).then(response => {
-        console.log("response", response);
-
         if (response.status == 201) {
           succuess = "Inserted succesfully";
           this.setState({
@@ -74,6 +73,7 @@ class CreateShowRoomForm extends Component {
               succuess,
             }
           })
+          swal("", "Showroom added successfully", "success");
         }
         else {
           failed = "Operation failed";
@@ -83,6 +83,7 @@ class CreateShowRoomForm extends Component {
               failed,
             }
           })
+          swal("", "Showroom add failed", "error");
         }
       }
       )
@@ -96,6 +97,7 @@ class CreateShowRoomForm extends Component {
               }
 
             })
+            swal("", "Showroom add failed", "error");
           }
         );
     }
@@ -127,7 +129,7 @@ class CreateShowRoomForm extends Component {
                     <input type="text" className="form-control shadow-none" value={this.state.formValue.name} name="name" onChange={this.handleUserInput} />
                     <span className="text-danger">{this.state.formError.name}</span>
                   </div>
-                
+
                   <div className="col-md-6">
                     <label>Registration Number</label>
                     <input type="text" className="form-control shadow-none" value={this.state.formValue.registration_number} name="registration_number" onChange={this.handleUserInput} />
@@ -149,12 +151,6 @@ class CreateShowRoomForm extends Component {
                 <div className="row">
                   <div className="col-md-3">
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Show Room" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 offset-md-2 mt-2">
-                    <span className="text-success">{this.state.status.succuess}</span>
-                    <span className="text-danger">{this.state.status.failed}</span>
                   </div>
                 </div>
               </form>

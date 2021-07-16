@@ -22,11 +22,11 @@ class GetShowRoom extends Component {
       <Dashboard
         title="Showroom List"
       >
-        <div className='container card'>
+        <div className='container'>
           {this.state.showRoom.length > 0 ? <>
           <h4 className="text-center formtop">Showroom List</h4>
           <div className="row  mb-5 ml-2 mr-2">
-            <table className="table table-bordered">
+            <table className="table table-bordered shadow">
               <thead>
                 <tr>
                   <th>Id</th>

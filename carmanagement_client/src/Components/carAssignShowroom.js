@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Dashboard from './dashboard';
+import swal from "sweetalert";
 
 class CarAssignShowroom extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class CarAssignShowroom extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/api/v1/all-car-detail/')
+    axios.get('car/api/v1/all-car-detail/')
       .then(response => {
         this.setState({
           car: response.data,
@@ -23,7 +24,7 @@ class CarAssignShowroom extends Component {
       })
 
 
-    axios.get('/api/v1/showroom/')
+    axios.get('car/api/v1/showroom/')
       .then(response => {
         this.setState({
           showroom: response.data,
@@ -56,6 +57,7 @@ class CarAssignShowroom extends Component {
               succeed: "Assigned successfully"
             }
           })
+          swal("", "Car assigned  successfully", "success");
         }
         else {
           this.setState({
@@ -64,6 +66,7 @@ class CarAssignShowroom extends Component {
               failed: "Operation failed"
             }
           })
+          swal("", "Car assigned failed", "error");
         }
       })
   }
@@ -101,12 +104,6 @@ class CarAssignShowroom extends Component {
                 <div className="row">
                   <div className="col-md-2">
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 mt-2">
-                    <span className="text-success">{this.state.status.succeed}</span>
-                    <span className="text-danger">{this.state.status.failed}</span>
                   </div>
                 </div>
               </form>

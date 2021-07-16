@@ -27,7 +27,7 @@ class CarInformation extends Component {
           car: response.data,
         })
       })
-      
+
 
     axios.get(`/api/v1/single-car-image/?car=${this.props.match.params.id}`)
       .then(response => {
@@ -48,43 +48,51 @@ class CarInformation extends Component {
       <Dashboard
         title="Car Info"
       >
-      <div className='container card'>
-        <div className="row mb-5">
-          <div className="formtop" key={this.state.car.id}>
-            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-              <div className="carousel-inner">
-                {show};
+        <div className='container card'>
+          <div className="row mb-5">
+            <div className="formtop" key={this.state.car.id}>
+              <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner">
+                  {show};
               </div>
-              <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-              </a>
-              <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-              </a>
+                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span className="sr-only">Previous</span>
+                </a>
+                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span className="sr-only">Next</span>
+                </a>
+              </div>
+              <div className="ml-4 mr-4">
+              <div>
+                <label><b>Car Id:</b></label>
+                <span >{this.state.car.id}</span>
+              </div>
+              <div>
+                <label><b>Car Mileage:</b></label>
+                <span >{this.state.car.mileage}</span>
+              </div>
+              <div>
+                <label><b>Year:</b></label>
+                <span >{this.state.car.year}</span>
+              </div>
+              <div>
+                <label><b>Status:</b></label>
+                <span >{this.state.car.status === 0 ? "Sold" : "In Stock"}</span>
+              </div>
+              <div>
+                <label><b>Transmission:</b></label>
+                <span >{this.state.car.transmission === 0 ? "Manual" : "Automatic"}</span>
+              </div>
+              <div>
+                <label><b>Price:</b></label>
+                <span >{this.state.car.price}</span>
+              </div>
             </div>
-            <label><b>Car Id:</b></label>
-            <span >{this.state.car.id}</span>
-            <br />
-            <label><b>Car Mileage:</b></label>
-            <span >{this.state.car.mileage}</span>
-            <br />
-            <label><b>Year:</b></label>
-            <span >{this.state.car.year}</span>
-            <br />
-            <label><b>Status:</b></label>
-            <span >{this.state.car.status === 0 ? "Sold" : "In Stock"}</span>
-            <br />
-            <label><b>Transmission:</b></label>
-            <span >{this.state.car.transmission === 0 ? "Manual" : "Automatic"}</span>
-            <br />
-            <label><b>Price:</b></label>
-            <span >{this.state.car.price}</span>
-            <br />
+          </div>
           </div>
         </div>
-      </div>
       </Dashboard>
     );
   }
