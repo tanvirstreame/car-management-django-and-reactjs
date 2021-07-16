@@ -69,7 +69,7 @@ class CreateOwner extends Component {
     const { valid, error } = blankValidtiaion(this.state.formValue);
     if (valid) {
 
-      axios.post('/api/v1/showroomowner/', {
+      axios.post('car/api/v1/showroomowner/', {
         ...this.state.formValue
       }).then(response => {
         if (response.status == 201) {
@@ -160,12 +160,6 @@ class CreateOwner extends Component {
                 <div className="row">
                   <div className="col-md-2">
                     <input type="button" onClick={event => this.handleSubmit(event)} className="btn btn-info btn-block shadow-none" value="Create Owner" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-8 mt-2">
-                    <span className="text-success">{this.state.status.succeed}</span>
-                    <span className="text-danger">{this.state.status.failed}</span>
                   </div>
                 </div>
               </form>
