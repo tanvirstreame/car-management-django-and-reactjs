@@ -34,7 +34,8 @@ class CreateCarForm extends Component {
       status: {
         succeed: "",
         failed: "",
-      }
+      },
+      yearList: []
     };
 
   }
@@ -73,10 +74,10 @@ class CreateCarForm extends Component {
             status: {
               succeed: "Inserted Successfully",
               failed: ""
-            }
+            },
           })
 
-
+          swal("", "Car added successfully", "success");
         }
         else {
           this.setState({
@@ -97,6 +98,19 @@ class CreateCarForm extends Component {
         }
       })
       swal("", "Operation failed", "error");
+    })
+  }
+
+  componentDidMount() {
+    let yearList = [];
+    const start = 1900;
+    const end = new Date().getFullYear();
+    var options = "";
+    for (let year = end; year >= start; year--) {
+      yearList.push(year);
+    }
+    this.setState({
+      yearList,
     })
   }
 
@@ -136,7 +150,14 @@ class CreateCarForm extends Component {
                 <div className="row">
                   <div className="col-md-6">
                     <label>Year</label>
-                    <input type="number" className="form-control shadow-none" name="year" value={this.state.year} onChange={this.handleUserInput} />
+                    <select className="form-control" ref={el => this.year = el} name="year" onChange={this.handleUserInput}>
+                      <option value="0" disabled>Choose here</option>
+                      {
+                        this.state.yearList && this.state.yearList.map(eachYear => (
+                          <option value={eachYear}>{eachYear}</option>
+                        ))
+                      }
+                    </select>
                   </div>
                   <div className="col-md-6">
                     <label>Status</label>
@@ -198,4 +219,4 @@ class CreateCarForm extends Component {
   }
 }
 
-export default CreateCarForm 
+export default CreateCarForm
