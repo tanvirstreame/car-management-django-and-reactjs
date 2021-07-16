@@ -204,12 +204,6 @@ class CreateCarForm extends Component {
                     <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Car" />
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-md-8 mt-2">
-                    <span className="text-success">{this.state.status.succeed}</span>
-                    <span className="text-danger">{this.state.status.failed}</span>
-                  </div>
-                </div>
               </form>
             </div>
           </div>
