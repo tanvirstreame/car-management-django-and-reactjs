@@ -21,7 +21,7 @@ class GetShowRoomInfo extends Component {
   }
 
   componentDidMount() {
-    axios.get(`car/api/v1/get-car-by-showroom/?showroom=${this.props.match.params.id}`)
+    axios.get(`/car/api/v1/get-car-by-showroom/?showroom=${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           car: response.data,
@@ -29,7 +29,7 @@ class GetShowRoomInfo extends Component {
       })
 
 
-    axios.get(`car/api/v1/single-showroom/${this.props.match.params.id}`)
+    axios.get(`/car/api/v1/single-showroom/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           showroom: response.data,
@@ -56,38 +56,48 @@ class GetShowRoomInfo extends Component {
             <label><b>Logo Type:</b></label>
             <span>{this.state.showroom.logo_type}</span>
             <br />
-            <Button onClick={this.showButton}>Veiw Contact Detail</Button>
+            <Button className="mt-2" onClick={this.showButton}>Veiw Contact Detail</Button>
             {
               expanded && //show if expanded is true
-              <div>{this.state.showroom.contact_info}</div>
+              <div className="mt-4"><b>Phone: </b>{this.state.showroom.contact_info}</div>
             }
-            <div className="row m-2">
+            <hr></hr>
+            <h4 className="text-center">All car</h4>
+            <div className="row mt-4 mb-4">
               {this.state.car.map((rowdata, i) =>
-                <Link key={rowdata.car.id} className="linkelement" to={`/getcarinfo/${rowdata.car.id}`}>
-                  <div className="card showroomcarinfo">
-                    <div className="card-body showroomcarbodyinfo">
-                      <h4 className="text-center">Car Info</h4>
-                      <label><b>Car Id:</b></label>
-                      <span >{rowdata.car.id}</span>
-                      <br />
-                      <label><b>Car Mileage:</b></label>
-                      <span >{rowdata.car.mileage}</span>
-                      <br />
-                      <label><b>Year:</b></label>
-                      <span >{rowdata.car.year}</span>
-                      <br />
-                      <label><b>Status:</b></label>
-                      <span >{rowdata.car.status === 0 ? "Sold" : "In Stock"}</span>
-                      <br />
-                      <label><b>Transmission:</b></label>
-                      <span >{rowdata.car.transmission === 0 ? "Manual" : "Automatic"}</span>
-                      <br />
-                      <label><b>Price:</b></label>
-                      <span >{rowdata.car.price}</span>
-                      <br />
+                <div className="col-md-4">
+                  <Link key={rowdata.car.id} className="linkelement" to={`/getcarinfo/${rowdata.car.id}`}>
+                    <div className="card showroomcarinfo">
+                      <div className="card-body showroomcarbodyinfo">
+                        <h4 className="text-center">Car Info</h4>
+                        <div>
+                          <label><b>Car Id:</b></label>
+                          <span >{rowdata.car.id}</span>
+                        </div>
+                        <div>
+                          <label><b>Car Mileage:</b></label>
+                          <span >{rowdata.car.mileage}</span>
+                        </div>
+                        <div>
+                          <label><b>Year:</b></label>
+                          <span >{rowdata.car.year}</span>
+                        </div>
+                        <div>
+                          <label><b>Status:</b></label>
+                          <span >{rowdata.car.status === 0 ? "Sold" : "In Stock"}</span>
+                        </div>
+                        <div>
+                          <label><b>Transmission:</b></label>
+                          <span >{rowdata.car.transmission === 0 ? "Manual" : "Automatic"}</span>
+                        </div>
+                        <div>
+                          <label><b>Price:</b></label>
+                          <span >{rowdata.car.price}</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               )}
             </div>
           </div>
