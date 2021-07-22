@@ -1,27 +1,43 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import "../Components/Styles/dashboard.css";
-import  CheckAuth  from "../helper/auth";
+import CheckAuth from "../helper/auth";
 const createHistory = require("history").createBrowserHistory;
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      dashboardActive: {
+        carManagement: false,
+        shopManagement: false,
+        userManagement: false
+      }
+    }
   };
 
   logout = () => {
     let history = createHistory();
     history.push("/login");
     let pathUrl = window.location.href;
-    window.location.href = pathUrl; 
+    window.location.href = pathUrl;
     localStorage.clear();
+  }
+
+  handleDashboardActive = (name) => {
+    this.setState({
+      dashboardActive: {
+        [name]: !this.state.dashboardActive[name]
+      }
+    })
+
   }
 
 
   render() {
     return (
       <Fragment>
-        <CheckAuth/>
+        <CheckAuth />
         <section id="dashboard">
           <div className="container-fluid">
             <div className="dashboard-container row">
@@ -41,44 +57,58 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="sn-group">
-                  <h5>Car</h5>
-                  <nav>
-                    <Link className="sn-link" to={"/"}>
-                      <i className="fas fa-user-tie"></i>Create Car
+                  <Link onClick={() => this.handleDashboardActive("carManagement")} className="sn-link">
+                    <i className="fas fa-car"></i>Car Management<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.carManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
+                  </Link>
+                  {
+                    this.state.dashboardActive.carManagement &&
+                    <nav className="bg-white p-2 rounded mt-1">
+                      <Link className="sn-link text-dark" to={"/"}>
+                        <i className="fas fa-plus text-dark"></i>Create Car
                     </Link>
-                    <Link className="sn-link" to={"/getallcar"}>
-                      <i className="fas fa-user-tie"></i>Car List
+                      <Link className="sn-link text-dark" to={"/getallcar"}>
+                        <i className="fas fa-list text-dark"></i>Car List
                     </Link>
-                  </nav>
-                </div>
-
-                <div className="sn-group">
-
-                  <h5>Showroom</h5>
-                  <nav>
-                    <Link className="sn-link" to={"/createshowroomform"}>
-                      <i className="fas fa-user-tie"></i>Create Show Room
-                    </Link>
-                    <Link className="sn-link" to={"/showroom"}>
-                      <i className="fas fa-user-tie"></i>Show Room List
-                    </Link>
-                    <Link className="sn-link" to={"/carassignshowroom"}>
-                      <i className="fas fa-user-tie"></i>Car Assign Showroom
-                    </Link>
-                  </nav>
+                    </nav>
+                  }
 
                 </div>
 
                 <div className="sn-group">
-                  <h5>User</h5>
-                  <nav>
-                    <Link className="sn-link" to={"/createowner"}>
-                      <i className="fas fa-user-tie"></i>Create Owner
+
+                  <Link onClick={() => this.handleDashboardActive("showManagement")} className="sn-link">
+                    <i className="fas fa-store"></i>Show Management<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.showManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
+                  </Link>
+                  {
+                    this.state.dashboardActive.showManagement &&
+                    <nav className="bg-white p-2 rounded mt-1">
+                      <Link className="sn-link text-dark" to={"/createshowroomform"}>
+                        <i className="fas fa-plus text-dark"></i>Create Show Room
                     </Link>
-                    <Link className="sn-link" to={"/ownerassignshowroom"}>
-                      <i className="fas fa-user-tie"></i>Owner Assign Showroom
+                      <Link className="sn-link text-dark" to={"/showroom"}>
+                        <i className="fas fa-list text-dark"></i>Show Room List
                     </Link>
-                  </nav>
+                      <Link className="sn-link text-dark" to={"/carassignshowroom"}>
+                        <i className="fas fa-plus text-dark"></i>Car Assign Showroom
+                    </Link>
+                    </nav>
+                  }
+                </div>
+
+                <div className="sn-group">
+                  <Link onClick={() => this.handleDashboardActive("userManagement")} className="sn-link">
+                    <i className="fas fa-user"></i>User Management<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.userManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
+                  </Link>
+                  {
+                    this.state.dashboardActive.userManagement &&
+                    <nav className="bg-white p-2 rounded mt-1">
+                      <Link className="sn-link text-dark" to={"/createowner"}>
+                        <i className="fas fa-plus text-dark"></i>Create Owner
+                    </Link>
+                      <Link className="sn-link text-dark" to={"/ownerassignshowroom"}>
+                        <i className="fas fa-plus text-dark"></i>Owner Assign Showroom
+                    </Link>
+                    </nav>}
                 </div>
 
 
@@ -100,7 +130,7 @@ class Dashboard extends Component {
                         <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                           aria-expanded="false"><i className="fas fa-user-circle fa-lg"></i></a>
                         <div className="dropdown-menu">
-                          <a onClick={event=>{this.logout(event)}} className="dropdown-item" >logout</a>
+                          <a onClick={event => { this.logout(event) }} className="dropdown-item" >logout</a>
                           <div className="dropdown-divider"></div>
 
                         </div>
@@ -109,7 +139,7 @@ class Dashboard extends Component {
                   </div>
                 </nav>
                 <div id="dash-body-inner" className="container-fluid p-5">
-                {this.props.children}
+                  {this.props.children}
                 </div>
                 <footer id="footer">
                   <div className="container">

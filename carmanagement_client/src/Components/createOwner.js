@@ -159,7 +159,7 @@ class CreateOwner extends Component {
                 </div>
                 <div className="row">
                   <div className="col-md-2">
-                    <input type="button" onClick={event => this.handleSubmit(event)} className="btn btn-info btn-block shadow-none" value="Create Owner" />
+                    <input type="button" onClick={event => this.handleSubmit(event)} className="btn btn-primary btn-block shadow-none" value="Create Owner" />
                   </div>
                 </div>
               </form>

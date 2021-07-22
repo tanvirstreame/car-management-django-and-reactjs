@@ -8,15 +8,33 @@ class CarGetAll extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      car: []
+      car: [],
+      filterCar: []
     };
+  }
+
+  handleFilter = (value) => {
+    let carList = this.state.car;
+    if (value) {
+      carList = carList.filter(eachCar => eachCar.manufacture == value);
+      this.setState({
+        filterCar: carList,
+      })
+    }
+    else {
+      this.setState({
+        filterCar: carList,
+      })
+    }
+
   }
 
   componentDidMount() {
     axios.get('car/api/v1/all-car-detail').then(
       response => {
         this.setState({
-          car: response.data
+          car: response.data,
+          filterCar: response.data
         });
       }
 
@@ -29,9 +47,11 @@ class CarGetAll extends Component {
         title="Car List"
       >
         <div className='container mb-5'>
-          <div className="row">
-            {this.state.car.length > 0 ?
-              this.state.car && this.state.car.map((rowData, i) => (
+          <input type="text" placeholder="Type to Search..." onChange={(event) => this.handleFilter(event.target.value)} className="form-control" />
+          <div className="row mt-3">
+
+            {this.state.filterCar.length > 0 ?
+              this.state.filterCar && this.state.filterCar.map((rowData, i) => (
                 <div className="col-md-4 mb-3">
                   <div className="card">
                     <Link key={rowData.id} className="linkelement" to={`/getcarinfo/${rowData.id}`}>
@@ -74,7 +94,7 @@ class CarGetAll extends Component {
                     </Link>
                   </div>
                 </div>
-              )) : <div className="text-center w-100 mt-3"><p className="pb-3">No Data</p></div>}
+              )) : <div className="text-center w-100 mt-3"><h4 className="pb-3">No Data</h4></div>}
           </div>
         </div>
       </Dashboard>
