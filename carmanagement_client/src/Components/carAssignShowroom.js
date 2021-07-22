@@ -103,7 +103,7 @@ class CarAssignShowroom extends Component {
                 </div>
                 <div className="row">
                   <div className="col-md-2">
-                    <input type="submit" className="btn btn-info btn-block shadow-none" value="Assign" />
+                    <input type="submit" className="btn btn-primary btn-block shadow-none" value="Assign" />
                   </div>
                 </div>
               </form>

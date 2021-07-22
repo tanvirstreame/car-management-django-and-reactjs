@@ -71,7 +71,7 @@ class CreateShowRoom extends Component {
                 </div>
                 <div className='row'>
                   <div className='col-md-8 offset-md-2 formtop'>
-                    <input type='submit' className='btn btn-info btn-block shadow-none' value='Create Show Room' />
+                    <input type='submit' className='btn btn-primary btn-block shadow-none' value='Create Show Room' />
                   </div>
                 </div>
                 <div className='panel panel-default'>

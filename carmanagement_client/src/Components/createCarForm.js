@@ -201,7 +201,7 @@ class CreateCarForm extends Component {
                 </div>
                 <div className="row">
                   <div className="col-md-2">
-                    <input type="submit" className="btn btn-info btn-block shadow-none" value="Create Car" />
+                    <input type="submit" className="btn btn-primary btn-block shadow-none" value="Create Car" />
                   </div>
                 </div>
               </form>
