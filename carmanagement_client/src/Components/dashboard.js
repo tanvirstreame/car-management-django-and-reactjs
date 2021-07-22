@@ -58,7 +58,7 @@ class Dashboard extends Component {
 
                 <div className="sn-group">
                   <Link onClick={() => this.handleDashboardActive("carManagement")} className="sn-link">
-                    <i className="fas fa-car"></i>Car Management<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.carManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
+                    <i className="fas fa-car"></i>Car<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.carManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
                   </Link>
                   {
                     this.state.dashboardActive.carManagement &&
@@ -77,7 +77,7 @@ class Dashboard extends Component {
                 <div className="sn-group">
 
                   <Link onClick={() => this.handleDashboardActive("showManagement")} className="sn-link">
-                    <i className="fas fa-store"></i>Show Management<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.showManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
+                    <i className="fas fa-store"></i>Showroom<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.showManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
                   </Link>
                   {
                     this.state.dashboardActive.showManagement &&
@@ -97,7 +97,7 @@ class Dashboard extends Component {
 
                 <div className="sn-group">
                   <Link onClick={() => this.handleDashboardActive("userManagement")} className="sn-link">
-                    <i className="fas fa-user"></i>User Management<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.userManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
+                    <i className="fas fa-user"></i>User<i className={`ml-2 pt-2 fas ${this.state.dashboardActive.userManagement ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}></i>
                   </Link>
                   {
                     this.state.dashboardActive.userManagement &&

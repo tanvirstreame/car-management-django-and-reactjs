@@ -16,7 +16,7 @@ class CarGetAll extends Component {
   handleFilter = (value) => {
     let carList = this.state.car;
     if (value) {
-      carList = carList.filter(eachCar => eachCar.manufacture == value);
+      carList = carList.filter(eachCar => eachCar.manufacture.toLowerCase() === value.toLowerCase() || eachCar.mileage == value || eachCar.year == value);
       this.setState({
         filterCar: carList,
       })
