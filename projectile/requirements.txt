@@ -23,7 +23,7 @@ pep517==0.8.2
 Pillow==8.2.0
 progress==1.5
 psycopg2==2.8.6
-PyJWT==2.0.1
+PyJWT==2.4.0
 pyparsing==2.4.6
 pytoml==0.1.21
 pytz==2021.1
